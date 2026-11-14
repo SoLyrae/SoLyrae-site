@@ -7,12 +7,18 @@ const VX = 'https://api.vx.tools';
 const ROOT = document.body.dataset.root || '';
 
 const POSTS = [
+  { slug: 'introducing-beacon', title: 'Introducing Beacon: a free security bulletin for Solana validator operators', date: '2026-11-14', tag: 'Network',
+    excerpt: 'Security alerts for the clients, the Rust crates, Linux and the tools a validator runs on. What Beacon covers, how it works and its limits.' },
   { slug: 'how-to-stake-with-solyrae', title: 'How to stake SOL with SoLyrae, from creating a wallet to your first rewards', date: '2026-11-13', tag: 'Guide',
     excerpt: 'Create a wallet, get SOL, delegate to SoLyrae and see what to expect. A step-by-step guide for first-time stakers.' },
   { slug: 'alpenglow-and-delegators', title: 'Alpenglow: what Solana’s new consensus means for delegators', date: '2026-11-13', tag: 'Network',
     excerpt: 'Faster finality, shorter epochs and a new way of paying for votes. What changes for people who stake SOL, and what may come next.' },
   { slug: 'risks-of-staking-sol', title: 'The risks of staking SOL, and how to reduce them', date: '2026-11-13', tag: 'Guide',
     excerpt: 'Price, validator performance, slashing proposals, wallet security and unstaking time: what can go wrong and what you can do about it.' },
+  { slug: 'why-validators-need-security-alerts', title: 'Why Solana validators need security alerts: lessons from past patches', date: '2026-11-14', tag: 'Network',
+    excerpt: 'Four public incidents from Anza’s own write-ups show how fast operators have to react to security fixes.' },
+  { slug: 'validator-security-checklist', title: 'A security checklist for Solana validator operators', date: '2026-11-14', tag: 'Guide',
+    excerpt: 'A practical checklist: software, operating system, access, keys, monitoring and backups.' },
   { slug: 'what-is-solana', title: 'What is Solana? A plain-language introduction', date: '2026-11-13', tag: 'Guide',
     excerpt: 'What Solana is, what SOL is for, what validators do and how staking fits in, without jargon.' },
   { slug: 'native-vs-liquid-staking', title: 'Native staking or liquid staking: which one fits you?', date: '2026-11-13', tag: 'Guide',

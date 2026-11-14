@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SoLyrae · Solana validator and network explorer</title>
+<meta name="description" content="SoLyrae is an independent Solana validator in Frankfurt with 0% commission. Compare every validator on the network, live, on our open explorer.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="beacon.css">
+<link rel="canonical" href="https://www.solyrae.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="SoLyrae · Solana validator and network explorer">
+<meta property="og:description" content="SoLyrae is an independent Solana validator in Frankfurt with 0% commission. Compare every validator on the network, live, on our open explorer.">
+<meta property="og:url" content="https://www.solyrae.com/">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="home">
+<div id="hdr"></div>
+<main>
+
+<section class="hero first">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Solana validator &middot; Frankfurt</span>
+      <h1>A validator that <em>publishes</em> its homework.</h1>
+      <p class="lead">Stake with SoLyrae at <span data-k="comm">0%</span> commission, and check us against every other validator on Solana, live, on an explorer we built for exactly that.</p>
+      <div class="cta"><a class="btn btn-fill" href="#stake">Stake with SoLyrae</a><a class="btn" href="explorer.html">Open the explorer</a></div>
+    </div>
+    <div class="chart">
+      <div class="chart-head"><span>SoLyrae &middot; vote DPhz&hellip;4TPh</span><span class="live"><i></i><span>Loading&hellip;</span></span></div>
+      <div class="chart-body">
+        <div class="row"><span>Active stake</span><b class="sk" data-k="stake">000,000 SOL</b></div>
+        <div class="row"><span>APY</span><b class="sk" data-k="apy">0.00%</b></div>
+        <div class="row"><span>Commission</span><b><span class="sk" data-k="comm">0%</span> <span class="note sk" data-k="comm_sub">on rewards</span></b></div>
+        <div class="row"><span>Vote success</span><b class="sk" data-k="vote">00.00%</b></div>
+        <div class="row"><span>Skip rate</span><b class="sk" data-k="skip">0.00%</b></div>
+        <div class="row"><span>Status</span><b class="sk" data-k="status">Voting normally</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" style="padding-bottom:70px">
+  <div class="strip">
+    <div><div class="lbl">Active validators</div><div class="val sk" data-k="n_val">000</div></div>
+    <div><div class="lbl">Total stake</div><div class="val sk" data-k="n_stake">000M</div></div>
+    <div><div class="lbl">Stake-weighted APY</div><div class="val sk" data-k="n_apy">0.00%</div></div>
+    <div><div class="lbl">Nakamoto coefficient</div><div class="val sk" data-k="n_nak">00</div><div class="sub">validators to reach 1/3 of stake</div></div>
+  </div>
+</div>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="bc-home" id="bc-home">
+      <span class="bc-dot" aria-hidden="true"></span>
+      <div><span class="kicker" style="margin-bottom:6px">New &middot; Beacon</span><h3 id="bc-home-t">Security bulletin for validator operators</h3><p id="bc-home-p">Vulnerabilities in Agave, Jito, Firedancer, Linux and more, with free alerts.</p></div>
+      <a class="btn btn-fill" href="beacon.html">Open Beacon</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">01 &middot; Explorer</span>
+    <h2>Every validator, side by side</h2>
+    <p class="lead">The 10 largest validators by stake. Open the explorer to search, filter and sort all of them.</p>
+    <div class="tbl-wrap" id="prev-body-wrap" style="margin-top:26px">
+      <table class="vt"><thead><tr><th>#</th><th class="l">Validator</th><th>Stake (SOL)</th><th>Share</th><th>Comm.</th><th>MEV comm.</th><th>APY</th><th>Skip</th><th>Vote success</th><th class="l">Client</th><th class="l">Country</th></tr></thead>
+      <tbody id="prev-body"><tr><td colspan="11" class="l">Loading live data&hellip;</td></tr></tbody></table>
+    </div>
+    <p style="margin-top:18px"><a class="btn" href="explorer.html">View all validators</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">02 &middot; Our performance</span>
+    <h2>SoLyrae, measured</h2>
+    <p class="lead">The same public data we show for everyone else, applied to ourselves.</p>
+    <div class="grid-6">
+      <div><div class="lbl">Active stake</div><div class="val sk" data-k="stake">000,000 SOL</div><div class="sub sk" data-k="rank_sub">by stake</div></div>
+      <div><div class="lbl">Total APY</div><div class="val sk" data-k="apy">0.00%</div></div>
+      <div><div class="lbl">Commission</div><div class="val sk" data-k="comm">0%</div><div class="sub sk" data-k="comm_sub">on rewards</div></div>
+      <div><div class="lbl">Vote success</div><div class="val sk" data-k="vote">00.00%</div></div>
+      <div><div class="lbl">Skip rate</div><div class="val sk" data-k="skip">0.00%</div></div>
+      <div><div class="lbl">Epochs operating</div><div class="val sk" data-k="age">000</div></div>
+    </div>
+    <h3 style="margin-top:40px">Last 5 completed epochs</h3>
+    <div class="tbl-wrap" id="hist-wrap" style="margin-top:12px"><p class="note" style="padding:16px">Loading epoch history&hellip;</p></div>
+    <p style="margin-top:18px"><a class="btn" href="performance.html">Full performance page</a></p>
+  </div>
+</section>
+
+<section id="stake">
+  <div class="wrap">
+    <span class="kicker">03 &middot; Stake</span>
+    <h2>Delegate in three steps</h2>
+    <p class="lead">Staking is non-custodial: your SOL stays in a stake account that only you control, and you can unstake at any time.</p>
+    <div class="two">
+      <ol class="steps">
+        <li><b>Open your wallet's staking screen</b><span>Phantom, Solflare, Backpack, Ledger and most Solana wallets include a Stake option.</span></li>
+        <li><b>Choose SoLyrae</b><span>Search for &ldquo;SoLyrae&rdquo; or paste the vote account on this page to be sure it is the right validator.</span></li>
+        <li><b>Confirm the amount</b><span>Rewards are credited every epoch, about once a day. Keep a little SOL free for fees.</span></li>
+      </ol>
+      <div class="addr">
+        <div class="k">Vote account (delegate to this)</div>
+        <div class="box"><code>DPhzpiNGU9C6576uLsNSHmdi2AxwxpjMsRdh2iVC4TPh</code><button class="copy" data-copy="DPhzpiNGU9C6576uLsNSHmdi2AxwxpjMsRdh2iVC4TPh">Copy</button></div>
+        <div class="k">Identity</div>
+        <div class="box"><code>7Nu9ckgtjobZ3MkbadGFKEvRymYuah9HmcxiUJKMM9NB</code><button class="copy" data-copy="7Nu9ckgtjobZ3MkbadGFKEvRymYuah9HmcxiUJKMM9NB">Copy</button></div>
+        <p class="note">Search this vote account in the explorer to see it matches.</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:22px">New to Solana? Follow the <a href="blog/how-to-stake-with-solyrae.html" style="color:var(--accent)">step-by-step guide, from creating a wallet</a>, or see all the options on <a href="stake.html" style="color:var(--accent)">Stake with us</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">04 &middot; Decentralization</span>
+    <h2>Who really secures Solana</h2>
+    <p class="lead">Share of total stake by hosting provider, country and client software, calculated from the same live data. The Nakamoto coefficient is how many of them it takes to hold over a third of the stake.</p>
+    <div class="cols-3" style="margin-top:30px">
+      <div class="card"><h3>Hosting providers</h3><div class="naka"><div class="val sk" data-k="nak_org">0</div><span>to reach 1/3</span></div><div id="bars-org" class="sk" style="min-height:120px"></div></div>
+      <div class="card"><h3>Countries</h3><div class="naka"><div class="val sk" data-k="nak_country">0</div><span>to reach 1/3</span></div><div id="bars-country" class="sk" style="min-height:120px"></div></div>
+      <div class="card"><h3>Client software</h3><div class="naka"><div class="val">&mdash;</div><span>diversity matters</span></div><div id="bars-client" class="sk" style="min-height:120px"></div></div>
+    </div>
+    <p class="note" style="margin-top:16px">We publish where SoLyrae runs too: see <a href="infrastructure.html" style="color:var(--accent)">infrastructure</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">05 &middot; Blog</span>
+    <h2>Notes on staking and the network</h2>
+    <div class="posts" id="latest-posts"></div>
+    <p style="margin-top:22px"><a class="btn" href="blog/index.html">All articles</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">06 &middot; FAQ</span>
+    <h2>Common questions</h2>
+    <div class="faq">
+      <details><summary>Is my SOL safe when I delegate?</summary><p>Delegating does not transfer your SOL. It stays in your own stake account and only you hold the withdraw authority; SoLyrae cannot move it. Staking still carries network and market risks.</p></details>
+      <details><summary>How long does unstaking take?</summary><p>Unstaking takes effect at the end of the current epoch, which is at most about a day away. After that the SOL is available to withdraw.</p></details>
+      <details><summary>What does SoLyrae charge?</summary><p>The explorer shows our commission straight from the chain, on rewards and on MEV, next to every other validator's.</p></details>
+      <details><summary>Where does the data come from?</summary><p>Validators, stake and APY from the public Stakewiz API; epoch history, rewards and each validator's hosting provider, country and client from the public Vortex API, refreshed every few minutes. If a source is down, the page says so instead of showing old numbers as live.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+<div id="ftr"></div>
+<div class="scrim" id="scrim"></div><aside class="drawer" id="drawer" aria-label="Validator details"></aside>
+<script src="app.js"></script>
+</body>
+</html>

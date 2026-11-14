@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Where staking rewards come from: inflation, MEV and commission · SoLyrae</title>
+<meta name="description" content="Staking rewards on Solana come from inflation and, for some validators, MEV tips. How they are shared, what commission does and why yields change.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://www.solyrae.com/blog/where-staking-rewards-come-from.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="Where staking rewards come from: inflation, MEV and commission · SoLyrae">
+<meta property="og:description" content="Staking rewards on Solana come from inflation and, for some validators, MEV tips. How they are shared, what commission does and why yields change.">
+<meta property="og:url" content="https://www.solyrae.com/blog/where-staking-rewards-come-from.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="blog" data-root="../">
+<div id="hdr"></div>
+<main>
+<article class="post">
+  <a class="back" href="index.html">&larr; All articles</a>
+  <h1 style="margin-top:22px">Where staking rewards come from: inflation, MEV and commission</h1>
+  <p class="meta">Guide &middot; 13 Nov 2026 &middot; SoLyrae</p>
+
+  <p>Staking rewards do not appear from nowhere. Understanding where they come from explains why yields change and why two validators can pay different amounts.</p>
+
+  <h2>1. Inflation rewards</h2>
+  <p>The Solana protocol creates new SOL every epoch. That new SOL is shared among stakers in proportion to their stake, as long as their validator votes and keeps up. A validator that misses votes earns less, and so do its delegators. Inflation rewards are added automatically to the stake account that earned them at the start of each epoch, as active stake. The yearly rate of inflation follows a schedule that starts at 8%, falls by 15% of itself each year and settles at a long-term rate of 1.5%. A proposal to cut it twice as fast (SIMD-0550) has been accepted into Solana's proposal repository. Check the official sources to see whether it is already active.</p>
+
+  <h2>2. MEV tips</h2>
+  <p>Some users pay extra tips to have their transactions included in a block. Many validators use software from Jito to collect those tips, and they share part of them with their delegators. The share depends on the validator's <strong>MEV commission</strong>, and the platform takes a small fee as well. Unlike inflation rewards, MEV rewards are not added to your stake account by themselves: according to Jito's documentation, a native staker claims them through Jito's harvest page, while liquid staking tokens collect them automatically. Check Jito's site for the current process.</p>
+
+  <h2>3. Commission: what the validator keeps</h2>
+  <p>The validator keeps a percentage of the inflation rewards as its <strong>commission</strong>, and the rest goes to the delegators. A validator can also set a separate commission on MEV tips. A lower commission means more for you, but it is only one of the things that decide what you earn. A reliable validator with a small commission can pay more than an unreliable one with none.</p>
+
+  <h2>What you actually receive</h2>
+  <p>For a delegator, the total rewards in an epoch are the inflation rewards after the validator's commission, plus your share of the MEV tips. This is how we calculate it on our <a href="../rewards.html">rewards page</a>, where you can also compare SoLyrae with the rest of the network.</p>
+
+  <h2>Why APY changes</h2>
+  <ul>
+    <li><strong>Inflation falls over time</strong>, so the base rate trends down.</li>
+    <li><strong>The share of staked SOL changes.</strong> When more SOL is staked, each staker's share of the rewards gets smaller.</li>
+    <li><strong>MEV tips vary</strong> with market activity from one epoch to the next.</li>
+    <li><strong>Each validator's performance varies</strong> too.</li>
+  </ul>
+  <p>That is why we show the APY as a ten-epoch median and why it is an estimate, not a promise. For a rough idea of what an amount could earn with a given validator, use the <a href="../calculator.html">rewards calculator</a>.</p>
+
+  <h2>What this means for choosing a validator</h2>
+  <p>Look at the whole picture: commission, MEV commission and performance. Our <a href="how-to-read-validator-numbers.html">guide to validator numbers</a> explains each one, and the <a href="../explorer.html">explorer</a> lets you compare every validator.</p>
+  <p>Rewards are not guaranteed. This article is for information only and is not financial advice.</p>
+</article>
+</main>
+<div id="ftr"></div>
+<script src="../app.js"></script>
+</body>
+</html>

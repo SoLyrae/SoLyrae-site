@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Decentralization · SoLyrae</title>
+<meta name="description" content="Live Nakamoto coefficient of Solana by validator, hosting provider, country and client software.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://www.solyrae.com/decentralization.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="Decentralization · SoLyrae">
+<meta property="og:description" content="Live Nakamoto coefficient of Solana by validator, hosting provider, country and client software.">
+<meta property="og:url" content="https://www.solyrae.com/decentralization.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="decentralization">
+<div id="hdr"></div>
+<main>
+<section class="first">
+  <div class="wrap">
+    <span class="kicker">Network &middot; Decentralization</span>
+    <h1 style="font-size:clamp(2.2rem,4.6vw,3.4rem)">How spread out is Solana's stake?</h1>
+    <p style="margin:16px 0 0"><span class="live"><i></i><span>Loading&hellip;</span></span></p>
+    <p class="lead" style="margin:10px 0 0;max-width:none">The Nakamoto coefficient is how few entities it takes to hold over a third of all stake. Lower means more concentrated.</p>
+    <div class="strip" style="margin-top:28px">
+      <div><div class="lbl">Validators</div><div class="val sk" data-k="nak_val">00</div></div>
+      <div><div class="lbl">Hosting providers</div><div class="val sk" data-k="nak_org">0</div></div>
+      <div><div class="lbl">Countries</div><div class="val sk" data-k="nak_country">0</div></div>
+      <div><div class="lbl">Client software</div><div class="val sk" data-k="nak_client">0</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Breakdown</span>
+    <h2>Share of total stake</h2>
+    <div class="two" style="margin-top:30px">
+      <div class="card"><h3>Largest validators</h3><div id="bars-val" class="sk" style="min-height:200px;margin-top:14px"></div></div>
+      <div class="card"><h3>Hosting providers</h3><div id="bars-org" class="sk" style="min-height:200px;margin-top:14px"></div></div>
+      <div class="card"><h3>Countries</h3><div id="bars-country" class="sk" style="min-height:200px;margin-top:14px"></div></div>
+      <div class="card"><h3>Client software</h3><div id="bars-client" class="sk" style="min-height:200px;margin-top:14px"></div></div>
+    </div>
+    <p class="note" data-k="net_src" style="margin-top:14px"></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">SoLyrae</span>
+    <h2>Where we sit</h2>
+    <div class="chart" style="max-width:640px;margin-top:20px"><div class="chart-body">
+      <div class="row"><span>Our share of all stake</span><b class="sk" data-k="me_val">0%</b></div>
+      <div class="row"><span>Our provider's share</span><b class="sk" data-k="me_org">N/A</b></div>
+      <div class="row"><span>Our country's share</span><b class="sk" data-k="me_country">N/A</b></div>
+      <div class="row"><span>Our client's share</span><b class="sk" data-k="me_client">N/A</b></div>
+    </div></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Method</span>
+    <h2>How we calculate it</h2>
+    <p class="lead" style="max-width:none">We take the active stake of every validator (Stakewiz) and each validator's hosting provider, country and client (Vortex, last completed epoch), group it by the entity we are measuring (validator, hosting provider, country or client), sort from largest to smallest and count how many it takes to pass one third of total stake. Other trackers group providers and clients differently, so their numbers can differ. Read the longer explanation in <a href="blog/nakamoto-coefficient-solana.html" style="color:var(--accent)">our article</a>.</p>
+  </div>
+</section>
+</main>
+<div id="ftr"></div>
+<div class="scrim" id="scrim"></div><aside class="drawer" id="drawer" aria-label="Validator details"></aside>
+<script src="app.js"></script>
+</body>
+</html>

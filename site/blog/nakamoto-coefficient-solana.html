@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Nakamoto coefficient: how decentralized is Solana today? · SoLyrae</title>
+<meta name="description" content="How many validators, hosting providers and countries it takes to hold a third of Solana's stake, and how we calculate it.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://www.solyrae.com/blog/nakamoto-coefficient-solana.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="The Nakamoto coefficient: how decentralized is Solana today? · SoLyrae">
+<meta property="og:description" content="How many validators, hosting providers and countries it takes to hold a third of Solana's stake, and how we calculate it.">
+<meta property="og:url" content="https://www.solyrae.com/blog/nakamoto-coefficient-solana.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="blog" data-root="../">
+<div id="hdr"></div>
+<main>
+<article class="post">
+  <a class="back" href="index.html">&larr; All articles</a>
+  <h1 style="margin-top:22px">The Nakamoto coefficient: how decentralized is Solana today?</h1>
+  <p class="meta">Network &middot; 13 Nov 2026 &middot; SoLyrae</p>
+
+  <p>The Nakamoto coefficient answers a blunt question: <em>how few independent parties would it take to control enough stake to stop the network?</em> The lower the number, the more concentrated the network.</p>
+
+  <h2>What it measures</h2>
+  <p>By convention we count the smallest number of entities whose combined stake passes one third (33.3%), the classic fault-tolerance threshold in blockchains, which keeps our numbers comparable with other trackers. We sort entities from largest to smallest, add up their stake, and count how many it takes to cross that line.</p>
+  <p>Solana's newer Alpenglow consensus is in fact stricter than that line: it is designed to stay safe with up to 20% malicious stake and to keep running with up to another 20% offline. A lower line would give even smaller numbers, so one third is the conservative, standard choice.</p>
+  <p>The same method works for different kinds of entity: individual validators, hosting providers, or countries.</p>
+
+  <h2>The numbers on 13 November 2026</h2>
+  <p>Using public data for the 685 validators that currently have active stake (about 432 million SOL in total). Validators and stake come from Stakewiz; each validator's hosting provider, country and client come from Vortex:</p>
+  <ul>
+    <li><strong>Validators: 18.</strong> Eighteen validators together hold more than a third of the stake.</li>
+    <li><strong>Hosting providers: 2.</strong> The largest were TeraSwitch (about 27.0% of stake) and Cherry Servers (about 14.2%).</li>
+    <li><strong>Countries: 1.</strong> Validators in Germany alone hold about 33.8% of the stake.</li>
+    <li><strong>Client software: 1.</strong> Validators running Agave hold about 81.3% of the stake.</li>
+  </ul>
+  <div class="callout">Different trackers group things differently (for example, how a provider's companies or data centers are combined), so their coefficients can differ. The trend and the order of magnitude are what matter. Our figures come from the same live data shown on the <a href="../explorer.html">explorer</a>.</div>
+
+  <h2>Why it matters to you</h2>
+  <p>If many validators sit in the same data center or country, a single outage, regulation or attack could affect a large share of the network at once. Solana's design tolerates faults, but the more evenly stake is spread, the stronger that tolerance is.</p>
+
+  <h2>What a delegator can do</h2>
+  <ul>
+    <li>Prefer well-run validators outside the very largest ones.</li>
+    <li>Check where a validator is hosted and which client it runs, both visible on the explorer.</li>
+    <li>If the providers tab shows one provider holding a big share, consider validators on a different one.</li>
+  </ul>
+
+  <h2>Where SoLyrae stands</h2>
+  <p>SoLyrae runs in Frankfurt on Allnodes, which is one of the larger providers on the network. We show that on our <a href="../infrastructure.html">infrastructure page</a> next to the provider's share of network stake, because you should be able to judge it yourself.</p>
+  <p>Figures change every epoch. For today's numbers, open the explorer and use the Providers, Countries and Clients tabs. This article is not financial advice.</p>
+</article>
+</main>
+<div id="ftr"></div>
+<script src="../app.js"></script>
+</body>
+</html>

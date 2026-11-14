@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Infrastructure · SoLyrae</title>
+<meta name="description" content="Where and how the SoLyrae Solana validator runs: location, provider, client software, concentration and hosting history.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://www.solyrae.com/infrastructure.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="Infrastructure · SoLyrae">
+<meta property="og:description" content="Where and how the SoLyrae Solana validator runs: location, provider, client software, concentration and hosting history.">
+<meta property="og:url" content="https://www.solyrae.com/infrastructure.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="infrastructure">
+<div id="hdr"></div>
+<main>
+<section class="first">
+  <div class="wrap">
+    <span class="kicker">Validator &middot; Infrastructure</span>
+    <h1 style="font-size:clamp(2.2rem,4.6vw,3.4rem)">Where and how SoLyrae runs</h1>
+    <p class="lead" style="margin:16px 0 0"><span class="live"><i></i><span>Loading&hellip;</span></span></p>
+
+    <div class="two" style="margin-top:34px">
+      <div class="chart"><div class="chart-head"><span>SoLyrae's node</span></div><div class="chart-body">
+        <div class="row"><span>Location</span><b class="sk" data-k="location">Frankfurt am Main, Germany</b></div>
+        <div class="row"><span>Provider</span><b class="sk" data-k="provider">Allnodes Inc</b></div>
+        <div class="row"><span>Client</span><b class="sk" data-k="client">Agave + Jito BAM</b></div>
+        <div class="row"><span>Version</span><b class="sk" data-k="version">v0.0.0</b></div>
+        <div class="row"><span>Status</span><b class="sk" data-k="status">Voting normally</b></div>
+        <div class="row"><span>Operating</span><b class="sk" data-k="operating">489 epochs &middot; since epoch 597</b></div>
+        <div class="row"><span>Withdraw authority of your stake</span><b>Held by you, the delegator</b></div>
+      </div></div>
+      <div class="chart"><div class="chart-head"><span>Concentration in the network</span></div><div class="chart-body">
+        <div class="row"><span>Provider size</span><b class="sk" data-k="prov_rank">#0 of 00 providers</b></div>
+        <div class="row"><span>Provider's share of network stake</span><b class="sk" data-k="asn_share">0%</b></div>
+        <div class="row"><span>Network stake in this city</span><b class="sk" data-k="city_share">0%</b></div>
+        <div class="row"><span>Network stake with this provider in this city</span><b class="sk" data-k="asncity_share">0%</b></div>
+        <div class="row"><span>Client's share of network stake</span><b class="sk" data-k="client_share">0%</b></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Accounts</span>
+    <h2>Vote account and identity</h2>
+    <p class="lead">Delegate to the vote account. Compare both with any explorer to be sure they match.</p>
+    <div class="addr" style="margin-top:26px;max-width:640px">
+      <div class="k">Vote account</div>
+      <div class="box"><code>DPhzpiNGU9C6576uLsNSHmdi2AxwxpjMsRdh2iVC4TPh</code><button class="copy" data-copy="DPhzpiNGU9C6576uLsNSHmdi2AxwxpjMsRdh2iVC4TPh">Copy</button></div>
+      <div class="k">Identity</div>
+      <div class="box"><code>7Nu9ckgtjobZ3MkbadGFKEvRymYuah9HmcxiUJKMM9NB</code><button class="copy" data-copy="7Nu9ckgtjobZ3MkbadGFKEvRymYuah9HmcxiUJKMM9NB">Copy</button></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Status</span>
+    <h2>Health checks</h2>
+    <p class="lead">Automatic checks of the validator's public state.</p>
+    <div class="chart" style="margin-top:26px;max-width:760px"><div class="chart-body" id="checks"><p class="note" style="padding:12px 0">Loading&hellip;</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Hosting history</span>
+    <h2>Every time the validator has moved</h2>
+    <p class="lead">Failovers and migrations recorded on the network, so you can see how the node behaves over time.</p>
+    <div class="tbl-wrap" id="host-wrap" style="margin-top:26px"><p class="note" style="padding:16px">Loading host history&hellip;</p></div>  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Network</span>
+    <h2>Connection quality</h2>
+    <p class="lead">How quickly blocks pass between validators when it is SoLyrae's turn, compared with the rest of the network.</p>
+    <div class="tiles" id="lat"><p class="note">Loading&hellip;</p></div>
+  </div>
+</section>
+</main>
+<div id="ftr"></div>
+<div class="scrim" id="scrim"></div><aside class="drawer" id="drawer" aria-label="Validator details"></aside>
+<script src="app.js"></script>
+<script src="validator.js"></script>
+</body>
+</html>

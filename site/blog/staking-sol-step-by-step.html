@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Staking SOL step by step: stake, rewards and unstaking · SoLyrae</title>
+<meta name="description" content="What happens to your SOL when you delegate to a validator, when rewards arrive and how unstaking works.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://www.solyrae.com/blog/staking-sol-step-by-step.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="Staking SOL step by step: stake, rewards and unstaking · SoLyrae">
+<meta property="og:description" content="What happens to your SOL when you delegate to a validator, when rewards arrive and how unstaking works.">
+<meta property="og:url" content="https://www.solyrae.com/blog/staking-sol-step-by-step.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="blog" data-root="../">
+<div id="hdr"></div>
+<main>
+<article class="post">
+  <a class="back" href="index.html">&larr; All articles</a>
+  <h1 style="margin-top:22px">Staking SOL step by step: stake, rewards and unstaking</h1>
+  <p class="meta">Guide &middot; 13 Nov 2026 &middot; SoLyrae</p>
+
+  <p>Staking lets you earn rewards on your SOL while helping secure the network. This is what actually happens at each stage.</p>
+
+  <h2>1. You delegate, you do not hand over your SOL</h2>
+  <p>When you stake from a wallet, your SOL moves into a <strong>stake account</strong> that you control. You then <em>delegate</em> that stake account to a validator's vote account. The validator cannot spend or withdraw your SOL. It only receives the voting weight your stake represents.</p>
+
+  <h2>2. Activation takes an epoch</h2>
+  <p>Solana works in epochs, and an epoch now lasts around 26 hours. A new delegation starts earning rewards after it activates, which happens when the next epoch begins. There can be a short extra wait if many people are activating stake at once.</p>
+
+  <h2>3. Rewards arrive every epoch</h2>
+  <p>At each epoch boundary, inflation rewards are calculated and added to your stake account, increasing your stake automatically. MEV rewards, when your validator runs Jito, are claimed separately through Jito. The size depends on the network's inflation schedule, how well your validator voted and the validator's commission. That is why the <a href="how-to-read-validator-numbers.html">numbers</a> on the <a href="../explorer.html">explorer</a> matter.</p>
+
+  <h2>4. Unstaking is a deactivation, then a withdrawal</h2>
+  <ol>
+    <li>In your wallet, choose to <strong>unstake</strong> (deactivate) the stake account.</li>
+    <li>The stake stops earning and becomes inactive at the end of the current epoch, so plan for up to about a day.</li>
+    <li>Once it is inactive, <strong>withdraw</strong> it to your wallet balance.</li>
+  </ol>
+
+  <h2>5. Things to keep in mind</h2>
+  <ul>
+    <li>Keep a small amount of SOL unstaked for transaction fees.</li>
+    <li>You can split a stake account and delegate the parts to different validators.</li>
+    <li>You can change validator by deactivating and delegating again.</li>
+    <li>Rewards are not guaranteed. They depend on the network and the validator, and the SOL price can move. Check the current Solana documentation for the latest rules and risks before you stake.</li>
+  </ul>
+
+  <div class="callout">Want to delegate to SoLyrae? The vote account and the three steps are on the <a href="../index.html#stake">home page</a>. Compare it with other validators first on the <a href="../explorer.html">explorer</a>.</div>
+  <p>This article is for information only and is not financial advice.</p>
+</article>
+</main>
+<div id="ftr"></div>
+<script src="../app.js"></script>
+</body>
+</html>

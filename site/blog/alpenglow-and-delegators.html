@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alpenglow: what Solana's new consensus means for delegators · SoLyrae</title>
+<meta name="description" content="Faster finality, shorter epochs and a new way of paying for votes. What Alpenglow changes for people who stake SOL, and what upcoming proposals could change next.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://www.solyrae.com/blog/alpenglow-and-delegators.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="Alpenglow: what Solana's new consensus means for delegators · SoLyrae">
+<meta property="og:description" content="Faster finality, shorter epochs and a new way of paying for votes. What Alpenglow changes for people who stake SOL, and what upcoming proposals could change next.">
+<meta property="og:url" content="https://www.solyrae.com/blog/alpenglow-and-delegators.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="blog" data-root="../">
+<div id="hdr"></div>
+<main>
+<article class="post">
+  <a class="back" href="index.html">&larr; All articles</a>
+  <h1 style="margin-top:22px">Alpenglow: what Solana's new consensus means for delegators</h1>
+  <p class="meta">Network &middot; 13 Nov 2026 &middot; SoLyrae</p>
+
+  <p>Alpenglow is the biggest change to how Solana validators agree on the state of the network. If you stake SOL, you do not need to do anything because of it. But it changes some things you will notice, and it is worth knowing which ones.</p>
+
+  <h2>What Alpenglow changes</h2>
+  <p>Validators have to agree on which blocks are final. The old system did this with votes that were sent as ordinary transactions on the chain. Alpenglow replaces it with a new voting protocol, called Votor, where votes travel between validators directly and do not use block space. Its stated goal is to finalize blocks in roughly 100 to 150 milliseconds, instead of many seconds. The rollout is staged: the new voting comes first, and a faster way of passing blocks between validators, called Rotor, needs its own proposal.</p>
+  <p>Alpenglow is also designed to tolerate more kinds of failures. The published design is often described as "20+20": it stays safe with up to 20% of stake acting maliciously and keeps running with up to another 20% offline.</p>
+
+  <h2>What you can already see</h2>
+  <ul>
+    <li><strong>Shorter epochs.</strong> Blocks are produced faster, so epochs are shorter. On the data we use, an epoch now lasts around 26 hours instead of two to three days, and the median time between blocks is around 200 milliseconds.</li>
+    <li><strong>More frequent rewards.</strong> Rewards are still paid at the start of each epoch, so they now arrive about once a day. Activating and deactivating stake also takes at most about a day.</li>
+    <li><strong>New validator metrics.</strong> The old "vote credits" now belong to history. The numbers on our <a href="../performance.html">performance page</a>, such as votes landed and fast votes, follow the new system.</li>
+  </ul>
+
+  <h2>What it means for your rewards</h2>
+  <p>Alpenglow does not change how much a delegator receives directly: you still earn inflation rewards in proportion to your stake, minus the validator's commission, plus any MEV tips the validator shares. What changes is the validator's side.</p>
+  <ul>
+    <li><strong>Voting costs change.</strong> Under the old system a validator paid a fee for each vote transaction. Alpenglow replaces that with a fixed fee per epoch, called the validator admission ticket, paid by the validator out of its vote account and burned. According to Anza's documentation it is 0.8 SOL per epoch at today's block time, and it scales with block time. Validators' commission works as before: the rest of the rewards still goes to the delegators.</li>
+    <li><strong>Validators must keep their vote account funded.</strong> A validator whose vote account cannot cover the ticket is not admitted to vote or produce blocks in the next epoch, and its delegators earn nothing for that time. The number of validators admitted is capped, with priority for those with more stake. The cap is far above today's number of validators.</li>
+    <li><strong>Performance still counts.</strong> A validator that is slow to exchange votes can earn less, and the delegators earn less with it.</li>
+  </ul>
+
+  <h2>What to look for in a validator</h2>
+  <ul>
+    <li>A long track record of operating and voting without gaps.</li>
+    <li>Votes landed and fast votes close to or above the network median. Fast votes depend mostly on where the node runs.</li>
+    <li>A validator that keeps its software up to date.</li>
+  </ul>
+
+  <h2>Changes that may come next</h2>
+  <p>These are proposals, not decisions, and their status can change:</p>
+  <ul>
+    <li><strong>Slashing.</strong> It is not active on Solana today. Proposals are being developed to record validator misbehavior and, in a separate step, to penalize it, with the penalty taken from delegated stake. Read <a href="risks-of-staking-sol.html">the risks of staking SOL</a>.</li>
+    <li><strong>Sharing more block income with delegators.</strong> A proposal under development would let validators share priority fees and MEV with their delegators in a standard way.</li>
+    <li><strong>Inflation.</strong> The current schedule lowers inflation every year toward a long-term rate of 1.5%. A proposal to cut it twice as fast has been accepted into Solana's proposal repository, and you should check whether it is active. Staking yields move with inflation, as explained in <a href="where-staking-rewards-come-from.html">where staking rewards come from</a>.</li>
+  </ul>
+
+  <div class="callout">The details of Alpenglow come from Anza's documentation, public proposals and Helius's technical coverage, and they keep evolving. For exact parameters, check the official Solana and Anza documentation.</div>
+  <p>This article is for information only and is not financial advice.</p>
+</article>
+</main>
+<div id="ftr"></div>
+<script src="../app.js"></script>
+</body>
+</html>

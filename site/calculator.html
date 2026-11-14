@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rewards calculator · SoLyrae</title>
+<meta name="description" content="Estimate your SOL staking rewards with any Solana validator using live APY data.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.field{display:grid;gap:6px}.field label{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.field input{padding:13px 14px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:var(--r);font-family:var(--mono);font-size:.95rem;width:100%}
+.field input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.form{display:grid;grid-template-columns:1fr 2fr;gap:16px;max-width:760px;margin:30px 0}
+@media(max-width:700px){.form{grid-template-columns:1fr}}
+</style>
+<link rel="canonical" href="https://www.solyrae.com/calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="Rewards calculator · SoLyrae">
+<meta property="og:description" content="Estimate your SOL staking rewards with any Solana validator using live APY data.">
+<meta property="og:url" content="https://www.solyrae.com/calculator.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="calculator">
+<div id="hdr"></div>
+<main>
+<section class="first">
+  <div class="wrap">
+    <span class="kicker">Tools &middot; Rewards calculator</span>
+    <h1 style="font-size:clamp(2.2rem,4.6vw,3.4rem)">What could your SOL earn?</h1>
+    <p style="margin:16px 0 0"><span class="live"><i></i><span>Loading&hellip;</span></span></p>
+    <p class="lead" style="margin:10px 0 0;max-width:none">Pick an amount and any validator. The estimate uses that validator's live APY.</p>
+    <div class="form">
+      <div class="field"><label for="amt">Amount (SOL)</label><input id="amt" type="number" min="0" step="any" value="100" inputmode="decimal"></div>
+      <div class="field"><label for="val">Validator (type to search)</label><input id="val" list="vlist" autocomplete="off" placeholder="SoLyrae"><datalist id="vlist"></datalist></div>
+    </div>
+    <div id="calc-out"><p class="note">Loading live data&hellip;</p></div>
+    <p class="note" style="margin-top:18px">This is an estimate, not a promise. It assumes the validator's current APY stays the same and that rewards are compounded each epoch, which in practice they will not. APY changes every epoch with network activity and validator performance. Not financial advice.</p>
+  </div>
+</section>
+</main>
+<div id="ftr"></div>
+<div class="scrim" id="scrim"></div><aside class="drawer" id="drawer" aria-label="Validator details"></aside>
+<script src="app.js"></script>
+</body>
+</html>

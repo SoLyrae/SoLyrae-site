@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>SoLyrae Beacon: OpenSSH</title>
+<link href="https://www.solyrae.com/beacon.html"/>
+<link rel="self" href="https://www.solyrae.com/feeds/beacon-openssh.atom"/>
+<id>https://www.solyrae.com/feeds/beacon-openssh.atom</id>
+<updated>2026-11-09T00:00:00Z</updated>
+<author><name>SoLyrae Beacon</name></author>
+<entry><title>[CRITICAL] OpenBSD OpenSSH Unexpected Status Code or Return Value Vulnerability</title><id>tag:solyrae.com,2026:beacon:CVE-2026-123158</id><link href="https://nvd.nist.gov/vuln/detail/CVE-2026-123158"/><updated>2026-11-09T00:00:00Z</updated><category term="openssh"/><summary>[CRITICAL] OpenBSD OpenSSH on Linux contains an unexpected status code or return value vulnerability that could allow for authentication bypass. OpenBSD OpenSSH. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline 2026-11-12 for US agencies). Source: https://nvd.nist.gov/vuln/detail/CVE-2026-123158</summary></entry>
+</feed>

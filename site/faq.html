@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FAQ · SoLyrae</title>
+<meta name="description" content="Answers about Solana staking, validators, rewards, unstaking and where SoLyrae's data comes from.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://www.solyrae.com/faq.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="FAQ · SoLyrae">
+<meta property="og:description" content="Answers about Solana staking, validators, rewards, unstaking and where SoLyrae's data comes from.">
+<meta property="og:url" content="https://www.solyrae.com/faq.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="faq">
+<div id="hdr"></div>
+<main>
+<section class="first">
+  <div class="wrap">
+    <span class="kicker">Resources &middot; FAQ</span>
+    <h1 style="font-size:clamp(2.2rem,4.6vw,3.4rem)">Frequently asked questions</h1>
+
+    <h2 style="font-size:1.5rem;margin-top:44px">Staking basics</h2>
+    <div class="faq">
+      <details><summary>What is a validator?</summary><p>A validator is a computer operated by a person or company that votes on Solana's blocks and produces blocks when it is its turn. Stakers delegate SOL to validators to back them and share in the rewards.</p></details>
+      <details><summary>What is staking?</summary><p>Staking means delegating your SOL to a validator. It helps secure the network and earns rewards. Your SOL stays in a stake account that you control.</p></details>
+      <details><summary>Is my SOL safe when I delegate?</summary><p>Delegating does not transfer your SOL. You keep the withdraw authority, so the validator cannot spend or withdraw it. Staking still carries network and market risks, and rewards are not guaranteed.</p></details>
+      <details><summary>Is there a minimum amount?</summary><p>The protocol only requires a small reserve to keep a stake account open. Wallets often set their own practical minimum, commonly around 0.01 SOL, so check yours.</p></details>
+      <details><summary>Can I stake with more than one validator?</summary><p>Yes. You can create several stake accounts and delegate each to a different validator, or change validator later.</p></details>
+    </div>
+
+    <h2 style="font-size:1.5rem;margin-top:44px">Rewards and unstaking</h2>
+    <div class="faq">
+      <details><summary>When do I receive rewards?</summary><p>At the start of each epoch, about once a day (an epoch now lasts around 26 hours). Inflation rewards are added to your stake account and compound automatically. MEV rewards, when your validator runs Jito, are separate: you claim them through Jito.</p></details>
+      <details><summary>How long does unstaking take?</summary><p>Unstaking takes effect at the end of the current epoch, which is at most about a day away. After that the SOL can be withdrawn to your wallet.</p></details>
+      <details><summary>What is commission?</summary><p>The share of staking rewards the validator keeps. A separate MEV commission applies to extra tips earned through Jito. Both are shown for every validator in the <a href="explorer.html" style="color:var(--accent)">explorer</a>.</p></details>
+      <details><summary>What is APY and is it guaranteed?</summary><p>APY is the yearly return if the current reward rate continued and compounded. It changes every epoch and is not guaranteed. Our <a href="calculator.html" style="color:var(--accent)">calculator</a> uses each validator's live APY as an estimate.</p></details>
+      <details><summary>What is MEV?</summary><p>MEV (maximal extractable value) tips are extra payments that block producers can earn by ordering transactions, collected on Solana mainly through Jito. Validators share them with stakers according to their MEV commission.</p></details>
+    </div>
+
+    <h2 style="font-size:1.5rem;margin-top:44px">About these numbers</h2>
+    <div class="faq">
+      <details><summary>Where does the data on this site come from?</summary><p>Validators, stake and APY come from the public Stakewiz API. Epoch history, rewards and each validator's hosting provider, country and client come from the public Vortex API, refreshed every few minutes. If a source is unavailable the page says so instead of showing old numbers as live.</p></details>
+      <details><summary>Why can numbers differ from other websites?</summary><p>Different sites measure windows of time and group providers or clients differently. Compare validators on the same site, and treat all figures as estimates.</p></details>
+      <details><summary>What is the Nakamoto coefficient?</summary><p>The smallest number of independent entities whose combined stake passes one third of the total. Lower means more concentrated. See the <a href="decentralization.html" style="color:var(--accent)">decentralization page</a>.</p></details>
+      <details><summary>Is this financial advice?</summary><p>No. Everything here is information only. Staking involves risk and past performance does not predict future results.</p></details>
+    </div>
+    <p class="note" style="margin-top:34px">Still stuck? <a href="contact.html" style="color:var(--accent)">Contact us</a>.</p>
+  </div>
+</section>
+</main>
+<div id="ftr"></div>
+<div class="scrim" id="scrim"></div><aside class="drawer" id="drawer" aria-label="Validator details"></aside>
+<script src="app.js"></script>
+</body>
+</html>

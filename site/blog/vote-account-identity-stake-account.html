@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vote account, identity and stake account: which address is which? · SoLyrae</title>
+<meta name="description" content="The addresses you meet when you stake on Solana, what each one is for, which one you delegate to, and what stake and withdraw authority mean.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://www.solyrae.com/blog/vote-account-identity-stake-account.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="Vote account, identity and stake account: which address is which? · SoLyrae">
+<meta property="og:description" content="The addresses you meet when you stake on Solana, what each one is for, which one you delegate to, and what stake and withdraw authority mean.">
+<meta property="og:url" content="https://www.solyrae.com/blog/vote-account-identity-stake-account.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="blog" data-root="../">
+<div id="hdr"></div>
+<main>
+<article class="post">
+  <a class="back" href="index.html">&larr; All articles</a>
+  <h1 style="margin-top:22px">Vote account, identity and stake account: which address is which?</h1>
+  <p class="meta">Guide &middot; 13 Nov 2026 &middot; SoLyrae</p>
+
+  <p>Staking on Solana involves several long addresses that look alike. Mixing them up is the most common reason people feel unsure, so here is what each one is.</p>
+
+  <h2>The addresses of a validator</h2>
+  <ul>
+    <li><strong>Vote account.</strong> This is the address you <em>delegate to</em>. It is the validator's public identity for staking, it is used to look the validator up, and it cannot be changed after it is created. SoLyrae's vote account is <code class="mono" style="font-size:.85rem;word-break:break-all">DPhzpiNGU9C6576uLsNSHmdi2AxwxpjMsRdh2iVC4TPh</code>.</li>
+    <li><strong>Identity account.</strong> The key the validator machine uses to sign its votes and to identify itself on the network. You do not delegate to it.</li>
+    <li><strong>Withdraw authority of the vote account.</strong> The key that controls the validator's own rewards and settings. It is held by the operator and should be kept off the validator machine.</li>
+  </ul>
+  <p>You can see SoLyrae's vote account and identity, with copy buttons, on the <a href="../infrastructure.html">infrastructure page</a>. <strong>When your wallet asks for a validator, always use the vote account.</strong></p>
+
+  <h2>Your stake account</h2>
+  <p>When you delegate, your wallet creates a <strong>stake account</strong> that holds your staked SOL. It has its own address, and it has two keys that you control:</p>
+  <ul>
+    <li><strong>Stake authority.</strong> Allows delegating, deactivating, splitting and merging the stake account.</li>
+    <li><strong>Withdraw authority.</strong> Allows withdrawing the SOL once it is not delegated, and can reset the stake authority. Wallets usually set both to your own address.</li>
+  </ul>
+  <p>The validator holds neither of them. That is why a validator cannot move or spend your SOL.</p>
+
+  <h2>Useful things you can do with a stake account</h2>
+  <ul>
+    <li><strong>Split</strong> it into two stake accounts, for example to delegate part of it to another validator. The new account must hold at least the minimum delegation and cover its own small reserve.</li>
+    <li><strong>Merge</strong> two stake accounts that share the same authorities.</li>
+    <li><strong>Deactivate and withdraw</strong> when you want your SOL back.</li>
+  </ul>
+  <p>Every stake account also keeps a small reserve, so the account can exist on the network. It is about 0.002 SOL and comes back when you withdraw everything and the account closes.</p>
+
+  <h2>A quick way to check you are doing it right</h2>
+  <ol>
+    <li>The validator address you paste is a vote account, and it matches the one published on the validator's own website.</li>
+    <li>You can find that vote account in the <a href="../explorer.html?q=DPhzpiNGU9C6576uLsNSHmdi2AxwxpjMsRdh2iVC4TPh">explorer</a> with the name you expect.</li>
+    <li>Your wallet shows the stake account as yours, with you as the authority.</li>
+  </ol>
+  <p>New to this? Start with <a href="how-to-stake-with-solyrae.html">how to stake SOL with SoLyrae</a>. This article is for information only and is not financial advice.</p>
+</article>
+</main>
+<div id="ftr"></div>
+<script src="../app.js"></script>
+</body>
+</html>

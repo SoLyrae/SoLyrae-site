@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stake with SoLyrae · step by step</title>
+<meta name="description" content="How to delegate SOL to the SoLyrae validator: vote account, step-by-step instructions, rewards and unstaking.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://www.solyrae.com/stake.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="Stake with SoLyrae · step by step">
+<meta property="og:description" content="How to delegate SOL to the SoLyrae validator: vote account, step-by-step instructions, rewards and unstaking.">
+<meta property="og:url" content="https://www.solyrae.com/stake.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="stake">
+<div id="hdr"></div>
+<main>
+<section class="first">
+  <div class="wrap">
+    <span class="kicker">Stake with us</span>
+    <h1 style="font-size:clamp(2.2rem,4.6vw,3.4rem)">Delegate to SoLyrae</h1>
+    <p style="margin:16px 0 0"><span class="live"><i></i><span>Loading&hellip;</span></span></p>
+    <p class="lead" style="margin:10px 0 0;max-width:none">Your SOL stays in a stake account that only you control. SoLyrae never holds it.</p>
+
+    <div class="strip" style="margin-top:28px">
+      <div><div class="lbl">APY</div><div class="val sk" data-k="apy">0.00%</div></div>
+      <div><div class="lbl">Commission</div><div class="val sk" data-k="comm">0%</div><div class="sub sk" data-k="comm_sub">on rewards</div></div>
+      <div><div class="lbl">Vote success</div><div class="val sk" data-k="vote">00.00%</div></div>
+      <div><div class="lbl">Skip rate</div><div class="val sk" data-k="skip">0.00%</div></div>
+    </div>
+
+    <div class="two">
+      <ol class="steps">
+        <li><b>Open your wallet and choose Stake</b><span>Phantom, Solflare, Backpack, Ledger Live and most Solana wallets have a Stake or Earn section.</span></li>
+        <li><b>Select SoLyrae</b><span>Search for &ldquo;SoLyrae&rdquo;, or paste the vote account on this page. Always check the vote account matches.</span></li>
+        <li><b>Enter the amount and confirm</b><span>Keep a little SOL unstaked for transaction fees. The wallet creates a stake account in your name.</span></li>
+        <li><b>Wait for activation</b><span>Staking activates when the next epoch begins, at most about a day away. Rewards then arrive every epoch.</span></li>
+      </ol>
+      <div class="addr">
+        <div class="k">Vote account (delegate to this)</div>
+        <div class="box"><code>DPhzpiNGU9C6576uLsNSHmdi2AxwxpjMsRdh2iVC4TPh</code><button class="copy" data-copy="DPhzpiNGU9C6576uLsNSHmdi2AxwxpjMsRdh2iVC4TPh">Copy</button></div>
+        <div class="k">Identity</div>
+        <div class="box"><code>7Nu9ckgtjobZ3MkbadGFKEvRymYuah9HmcxiUJKMM9NB</code><button class="copy" data-copy="7Nu9ckgtjobZ3MkbadGFKEvRymYuah9HmcxiUJKMM9NB">Copy</button></div>
+        <p class="note">Check it yourself: <a href="explorer.html?q=DPhzpiNGU9C6576uLsNSHmdi2AxwxpjMsRdh2iVC4TPh" style="color:var(--accent)">find this vote account in our explorer</a>, or <a href="calculator.html" style="color:var(--accent)">estimate your rewards</a> first.</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:56px;font-size:1.5rem">Prefer a liquid staking token?</h2>
+    <p class="lead" style="max-width:none">You can also stake with SoLyrae through <strong>SoLyraeSOL</strong> (SoLyrae Staked SOL). Instead of a stake account you hold a token that you can use across Solana applications. It adds the risk of the pool's program code, so read <a href="blog/native-vs-liquid-staking.html" style="color:var(--accent)">native or liquid staking</a> before you choose. To delegate directly instead, follow the steps above, or the <a href="blog/how-to-stake-with-solyrae.html" style="color:var(--accent)">full guide to staking natively with SoLyrae</a>.</p>
+    <div class="addr" style="margin-top:18px;max-width:640px">
+      <div class="k">SoLyraeSOL token address</div>
+      <div class="box"><code>sctmtXAKBPtZz8EzdZnz8nL2J2rFhX3a4r8gZtFZuCo</code><button class="copy" data-copy="sctmtXAKBPtZz8EzdZnz8nL2J2rFhX3a4r8gZtFZuCo">Copy</button></div>
+    </div>
+    <p style="margin-top:18px"><a class="btn" href="https://app.sanctum.so/explore/SoLyraeSOL?apysInterval=all" target="_blank" rel="noopener">View SoLyraeSOL on Sanctum</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Rewards and unstaking</span>
+    <h2>What to expect</h2>
+    <div class="cols-3" style="margin-top:26px">
+      <div class="card"><h3>Rewards</h3><p>Credited at each epoch boundary (about once a day) into your stake account. They increase your stake automatically. The size depends on network inflation, how the validator performs and its commission.</p></div>
+      <div class="card"><h3>Unstaking</h3><p>Choose unstake (deactivate) in your wallet. The stake becomes inactive at the end of the current epoch, at most about a day away. Then withdraw it to your wallet balance.</p></div>
+      <div class="card"><h3>Your control</h3><p>You hold the withdraw authority of your stake account, so SoLyrae cannot move or spend your SOL. You can change validator or split your stake across several at any time.</p></div>
+    </div>
+    <p class="note" style="margin-top:20px">Staking involves risk and rewards are not guaranteed. New to Solana? Follow the <a href="blog/how-to-stake-with-solyrae.html" style="color:var(--accent)">step-by-step guide, from creating a wallet</a>, and read the <a href="faq.html" style="color:var(--accent)">FAQ</a> before you start. Not financial advice.</p>
+  </div>
+</section>
+</main>
+<div id="ftr"></div>
+<div class="scrim" id="scrim"></div><aside class="drawer" id="drawer" aria-label="Validator details"></aside>
+<script src="app.js"></script>
+</body>
+</html>

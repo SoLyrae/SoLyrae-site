@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How Solana validators earn money, and why it matters to delegators · SoLyrae</title>
+<meta name="description" content="What running a Solana validator costs, where its income comes from, and what that means for choosing a validator that will still be around next year.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://www.solyrae.com/blog/how-validators-earn-money.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="How Solana validators earn money, and why it matters to delegators · SoLyrae">
+<meta property="og:description" content="What running a Solana validator costs, where its income comes from, and what that means for choosing a validator that will still be around next year.">
+<meta property="og:url" content="https://www.solyrae.com/blog/how-validators-earn-money.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="blog" data-root="../">
+<div id="hdr"></div>
+<main>
+<article class="post">
+  <a class="back" href="index.html">&larr; All articles</a>
+  <h1 style="margin-top:22px">How Solana validators earn money, and why it matters to delegators</h1>
+  <p class="meta">Guide &middot; 13 Nov 2026 &middot; SoLyrae</p>
+
+  <p>A validator is a business with costs. Knowing how it earns money helps you understand commissions, and helps you pick a validator that will still be running next year.</p>
+
+  <h2>What it costs to run a validator</h2>
+  <ul>
+    <li><strong>Hardware and hosting.</strong> Validators need powerful servers with fast connections. They are a fixed monthly cost whether or not the validator earns anything.</li>
+    <li><strong>Voting.</strong> Before Alpenglow, every vote was a transaction with a fee. Estimates from Anza and Helius put this at roughly one SOL per validator per day, and it was the biggest running cost. Alpenglow replaces it with a fixed per-epoch fee called the validator admission ticket, which Anza's documentation puts at 0.8 SOL per epoch at today's block time.</li>
+    <li><strong>People and time.</strong> Monitoring, updates and security take work, even if that is not a line on the bill.</li>
+  </ul>
+
+  <h2>Where the income comes from</h2>
+  <ul>
+    <li><strong>Commission on inflation rewards.</strong> The validator keeps a percentage of the inflation rewards earned by its delegated stake. Commissions are usually a low single-digit percentage, but they can go up to 100%.</li>
+    <li><strong>Commission on MEV tips.</strong> Validators that run Jito collect tips for ordering transactions, and keep a share set by their own MEV commission.</li>
+    <li><strong>Block fees.</strong> A validator that produces a block receives its priority fees. Under the proposal known as SIMD-0096, all priority fees go to the block producer.</li>
+    <li><strong>Foundation delegations.</strong> Some validators also receive stake from the Solana Foundation, which raises their rewards without costing delegators anything. See <a href="solana-foundation-delegation-program.html">what the delegation program is</a>.</li>
+  </ul>
+
+  <h2>Why this matters to you</h2>
+  <ul>
+    <li><strong>A 0% commission is not a free lunch.</strong> A validator with little stake and no commission may not cover its costs. That is not a problem for you today, but it is a question about whether it will still be running next year.</li>
+    <li><strong>The cheapest option is not always the best one.</strong> What you earn depends on commission and on how reliably the validator votes and produces blocks. See <a href="how-to-read-validator-numbers.html">how to read a validator's numbers</a>.</li>
+    <li><strong>Fixed costs make size matter.</strong> The more stake a validator has, the more easily its income covers the fixed fees. That is a reason to look at a validator's track record and plans, and not only at its price.</li>
+  </ul>
+
+  <h2>What to check</h2>
+  <ol>
+    <li>How long it has been operating, which our <a href="../infrastructure.html">infrastructure page</a> shows for SoLyrae.</li>
+    <li>Its commission and MEV commission in the <a href="../explorer.html">explorer</a>.</li>
+    <li>Its reliability numbers on the <a href="../performance.html">performance page</a>.</li>
+    <li>Whether the operator says openly how it is funded and what it plans to do.</li>
+  </ol>
+  <p>The figures above come from Anza's and Helius's public documentation and analysis, and some are estimates that change with the network. Check the current numbers if they matter to you. This article is for information only and is not financial advice.</p>
+</article>
+</main>
+<div id="ftr"></div>
+<script src="../app.js"></script>
+</body>
+</html>

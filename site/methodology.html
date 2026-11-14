@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How we measure · SoLyrae</title>
+<meta name="description" content="Where every figure on this site comes from, how it is calculated and how often it updates.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+table.m{table-layout:fixed;width:100%;min-width:720px}
+table.m th:nth-child(1){width:22%}table.m th:nth-child(2){width:58%}table.m th:nth-child(3){width:20%}
+table.m td{white-space:normal;vertical-align:top;line-height:1.5}
+</style>
+<link rel="canonical" href="https://www.solyrae.com/methodology.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="How we measure · SoLyrae">
+<meta property="og:description" content="Where every figure on this site comes from, how it is calculated and how often it updates.">
+<meta property="og:url" content="https://www.solyrae.com/methodology.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="methodology">
+<div id="hdr"></div>
+<main>
+<section class="first">
+  <div class="wrap">
+    <span class="kicker">Resources &middot; Methodology</span>
+    <h1 style="font-size:clamp(2.2rem,4.6vw,3.4rem)">How we measure</h1>
+    <p class="lead" style="margin:16px 0 0">Everything on this site comes from public data. Here is where each figure comes from, how it is calculated and how often it updates.</p>
+
+    <h2 style="margin-top:56px;font-size:1.5rem">Our rules</h2>
+    <ul style="padding-left:20px;line-height:1.9">
+      <li><strong>Nothing is typed by hand.</strong> Figures are read from public sources when you open a page. If a source is down, the page says so instead of showing old numbers as live.</li>
+      <li><strong>One source per figure.</strong> We never mix two sources inside one calculation, so that a number and the median it is compared with always come from the same place.</li>
+      <li><strong>The same figures are shown for every validator.</strong> SoLyrae is measured exactly like the rest of the network.</li>
+    </ul>
+
+    <h2 style="margin-top:56px;font-size:1.5rem">Sources</h2>
+    <ul style="padding-left:20px;line-height:1.9">
+      <li><strong><a href="https://stakewiz.com" target="_blank" rel="noopener" style="color:var(--accent)">Stakewiz</a>:</strong> the list of validators and their stake, APY, commission, skip rate, vote success, uptime, location and client.</li>
+      <li><strong><a href="https://vx.tools" target="_blank" rel="noopener" style="color:var(--accent)">Vortex</a>:</strong> epoch-by-epoch voting and block production, rewards, the sources of stake, the node's health checks, and each validator's hosting provider, country and client.</li>
+      <li><strong><a href="https://db-ip.com" target="_blank" rel="noopener" style="color:var(--accent)">DB-IP</a>:</strong> IP geolocation, used for locations.</li>
+    </ul>
+
+    <h2 style="margin-top:56px;font-size:1.5rem">Figures and definitions</h2>
+    <div class="tbl-wrap" style="margin-top:18px"><table class="m"><thead><tr><th class="l">Figure</th><th class="l">What it means</th><th class="l">Source</th></tr></thead><tbody>
+      <tr style="cursor:default"><td class="l">Votes landed</td><td class="l">The share of the slots a validator could vote on where its vote counted: one minus missed votes divided by eligible slots, in the epoch.</td><td class="l">Vortex</td></tr>
+      <tr style="cursor:default"><td class="l">Fast votes</td><td class="l">The share of the epoch's finalization certificates that include the validator's vote. It depends mostly on where the node runs.</td><td class="l">Vortex</td></tr>
+      <tr style="cursor:default"><td class="l">Blocks produced</td><td class="l">The blocks the validator produced out of the block slots it was scheduled for, in the epoch.</td><td class="l">Vortex</td></tr>
+      <tr style="cursor:default"><td class="l">Inclusion</td><td class="l">The share of votes that made it into the blocks the validator produced.</td><td class="l">Vortex</td></tr>
+      <tr style="cursor:default"><td class="l">Perfect blocks</td><td class="l">The share of the validator's blocks classified as perfect, meaning they left out no votes.</td><td class="l">Vortex</td></tr>
+      <tr style="cursor:default"><td class="l">Skip rate</td><td class="l">The share of the validator's scheduled block slots that were skipped, as calculated by Stakewiz. The per-epoch skip rate in the history table comes from Vortex.</td><td class="l">Stakewiz, Vortex</td></tr>
+      <tr style="cursor:default"><td class="l">Vote success and uptime</td><td class="l">How reliably the validator votes, and how long it was online in the last 30 days, as calculated by Stakewiz.</td><td class="l">Stakewiz</td></tr>
+      <tr style="cursor:default"><td class="l">APY</td><td class="l">The yearly return a staker would get if the recent rewards repeated. It is the median of the last 10 epochs and combines the staking reward and the MEV reward.</td><td class="l">Stakewiz</td></tr>
+      <tr style="cursor:default"><td class="l">Commission and MEV commission</td><td class="l">The share of rewards the validator keeps. MEV commission exists only for validators that run Jito.</td><td class="l">Stakewiz</td></tr>
+      <tr style="cursor:default"><td class="l">Total rewards</td><td class="l">What the stake delegated to a validator earned in an epoch: inflation rewards after the validator's commission, plus the MEV tips paid to stakers. Block fees and other income of the validator itself are not included.</td><td class="l">Vortex</td></tr>
+      <tr style="cursor:default"><td class="l">Rewards per 1,000 SOL</td><td class="l">Total rewards divided by the stake the validator had in that epoch, times 1,000. It lets validators of any size be compared.</td><td class="l">Vortex</td></tr>
+      <tr style="cursor:default"><td class="l">Network median</td><td class="l">The middle value among validators: half are above it and half below. The comparison of rewards covers the validators that have stake today and had stake in that epoch, including those that earned nothing.</td><td class="l">Same as the figure</td></tr>
+      <tr style="cursor:default"><td class="l">Voting and production rank</td><td class="l">The position among the validators that vote, or among the producers of blocks, as ranked by Vortex.</td><td class="l">Vortex</td></tr>
+      <tr style="cursor:default"><td class="l">Stake and share of the network</td><td class="l">The active stake of a validator and its share of the stake of all validators with stake.</td><td class="l">Stakewiz</td></tr>
+      <tr style="cursor:default"><td class="l">Sources of stake</td><td class="l">Where SoLyrae's stake comes from, such as the Foundation's delegation program, liquid staking pools and other wallets.</td><td class="l">Vortex</td></tr>
+      <tr style="cursor:default"><td class="l">Nakamoto coefficient</td><td class="l">The smallest number of entities whose stake adds up to more than one third of the total. We count it for validators, hosting providers, countries and client software. The validators and their stake come from Stakewiz, and each validator's provider, country and client from Vortex. Validators that Vortex cannot classify are grouped as Unknown.</td><td class="l">Stakewiz and Vortex</td></tr>
+    </tbody></table></div>
+
+    <h2 style="margin-top:56px;font-size:1.5rem">Beacon, the security bulletin</h2>
+    <ul style="padding-left:20px;line-height:1.9">
+      <li><strong>Sources:</strong> Anza's blog and the Agave, Jito and Firedancer releases; the Rust security database and OSV, matched against the exact list of Rust crates inside the latest Agave and Jito releases; Ubuntu and Debian security notices; the US cyber agency's list of known exploited vulnerabilities (CISA KEV); and FIRST's EPSS score for the likelihood of exploitation.</li>
+      <li><strong>Levels:</strong> Critical means the flaw is on the CISA list of exploited vulnerabilities. High means a severe rating or a high chance of exploitation. Watch means worth planning for. Info is context, such as unmaintained crates.</li>
+      <li><strong>Refresh:</strong> the bulletin is rebuilt automatically every few hours. No person edits the alerts, so always confirm in the linked source.</li>
+      <li><strong>Limit:</strong> serious flaws in the clients are handled privately until a fix is out, so Beacon only shows what is already public. It does not replace Anza's private alerts to validators.</li>
+    </ul>
+
+    <h2 style="margin-top:56px;font-size:1.5rem">How often it updates</h2>
+    <ul style="padding-left:20px;line-height:1.9">
+      <li><strong>Performance:</strong> the figures of the epoch in progress, every minute.</li>
+      <li><strong>Home, Explorer, Infrastructure, Staking, Compare and the calculator:</strong> every 5 minutes.</li>
+      <li><strong>Rewards:</strong> every 10 minutes. The comparison with the whole network is rebuilt once per epoch, and the page always shows which epoch it covers.</li>
+      <li><strong>Completed epochs</strong> do not change.</li>
+    </ul>
+    <p class="note" style="margin-top:12px">An epoch now lasts around 26 hours. Updates pause while the page is in a hidden tab.</p>
+
+    <h2 style="margin-top:56px;font-size:1.5rem">Limits</h2>
+    <ul style="padding-left:20px;line-height:1.9">
+      <li>The two sources count validators differently, for example by the epoch they cover, so totals can differ slightly between pages that use different sources.</li>
+      <li>Other websites group providers and clients in their own way, so their numbers can differ from ours.</li>
+      <li>Figures are rounded for display. Sources can be delayed or contain errors.</li>
+      <li>All figures are estimates about the past. They do not guarantee future rewards. Read the <a href="privacy.html" style="color:var(--accent)">legal notice</a>.</li>
+    </ul>
+  </div>
+</section>
+</main>
+<div id="ftr"></div>
+<div class="scrim" id="scrim"></div><aside class="drawer" id="drawer" aria-label="Validator details"></aside>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The risks of staking SOL, and how to reduce them · SoLyrae</title>
+<meta name="description" content="Validator performance, price, wallet security, slashing proposals, unstaking time and liquid staking: the real risks of staking SOL and what you can do about each one.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://www.solyrae.com/blog/risks-of-staking-sol.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="The risks of staking SOL, and how to reduce them · SoLyrae">
+<meta property="og:description" content="Validator performance, price, wallet security, slashing proposals, unstaking time and liquid staking: the real risks of staking SOL and what you can do about each one.">
+<meta property="og:url" content="https://www.solyrae.com/blog/risks-of-staking-sol.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="blog" data-root="../">
+<div id="hdr"></div>
+<main>
+<article class="post">
+  <a class="back" href="index.html">&larr; All articles</a>
+  <h1 style="margin-top:22px">The risks of staking SOL, and how to reduce them</h1>
+  <p class="meta">Guide &middot; 13 Nov 2026 &middot; SoLyrae</p>
+
+  <p>Staking earns rewards, but it is not risk-free. Here are the real risks, in plain language, and what you can do about each one.</p>
+
+  <h2>1. The price of SOL can fall</h2>
+  <p>Rewards are paid in SOL, so if the price drops, the value of your stake and your rewards drops with it. Staking does not protect you from the market. Only stake what you are prepared to hold through ups and downs.</p>
+
+  <h2>2. Your validator can perform badly</h2>
+  <p>A validator that misses votes, is often offline or is slow earns fewer rewards, and so do you. A delinquent validator earns nothing until it recovers. <strong>What you can do:</strong> check votes landed, skip rate and uptime on the <a href="../performance.html">performance page</a> and on the <a href="../explorer.html">explorer</a>. Read <a href="how-to-read-validator-numbers.html">how to read a validator's numbers</a>.</p>
+
+  <h2>3. Slashing may arrive</h2>
+  <p>Slashing means losing part of the stake when a validator misbehaves. It is not active on Solana today. Proposals are under development to record misbehavior on chain and, in a separate step, to penalize it. As proposed, the penalty would be taken from the validator's delegations, so delegators would bear part of it. The details are still under discussion. If slashing is introduced, choosing a careful, well-run validator will matter more than it does now. <strong>What you can do:</strong> prefer validators with a long track record and clear public information about how they operate.</p>
+
+  <h2>4. Your wallet can be attacked</h2>
+  <p>The most common way people lose SOL is not a protocol failure but a scam: fake wallet apps, phishing sites and messages that ask for a recovery phrase. <strong>What you can do:</strong> install wallets only from official sources, never share your recovery phrase, ignore unsolicited help and consider a hardware wallet for larger amounts. Our <a href="how-to-stake-with-solyrae.html">staking guide</a> ends with a safety checklist.</p>
+
+  <h2>5. Unstaking is not instant</h2>
+  <p>When you unstake, the stake becomes inactive at the end of the current epoch, which is at most about a day away, and only then can you withdraw it. If you might need your SOL immediately, do not stake all of it. Liquid staking tokens can be sold sooner, but they bring other risks (see below).</p>
+
+  <h2>6. Too much stake in too few hands</h2>
+  <p>If many validators share one provider, one country or one client, a single failure can hit a large share of the network. This is a risk for the whole network, not only for you. <strong>What you can do:</strong> look at where a validator is hosted, and consider validators outside the very largest. See <a href="nakamoto-coefficient-solana.html">the Nakamoto coefficient</a>.</p>
+
+  <h2>7. Liquid staking adds program risk</h2>
+  <p>With liquid staking you swap SOL for a token that represents your stake. That token depends on the code of a pool and can trade for slightly less than the SOL it represents. Read <a href="native-vs-liquid-staking.html">native or liquid staking</a>.</p>
+
+  <h2>8. Rules and taxes</h2>
+  <p>Rewards can have tax consequences, and rules differ by country. This is not something a website can decide for you. Check the rules where you live.</p>
+
+  <h2>A short way to lower your risk</h2>
+  <ul>
+    <li>Stake only money you do not need soon.</li>
+    <li>Split your stake across more than one validator if the amount is large.</li>
+    <li>Check your validator's numbers from time to time, not only when you delegate.</li>
+    <li>Keep your recovery phrase offline and private.</li>
+  </ul>
+  <p>SoLyrae never holds your SOL: it stays in a stake account that only you control. That removes one risk but not the ones above. Rewards are not guaranteed. This article is for information only and is not financial advice.</p>
+</article>
+</main>
+<div id="ftr"></div>
+<script src="../app.js"></script>
+</body>
+</html>

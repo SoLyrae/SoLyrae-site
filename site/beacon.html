@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beacon · Security bulletin for Solana validators · SoLyrae</title>
+<meta name="description" content="Beacon is a free security bulletin for Solana validator operators: vulnerabilities in Agave, Jito, Firedancer, Rust crates, Linux, Ubuntu, Debian and the tools a validator runs, with feeds you can subscribe to.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="beacon.css">
+<link rel="alternate" type="application/atom+xml" title="SoLyrae Beacon: all alerts" href="feeds/beacon.atom">
+<link rel="alternate" type="application/feed+json" title="SoLyrae Beacon: all alerts (JSON Feed)" href="feeds/beacon.json">
+<link rel="canonical" href="https://www.solyrae.com/beacon.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="Beacon · Security bulletin for Solana validators · SoLyrae">
+<meta property="og:description" content="Beacon is a free security bulletin for Solana validator operators: vulnerabilities in Agave, Jito, Firedancer, Rust crates, Linux, Ubuntu, Debian and the tools a validator runs, with feeds you can subscribe to.">
+<meta property="og:url" content="https://www.solyrae.com/beacon.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="beacon">
+<div id="hdr"></div>
+<main>
+
+<section class="first bc-hero">
+  <svg class="bc-sky" viewBox="0 0 560 360" aria-hidden="true">
+    <line x1="380" y1="40" x2="300" y2="150"/><line x1="300" y1="150" x2="440" y2="190"/><line x1="440" y1="190" x2="500" y2="300"/><line x1="500" y1="300" x2="360" y2="270"/><line x1="360" y1="270" x2="300" y2="150"/><line x1="380" y1="40" x2="440" y2="190"/>
+    <circle class="tw" cx="380" cy="40" r="7"/><circle class="tw tw2" cx="300" cy="150" r="4"/><circle class="tw tw3" cx="440" cy="190" r="4"/><circle class="tw" cx="500" cy="300" r="4"/><circle class="tw tw2" cx="360" cy="270" r="4"/>
+    <circle cx="90" cy="70" r="1.6"/><circle cx="170" cy="250" r="1.6"/><circle cx="60" cy="190" r="1.2"/><circle cx="220" cy="60" r="1.4"/><circle cx="520" cy="110" r="1.4"/>
+  </svg>
+  <div class="wrap">
+    <span class="kicker">Beacon &middot; Security bulletin for validator operators</span>
+    <h1 style="font-size:clamp(2.4rem,5.2vw,3.8rem)">Know before you <em>patch</em>.</h1>
+    <p class="lead" style="max-width:none;margin-top:16px">Vulnerabilities and security releases for everything a Solana validator runs on: the clients, the Rust crates inside them, Linux, Ubuntu, Debian and the tools around them. Read from public sources, ranked, and free to follow.</p>
+    <div class="bc-status" id="bc-status"><div class="bc-state"><span class="bc-dot" style="--sc:var(--muted)"></span><div><h2>Reading the sky&hellip;</h2><p>Loading the latest alerts.</p></div></div><div class="bc-stats"></div></div>
+    <div class="bc-cta"><a class="btn btn-fill" href="#follow">Get the alerts</a><a class="btn" href="#alerts">See the alerts</a></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Versions</span>
+    <h2>What to run today</h2>
+    <p class="lead" style="max-width:none">The latest release of each client, next to the minimum Agave version the Solana Foundation's delegation program requires.</p>
+    <div class="bc-ver" id="bc-ver"></div>
+  </div>
+</section>
+
+<section id="alerts">
+  <div class="wrap">
+    <span class="kicker">Alerts</span>
+    <h2>Latest security alerts</h2>
+    <p class="lead" style="max-width:none">Critical means a flaw is already being exploited. High means severe or likely to be exploited. Watch means worth planning for. Info is context.</p>
+    <div class="bc-tools"><input type="search" id="bc-q" placeholder="Search by name, CVE or crate" aria-label="Search alerts"></div>
+    <div class="bc-chips" id="bc-levels" aria-label="Filter by level"></div>
+    <div class="bc-chips" id="bc-comps" aria-label="Filter by component"></div>
+    <p class="note" id="bc-count" style="margin-top:14px"></p>
+    <div class="bc-list" id="bc-list"><p class="note">Loading&hellip;</p></div>
+    <p class="bc-more"><button class="btn" id="bc-more" type="button" hidden>Show more</button></p>
+  </div>
+</section>
+
+<section id="follow">
+  <div class="wrap">
+    <span class="kicker">Follow</span>
+    <h2>Get the alerts where you work</h2>
+    <p class="lead" style="max-width:none">Choose what you run. You get a feed for exactly that, and soon the same choice by email.</p>
+    <div class="bc-follow">
+      <div class="bc-box">
+        <h3>1. What do you run?</h3>
+        <div id="bc-pick"></div>
+      </div>
+      <div class="bc-box">
+        <h3>2. Your feeds</h3>
+        <p class="note">Add these addresses to any feed reader, or to a chat tool that reads feeds.</p>
+        <div class="bc-feeds" id="bc-feeds"></div>
+      </div>
+      <div class="bc-box">
+        <h3>Email <span class="bc-soon" id="bc-soon">Opens soon</span></h3>
+        <p class="note">Get an email when something matching your choices appears. Pick the minimum level to avoid noise.</p>
+        <form class="bc-email" id="bc-form" autocomplete="off">
+          <input type="email" id="bc-mail" placeholder="you@example.com" aria-label="Email address" required>
+          <select id="bc-min" aria-label="Minimum level"><option value="info">All levels</option><option value="watch">Watch and above</option><option value="high" selected>High and above</option><option value="critical">Critical only</option></select>
+          <button class="btn btn-fill" type="submit" id="bc-send">Notify me</button>
+          <p class="note" id="bc-msg" style="margin:0"></p>
+        </form>
+      </div>
+      <div class="bc-box">
+        <h3>All alerts in one feed</h3>
+        <p class="note">Every alert, in the formats readers and automation tools use.</p>
+        <div class="bc-feeds" id="bc-allfeeds"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">How it works</span>
+    <h2>Automatic, and honest about its limits</h2>
+    <div class="bc-steps">
+      <div><b>1. It reads public sources</b><span>Anza, the Rust security database, Ubuntu, Debian, the US cyber agency's list of exploited flaws and a vulnerability database, several times a day.</span></div>
+      <div><b>2. It checks the real software</b><span>Beacon reads the exact list of Rust crates inside the latest Agave and Jito releases and matches it against known advisories.</span></div>
+      <div><b>3. It ranks and publishes</b><span>It combines severity, whether the flaw is exploited, and how likely exploitation is. No person edits the alerts.</span></div>
+    </div>
+    <div class="bc-warn"><strong>Beacon does not replace Anza's private alerts.</strong> Serious flaws in Agave, Jito and Firedancer are handled privately until a fix is out, and Anza warns validators through its own channel. Beacon only shows what is already public. Always confirm in the linked source before you act.</div>
+    <h3 style="margin-top:34px;font-size:1.15rem">Sources</h3>
+    <ul class="bc-src" id="bc-src"></ul>
+    <p class="note" style="margin-top:16px">Beacon is a community service by SoLyrae and is not an official Solana, Anza, Jito or Firedancer channel. Read the <a href="methodology.html" style="color:var(--accent)">methodology</a> and the <a href="privacy.html" style="color:var(--accent)">legal notice</a>.</p>
+  </div>
+</section>
+
+</main>
+<div id="ftr"></div>
+<div class="scrim" id="scrim"></div><aside class="drawer" id="drawer" aria-label="Validator details"></aside>
+<script src="app.js"></script>
+<script src="beacon.js"></script>
+</body>
+</html>

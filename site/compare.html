@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compare validators · SoLyrae</title>
+<meta name="description" content="Compare up to three Solana validators side by side: commission, APY, skip rate, vote success, client and location.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.addrow{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 22px;max-width:640px}
+.addrow input{flex:1;min-width:220px;padding:12px 14px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:var(--r);font-family:var(--mono);font-size:.88rem}
+.addrow input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.btn:disabled{opacity:.4;cursor:default}
+</style>
+<link rel="canonical" href="https://www.solyrae.com/compare.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="Compare validators · SoLyrae">
+<meta property="og:description" content="Compare up to three Solana validators side by side: commission, APY, skip rate, vote success, client and location.">
+<meta property="og:url" content="https://www.solyrae.com/compare.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="compare">
+<div id="hdr"></div>
+<main>
+<section class="first">
+  <div class="wrap">
+    <span class="kicker">Tools &middot; Compare validators</span>
+    <h1 style="font-size:clamp(2.2rem,4.6vw,3.4rem)">Put validators side by side</h1>
+    <p style="margin:16px 0 0"><span class="live"><i></i><span>Loading&hellip;</span></span></p>
+    <p class="lead" style="margin:10px 0 0;max-width:none">Compare up to three. We start with SoLyrae and the two largest validators.</p>
+    <div class="addrow"><input id="pick" list="vlist" autocomplete="off" placeholder="Search a validator to add" aria-label="Validator to add"><datalist id="vlist"></datalist><button class="btn" id="add" type="button">Add</button></div>
+    <div id="cmp-out"><p class="note">Loading live data&hellip;</p></div>
+  </div>
+</section>
+</main>
+<div id="ftr"></div>
+<div class="scrim" id="scrim"></div><aside class="drawer" id="drawer" aria-label="Validator details"></aside>
+<script src="app.js"></script>
+</body>
+</html>

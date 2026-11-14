@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Native staking or liquid staking: which one fits you? · SoLyrae</title>
+<meta name="description" content="The difference between delegating SOL to a validator and holding a liquid staking token, with the advantages and risks of each.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://www.solyrae.com/blog/native-vs-liquid-staking.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="Native staking or liquid staking: which one fits you? · SoLyrae">
+<meta property="og:description" content="The difference between delegating SOL to a validator and holding a liquid staking token, with the advantages and risks of each.">
+<meta property="og:url" content="https://www.solyrae.com/blog/native-vs-liquid-staking.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="blog" data-root="../">
+<div id="hdr"></div>
+<main>
+<article class="post">
+  <a class="back" href="index.html">&larr; All articles</a>
+  <h1 style="margin-top:22px">Native staking or liquid staking: which one fits you?</h1>
+  <p class="meta">Guide &middot; 13 Nov 2026 &middot; SoLyrae</p>
+
+  <p>There are two common ways to stake SOL. They look similar from the outside, but they work differently and carry different risks.</p>
+
+  <h2>Native staking</h2>
+  <p>You delegate your own stake account to a validator, as described in <a href="how-to-stake-with-solyrae.html">our staking guide</a>. Your SOL stays in a stake account that only you control, and the validator never holds it. Rewards are added to that account each epoch.</p>
+  <ul>
+    <li><strong>Advantages:</strong> no extra program layer, you choose the validator, and you keep full control.</li>
+    <li><strong>Limits:</strong> your SOL is locked while it is staked. Unstaking takes until the end of the current epoch, at most about a day, and the staked SOL cannot be used in other applications.</li>
+  </ul>
+
+  <h2>Liquid staking</h2>
+  <p>You deposit SOL into a pool and receive a token, such as JitoSOL or mSOL, that represents your share of the pool. The pool stakes the SOL across validators for you. The token usually grows in value against SOL as rewards accumulate, and you can use or sell it in other applications.</p>
+  <ul>
+    <li><strong>Advantages:</strong> your position stays usable across Solana applications, and you can exit by selling the token instead of waiting for an unstake.</li>
+    <li><strong>Limits:</strong> you depend on the pool's code and operators, the token can trade slightly below the SOL it represents, and the pool charges a fee on rewards. You also do not choose the validators.</li>
+  </ul>
+
+  <h2>Why yields differ</h2>
+  <p>Differences between liquid staking tokens come mostly from fees and from MEV tips, which are explained in <a href="where-staking-rewards-come-from.html">where staking rewards come from</a>. One practical difference: with a liquid staking token, MEV rewards are collected for you, while a native staker claims them through Jito. Rates change every epoch, so check each provider's current numbers.</p>
+
+  <h2>Which one fits you</h2>
+  <ul>
+    <li><strong>Native staking</strong> if you want the simplest setup, full control and no extra risk from a pool's program, and you do not need your SOL for other things.</li>
+    <li><strong>Liquid staking</strong> if you want to keep using your staked value in other applications and accept the extra risks.</li>
+  </ul>
+  <p>SoLyrae offers both. You can delegate natively, as in our guide, or hold <strong>SoLyraeSOL</strong>, the liquid staking token for the SoLyrae validator, created on Sanctum on 11 February 2025. You can read about it on <a href="https://app.sanctum.so/explore/SoLyraeSOL?apysInterval=all" target="_blank" rel="noopener">Sanctum's page for SoLyraeSOL</a>. Other pools also stake part of their SOL with independent validators, and you can see the sources of stake on our <a href="../staking.html">staking page</a>. Whichever you choose, read <a href="risks-of-staking-sol.html">the risks of staking SOL</a> first.</p>
+  <p>This article is for information only and is not financial advice.</p>
+</article>
+</main>
+<div id="ftr"></div>
+<script src="../app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>SoLyrae Beacon: Ubuntu</title>
+<link href="https://www.solyrae.com/beacon.html"/>
+<link rel="self" href="https://www.solyrae.com/feeds/beacon-ubuntu.atom"/>
+<id>https://www.solyrae.com/feeds/beacon-ubuntu.atom</id>
+<updated>2026-11-13T10:30:15Z</updated>
+<author><name>SoLyrae Beacon</name></author>
+<entry><title>[CRITICAL] Linux kernel (FIPS) vulnerabilities</title><id>tag:solyrae.com,2026:beacon:USN-9027-2</id><link href="https://ubuntu.com/security/notices/USN-9027-2"/><updated>2026-11-13T10:30:15Z</updated><category term="ubuntu"/><category term="kernel"/><summary>[CRITICAL] Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - x86 architecture; - Hardware monitoring drivers; - OCFS2 file system; - IPv4 networking; - Ethernet bridge; - Netfilter; - XFRM subsystem; (CVE-2025-21656, CVE-2026-63940, CVE-2026-74350, CVE-2026-98432, CVE-2026-99999) Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed. Source: https://ubuntu.com/security/notices/USN-9027-2</summary></entry>
+<entry><title>[WATCH] Linux kernel (NVIDIA Tegra) vulnerabilities</title><id>tag:solyrae.com,2026:beacon:USN-9091-1</id><link href="https://ubuntu.com/security/notices/USN-9091-1"/><updated>2026-11-13T10:18:40Z</updated><category term="ubuntu"/><category term="kernel"/><summary>[WATCH] It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory. (CVE-2023-20585) Several security issues were discovered in the Linux kernel. An attacker could possibly use these to… Ubuntu 24.04. Run apt update and apt upgrade, then reboot if the kernel changed. Source: https://ubuntu.com/security/notices/USN-9091-1</summary></entry>
+</feed>

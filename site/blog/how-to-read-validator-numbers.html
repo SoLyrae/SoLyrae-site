@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to read a Solana validator's numbers · SoLyrae</title>
+<meta name="description" content="Commission, APY, skip rate, vote success and uptime explained, and which ones matter when you choose a validator.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://www.solyrae.com/blog/how-to-read-validator-numbers.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="How to read a Solana validator's numbers · SoLyrae">
+<meta property="og:description" content="Commission, APY, skip rate, vote success and uptime explained, and which ones matter when you choose a validator.">
+<meta property="og:url" content="https://www.solyrae.com/blog/how-to-read-validator-numbers.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="blog" data-root="../">
+<div id="hdr"></div>
+<main>
+<article class="post">
+  <a class="back" href="index.html">&larr; All articles</a>
+  <h1 style="margin-top:22px">How to read a Solana validator's numbers</h1>
+  <p class="meta">Guide &middot; 13 Nov 2026 &middot; SoLyrae</p>
+
+  <p>When you stake SOL you pick a validator, and every explorer shows a wall of percentages. Here is what each one means and how much it should weigh in your decision. You can see all of them for every validator on the <a href="../explorer.html">explorer</a>.</p>
+
+  <h2>Commission: what the validator keeps</h2>
+  <p>Commission is the share of your staking rewards the validator keeps. At 5% commission, a validator keeps 5 of every 100 SOL of rewards and you receive 95. Many validators also charge a separate <strong>MEV commission</strong> on the extra tips earned through Jito. The explorer shows both columns because they are independent numbers.</p>
+  <div class="callout">A lower commission means more rewards for you, but it is only one of several factors. A validator that charges 0% but is often offline can still pay you less than a reliable one that charges 5%.</div>
+
+  <h2>APY: an estimate, not a promise</h2>
+  <p>APY is the yearly return you would get if the last period's rewards repeated and were compounded. It combines the staking reward and, where relevant, the MEV reward, minus the validator's commission. It moves every epoch, and different websites calculate it slightly differently, so compare validators on the same site rather than across sites.</p>
+
+  <h2>Vote success: the number that most affects your rewards</h2>
+  <p>Validators earn rewards for voting on blocks on time. Vote success is the share of votes that landed. A validator that misses votes earns fewer rewards, and the stakers delegated to it earn fewer too. Look for a figure close to the network median, shown on the <a href="../performance.html">performance page</a> next to ours.</p>
+
+  <h2>Skip rate: reliability when it is the validator's turn</h2>
+  <p>Each epoch, validators are scheduled to produce blocks in certain slots. Skip rate is the percentage of those slots where the validator did not produce a block. A persistently high skip rate points to a node that is slow, overloaded or poorly connected. On today's network almost every validator skips well under 1%, so a persistently higher rate stands out, and a sustained jump is a warning sign.</p>
+
+  <h2>Uptime and delinquency</h2>
+  <p>Uptime shows how consistently a validator was online. A validator flagged as <em>delinquent</em> has stopped voting properly and earns nothing until it recovers. Avoid delinquent validators.</p>
+
+  <h2>Stake share, client and location: the network side</h2>
+  <ul>
+    <li><strong>Stake share</strong>: how much of all stake the validator holds. The very largest validators make the network more concentrated. Delegating to a well-run smaller validator helps decentralization.</li>
+    <li><strong>Client software</strong>: Solana runs on more than one validator client. A network that depends on a single client is more exposed to a single bug.</li>
+    <li><strong>Provider and country</strong>: validators in the same data center or provider can fail together. See <a href="nakamoto-coefficient-solana.html">the Nakamoto coefficient</a> for how we measure this.</li>
+  </ul>
+
+  <h2>A simple checklist</h2>
+  <ol>
+    <li>Not delinquent, and uptime near 100%.</li>
+    <li>Vote success close to or above the network median.</li>
+    <li>Skip rate at or below the median.</li>
+    <li>Commission and MEV commission you are comfortable with.</li>
+    <li>Not among the very largest validators, if decentralization matters to you.</li>
+  </ol>
+  <p>Numbers describe the past. They do not guarantee future rewards, and this article is not financial advice.</p>
+</article>
+</main>
+<div id="ftr"></div>
+<script src="../app.js"></script>
+</body>
+</html>

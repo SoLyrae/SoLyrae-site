@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SoLyrae performance · live validator metrics</title>
+<meta name="description" content="Live performance of the SoLyrae Solana validator: stake, APY, commission, vote success, skip rate, epoch history and infrastructure.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://www.solyrae.com/performance.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="SoLyrae performance · live validator metrics">
+<meta property="og:description" content="Live performance of the SoLyrae Solana validator: stake, APY, commission, vote success, skip rate, epoch history and infrastructure.">
+<meta property="og:url" content="https://www.solyrae.com/performance.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="performance">
+<div id="hdr"></div>
+<main>
+<section class="first">
+  <div class="wrap">
+    <span class="kicker">SoLyrae performance</span>
+    <h1 style="font-size:clamp(2.2rem,4.6vw,3.4rem)">The validator, in numbers</h1>
+    <p class="lead" style="margin:16px 0 0"><span class="live"><i></i><span>Loading&hellip;</span></span></p>
+    <div class="grid-6">
+      <div><div class="lbl">Skip rate</div><div class="val sk" data-k="skip">0.00%</div></div>
+      <div><div class="lbl">Votes landed</div><div class="val sk" data-k="votes_card">00.000%</div></div>
+      <div><div class="lbl">Vote success</div><div class="val sk" data-k="vote">00.00%</div></div>
+      <div><div class="lbl">Blocks produced</div><div class="val sk" data-k="blocks_now">00<small>of 00</small></div></div>
+      <div><div class="lbl">Commission</div><div class="val sk" data-k="comm">0%</div><div class="sub sk" data-k="comm_sub">on rewards</div></div>
+      <div><div class="lbl">Total APY</div><div class="val sk" data-k="apy">0.00%</div><div class="sub sk" data-k="apy_split">10-epoch median &middot; Staking 0.00% + Jito 0.00%</div></div>
+    </div>
+    <h2 style="margin-top:64px;font-size:1.8rem">Against the network median</h2>    <div class="chart" style="max-width:620px;margin-top:14px"><div class="chart-body" id="compare"><p class="note" style="padding:12px 0">Loading&hellip;</p></div></div>
+
+    <h2 style="margin-top:64px;font-size:1.8rem">Block production</h2>
+    <div class="tiles" id="pt"><p class="note">Loading&hellip;</p></div>
+    <div class="two-charts">
+      <div class="card"><h3>Block outcomes per epoch</h3><div id="ch-outcomes"></div>
+        <div class="legend"><span><i class="lp1"></i>Perfect</span><span><i class="lp2"></i>OK</span><span><i class="lp3"></i>Poor</span><span><i class="lp4"></i>Skipped</span></div></div>
+      <div class="card"><h3>Inclusion per epoch</h3><div id="ch-incl"></div></div>
+    </div>
+
+    <h2 style="margin-top:64px;font-size:1.8rem">Voting</h2>
+    <p class="note" style="margin-top:6px">Fast votes depend mostly on where the node runs.</p>
+    <div class="tiles" id="vt"><p class="note">Loading&hellip;</p></div>
+    <div class="two-charts">
+      <div class="card"><h3>Missed votes per epoch</h3><div id="ch-missed"></div>
+        <div class="legend"><span><i class="l1"></i>Offline (node not voting)</span><span><i class="l2"></i>Late</span><span><i class="l3"></i>Other</span></div></div>
+      <div class="card"><h3>Vote participation per epoch</h3><div id="ch-part"></div></div>
+    </div>
+
+    <h2 style="margin-top:64px;font-size:1.8rem">Last 10 completed epochs</h2>
+    <div class="tbl-wrap" id="hist-wrap" style="margin-top:14px"><p class="note" style="padding:16px">Loading epoch history&hellip;</p></div>
+
+  </div>
+</section>
+</main>
+<div id="ftr"></div>
+<div class="scrim" id="scrim"></div><aside class="drawer" id="drawer" aria-label="Validator details"></aside>
+<script src="app.js"></script>
+<script src="validator.js"></script>
+</body>
+</html>

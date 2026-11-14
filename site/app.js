@@ -19,8 +19,6 @@ const POSTS = [
     excerpt: 'The difference between delegating SOL to a validator and holding a liquid staking token, with the advantages and risks of each.' },
   { slug: 'where-staking-rewards-come-from', title: 'Where staking rewards come from: inflation, MEV and commission', date: '2026-11-13', tag: 'Guide',
     excerpt: 'How inflation and MEV tips become your rewards, what commission does and why yields change.' },
-  { slug: 'claim-mev-rewards-jito', title: 'How to claim your MEV rewards from Jito', date: '2026-11-13', tag: 'Guide',
-    excerpt: 'MEV rewards of a native stake are claimed separately from inflation rewards. Here is who needs to do it and the steps.' },
   { slug: 'vote-account-identity-stake-account', title: 'Vote account, identity and stake account: which address is which?', date: '2026-11-13', tag: 'Guide',
     excerpt: 'The addresses you meet when you stake, which one you delegate to, and what stake and withdraw authority mean.' },
   { slug: 'how-validators-earn-money', title: 'How Solana validators earn money, and why it matters to delegators', date: '2026-11-13', tag: 'Guide',

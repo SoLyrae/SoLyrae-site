@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Introducing Beacon: a free security bulletin for Solana validator operators · SoLyrae</title>
+<meta name="description" content="Beacon collects security alerts for everything a Solana validator runs on and lets operators follow only what they use. What it covers, how it works and its limits.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://www.solyrae.com/blog/introducing-beacon.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="Introducing Beacon: a free security bulletin for Solana validator operators · SoLyrae">
+<meta property="og:description" content="Beacon collects security alerts for everything a Solana validator runs on and lets operators follow only what they use. What it covers, how it works and its limits.">
+<meta property="og:url" content="https://www.solyrae.com/blog/introducing-beacon.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="blog" data-root="../">
+<div id="hdr"></div>
+<main>
+<article class="post">
+  <a class="back" href="index.html">&larr; All articles</a>
+  <h1 style="margin-top:22px">Introducing Beacon: a free security bulletin for Solana validator operators</h1>
+  <p class="meta">Network &middot; 14 Nov 2026 &middot; SoLyrae</p>
+
+  <p>A validator is only as safe as the software under it. A flaw can sit in the client, in a Rust library inside the client, in the Linux kernel or in a tool such as OpenSSH, and the news about it is scattered across many places. Beacon puts it in one.</p>
+
+  <h2>What Beacon is</h2>
+  <p><a href="../beacon.html">Beacon</a> is a security bulletin for the people who run Solana validators. It is free, it is open to every operator and it is updated automatically. It lists vulnerabilities and security releases that matter to a validator, ranks them, and says what they affect and what to do.</p>
+
+  <h2>What it covers</h2>
+  <ul>
+    <li><strong>The validator clients:</strong> Agave, Jito and Firedancer, with their latest releases next to the minimum version the Solana Foundation's delegation program asks for.</li>
+    <li><strong>The Rust crates inside them.</strong> Beacon reads the exact list of crates in the latest Agave and Jito releases and checks it against known advisories.</li>
+    <li><strong>The operating system:</strong> the Linux kernel, Ubuntu and Debian notices.</li>
+    <li><strong>The tools around a validator:</strong> OpenSSL, OpenSSH, systemd and Docker.</li>
+    <li><strong>Known exploited vulnerabilities</strong> from the US cyber agency's public list, which is the clearest signal that something is being used in attacks.</li>
+  </ul>
+
+  <h2>How it ranks alerts</h2>
+  <p>Each alert gets one of four levels. <strong>Critical</strong> means the flaw is known to be exploited. <strong>High</strong> means a severe rating or a high chance of exploitation. <strong>Watch</strong> means worth planning for, and <strong>Info</strong> is context. The ranking combines the severity score, whether the flaw is exploited and a public estimate of how likely exploitation is. No person edits the alerts.</p>
+
+  <h2>Follow only what you run</h2>
+  <p>Not every operator needs every alert. On the Beacon page you choose what you run, for example Agave and the Linux kernel, and you get a feed for exactly that. You can add it to any feed reader or to a chat tool that reads feeds. Email alerts, with the same choices and a minimum level, are planned.</p>
+
+  <h2>What Beacon is not</h2>
+  <div class="callout"><strong>Beacon does not replace Anza's private alerts.</strong> Serious flaws in the clients are handled privately until a fix is ready, and Anza warns validators through its own channel. Beacon shows what is already public. It is a community service by SoLyrae and not an official channel of Solana, Anza, Jito or Firedancer, so always confirm in the linked source before you act.</div>
+
+  <h2>Read next</h2>
+  <ul>
+    <li><a href="why-validators-need-security-alerts.html">Why validators need security alerts</a>: what past patches teach us.</li>
+    <li><a href="validator-security-checklist.html">A security checklist for validator operators</a>.</li>
+    <li>How we measure and where each source comes from: <a href="../methodology.html">methodology</a>.</li>
+  </ul>
+  <p>This article is for information only and is not financial or security advice.</p>
+</article>
+</main>
+<div id="ftr"></div>
+<script src="../app.js"></script>
+</body>
+</html>

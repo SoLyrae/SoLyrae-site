@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A security checklist for Solana validator operators · SoLyrae</title>
+<meta name="description" content="A practical checklist for validator operators: software updates, operating system, access, keys, monitoring and backups.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://www.solyrae.com/blog/validator-security-checklist.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="A security checklist for Solana validator operators · SoLyrae">
+<meta property="og:description" content="A practical checklist for validator operators: software updates, operating system, access, keys, monitoring and backups.">
+<meta property="og:url" content="https://www.solyrae.com/blog/validator-security-checklist.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="blog" data-root="../">
+<div id="hdr"></div>
+<main>
+<article class="post">
+  <a class="back" href="index.html">&larr; All articles</a>
+  <h1 style="margin-top:22px">A security checklist for Solana validator operators</h1>
+  <p class="meta">Guide &middot; 14 Nov 2026 &middot; SoLyrae</p>
+
+  <p>This is a practical checklist built on common good practice for servers that run validators. It is not an official guide. For the details of running a validator, use <a href="https://docs.anza.xyz/operations" target="_blank" rel="noopener">Anza's operations documentation</a>.</p>
+
+  <h2>1. Software</h2>
+  <ul>
+    <li>Run a current release of your client, and stay at or above the minimum version your delegation program requires.</li>
+    <li>Have a written routine for upgrades, and know how quickly you can apply an urgent one.</li>
+    <li>Know which version and options you run, because some fixes only affect certain setups.</li>
+  </ul>
+
+  <h2>2. Operating system</h2>
+  <ul>
+    <li>Install security updates for the kernel and for packages such as OpenSSL, OpenSSH and systemd, and reboot when a kernel update needs it.</li>
+    <li>Run only what the server needs. Fewer services mean fewer ways in.</li>
+    <li>Keep the same attention for every operating system you use, whether Ubuntu or Debian.</li>
+  </ul>
+
+  <h2>3. Access</h2>
+  <ul>
+    <li>Log in with keys, not passwords, and do not allow direct root login.</li>
+    <li>Limit who can reach the server, and from which addresses, with a firewall.</li>
+    <li>Give each person their own account, and remove access as soon as someone leaves.</li>
+  </ul>
+
+  <h2>4. Keys</h2>
+  <ul>
+    <li>Keep the withdraw authority of the vote account off the validator server. A multisig adds protection, because no single key can move it.</li>
+    <li>Keep on the server only what the validator needs to vote, and hold no more funds there than it needs.</li>
+    <li>Back up keys offline, and test that you can restore them.</li>
+  </ul>
+
+  <h2>5. Monitoring</h2>
+  <ul>
+    <li>Watch that the validator is voting, not delinquent and not falling behind, and get an alert when it is.</li>
+    <li>Watch the balance of the vote account, because the fixed per-epoch fee under Alpenglow has to be covered.</li>
+    <li>Follow security alerts for the components you run. <a href="../beacon.html">Beacon</a> lets you pick them and subscribe.</li>
+  </ul>
+
+  <h2>6. Resilience</h2>
+  <ul>
+    <li>Have a backup server that can take over if the main one fails, and practise the switch.</li>
+    <li>Know how to contact your hosting provider quickly.</li>
+    <li>Write down what you do in an emergency, so that it does not depend on one person's memory.</li>
+  </ul>
+
+  <h2>Go further</h2>
+  <p>Read <a href="why-validators-need-security-alerts.html">why validators need security alerts</a>, and see how SoLyrae protects its own keys on the <a href="../security.html">security page</a>. For the risks that stakers face, read <a href="risks-of-staking-sol.html">the risks of staking SOL</a>.</p>
+  <p>This article is for information only and is not security advice. Every setup is different, so adapt the list to yours.</p>
+</article>
+</main>
+<div id="ftr"></div>
+<script src="../app.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why Solana validators need security alerts: lessons from past patches · SoLyrae</title>
+<meta name="description" content="Four public incidents from Anza's own write-ups show how fast validator operators have to react to security fixes, and why alerts matter.">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://www.solyrae.com/blog/why-validators-need-security-alerts.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SoLyrae">
+<meta property="og:title" content="Why Solana validators need security alerts: lessons from past patches · SoLyrae">
+<meta property="og:description" content="Four public incidents from Anza's own write-ups show how fast validator operators have to react to security fixes, and why alerts matter.">
+<meta property="og:url" content="https://www.solyrae.com/blog/why-validators-need-security-alerts.html">
+<meta property="og:image" content="https://www.solyrae.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SoLyrae_Solana">
+</head>
+<body data-page="blog" data-root="../">
+<div id="hdr"></div>
+<main>
+<article class="post">
+  <a class="back" href="index.html">&larr; All articles</a>
+  <h1 style="margin-top:22px">Why Solana validators need security alerts: lessons from past patches</h1>
+  <p class="meta">Network &middot; 14 Nov 2026 &middot; SoLyrae</p>
+
+  <p>Security fixes for validators arrive on short notice and expect a quick response. Anza, the team behind the Agave client, has published root cause analyses of several incidents. They show the pattern well.</p>
+
+  <h2>August 2024: a flaw that could halt the network</h2>
+  <p>On 5 August 2024 Anza engineers learned of a vulnerability, reported by an external researcher, that affected the Agave and Jito clients. It would have allowed an attacker to crash leaders one by one, eventually halting the network. Anza prepared a patch, had it audited by several outside firms and worked with operators to apply it. By 8 August, over 67% of the network had applied the patch, which made consensus safe from that disruption. <a href="https://www.anza.xyz/blog/agave-network-patch-root-cause-analysis" target="_blank" rel="noopener">Anza's write-up</a> adds that infrastructure that had not been patched could still be at risk.</p>
+
+  <h2>December 2024: a library that was compromised</h2>
+  <p>Compromised versions of <code>@solana/web3.js</code>, a widely used JavaScript library, reached the npm registry. Anza's <a href="https://www.anza.xyz/blog/web3-js-exploit-root-cause-analysis" target="_blank" rel="noopener">analysis</a> explains how it happened, who was affected and what changed afterward. It is a reminder that the risk is not only in the validator client: it is also in the packages and tools around it.</p>
+
+  <h2>April 2025: a bug exposed by an option</h2>
+  <p>A bug in how Agave implemented two signature-check programs, ed25519 and secp256r1, surfaced for validators that ran a new option introduced in version 2.2. Anza's <a href="https://www.anza.xyz/blog/precompile-alignment-bug-root-cause-analysis" target="_blank" rel="noopener">root cause analysis</a> shows that a flaw can affect only some configurations, so operators need to know what their own setup uses.</p>
+
+  <h2>January 2026: two critical potential vulnerabilities</h2>
+  <p>Two critical potential vulnerabilities were reported to Anza through GitHub security advisories in December 2025. One was an attack on the gossip protocol that could crash a node, and the other a potential attack to censor votes. They were patched in collaboration with Firedancer, Jito and the Solana Foundation. Anza recommended upgrading to Agave and Jito 3.0.14, or Frankendancer 0.808.30014, and said no attack on the cluster was known. Read the <a href="https://www.anza.xyz/blog/january-2026-gossip-and-vote-processing-security-patch-summary" target="_blank" rel="noopener">patch summary</a>.</p>
+
+  <h2>What these cases teach</h2>
+  <ul>
+    <li><strong>The window is short.</strong> In August 2024 it took about three days to reach two thirds of the network.</li>
+    <li><strong>Serious flaws are handled privately first.</strong> Operators usually hear about them only when a fix is ready, so a missed message can mean running vulnerable software.</li>
+    <li><strong>The risk is wider than the client.</strong> It includes libraries, the operating system and the tools used to run the node.</li>
+    <li><strong>Knowing what you run matters.</strong> Some flaws only affect certain versions or options.</li>
+  </ul>
+
+  <h2>Where Beacon fits</h2>
+  <p><a href="../beacon.html">Beacon</a> gathers the public side of this in one place and lets you follow only the components you use. It does not replace the private alerts operators get from Anza. Read <a href="introducing-beacon.html">what Beacon is</a> and the <a href="validator-security-checklist.html">security checklist for operators</a>.</p>
+  <p>This article is for information only and is not security advice. The facts above come from Anza's public write-ups, which we link to.</p>
+</article>
+</main>
+<div id="ftr"></div>
+<script src="../app.js"></script>
+</body>
+</html>

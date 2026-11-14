@@ -1,0 +1,29 @@
+name: Network rewards
+
+# Rebuilds the comparison of rewards with the whole network every 6 hours. Epochs last about 26 hours, so the data of a
+# new epoch is picked up within hours. When the epoch has not changed the script finds its rows already saved and finishes quickly.
+on:
+  schedule:
+    - cron: "41 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rewards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build the network rewards file
+        run: python tools/build_network_rewards.py
+      - name: Save changes
+        run: |
+          git config user.name "rewards-bot"
+          git config user.email "rewards-bot@users.noreply.github.com"
+          git add site/data/network_rewards.json
+          git diff --staged --quiet || (git commit -m "Network rewards update" && git push)

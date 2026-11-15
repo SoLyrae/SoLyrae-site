@@ -28,12 +28,12 @@
 <article class="post">
   <a class="back" href="index.html">&larr; All articles</a>
   <h1 style="margin-top:22px">Why Solana validators need security alerts: lessons from past patches</h1>
-  <p class="meta">Network &middot; 14 Nov 2026 &middot; SoLyrae</p>
+  <p class="meta">Network &middot; Nov 14, 2026 &middot; SoLyrae</p>
 
   <p>Security fixes for validators arrive on short notice and expect a quick response. Anza, the team behind the Agave client, has published root cause analyses of several incidents. They show the pattern well.</p>
 
   <h2>August 2024: a flaw that could halt the network</h2>
-  <p>On 5 August 2024 Anza engineers learned of a vulnerability, reported by an external researcher, that affected the Agave and Jito clients. It would have allowed an attacker to crash leaders one by one, eventually halting the network. Anza prepared a patch, had it audited by several outside firms and worked with operators to apply it. By 8 August, over 67% of the network had applied the patch, which made consensus safe from that disruption. <a href="https://www.anza.xyz/blog/agave-network-patch-root-cause-analysis" target="_blank" rel="noopener">Anza's write-up</a> adds that infrastructure that had not been patched could still be at risk.</p>
+  <p>On August 5, 2024 Anza engineers learned of a vulnerability, reported by an external researcher, that affected the Agave and Jito clients. It would have allowed an attacker to crash leaders one by one, eventually halting the network. Anza prepared a patch, had it audited by several outside firms and worked with operators to apply it. By August 8, over 67% of the network had applied the patch, which made consensus safe from that disruption. <a href="https://www.anza.xyz/blog/agave-network-patch-root-cause-analysis" target="_blank" rel="noopener">Anza's write-up</a> adds that infrastructure that had not been patched could still be at risk.</p>
 
   <h2>December 2024: a library that was compromised</h2>
   <p>Compromised versions of <code>@solana/web3.js</code>, a widely used JavaScript library, reached the npm registry. Anza's <a href="https://www.anza.xyz/blog/web3-js-exploit-root-cause-analysis" target="_blank" rel="noopener">analysis</a> explains how it happened, who was affected and what changed afterward. It is a reminder that the risk is not only in the validator client: it is also in the packages and tools around it.</p>

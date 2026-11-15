@@ -85,7 +85,7 @@
    "id": "CVE-2026-123158",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123158",
    "title": "[CRITICAL] OpenBSD OpenSSH Unexpected Status Code or Return Value Vulnerability",
-   "content_text": "OpenBSD OpenSSH on Linux contains an unexpected status code or return value vulnerability that could allow for authentication bypass. OpenBSD OpenSSH. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline 2026-11-12 for US agencies).",
+   "content_text": "OpenBSD OpenSSH on Linux contains an unexpected status code or return value vulnerability that could allow for authentication bypass. OpenBSD OpenSSH. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Nov 12, 2026 for US agencies).",
    "date_published": "2026-11-09T00:00:00Z",
    "tags": [
     "openssh"
@@ -141,7 +141,7 @@
    "id": "CVE-2026-46300",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46300",
    "title": "[CRITICAL] Linux Kernel Missing Initialization of a Variable Vulnerability",
-   "content_text": "Linux Kernel contains a missing initialization of a variable vulnerability that could allow for unintended modification of page-cache-backed data via failure to preserve the shared-fragment marker during socket buffer coalescing, causing ESP input processing to decrypt shared fragments in place. This vulnerability can be chained with CVE-2026-109618 and CVE-2026-109619 to implant PHP webshells and run commands as… Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline 2026-10-31 for US agencies).",
+   "content_text": "Linux Kernel contains a missing initialization of a variable vulnerability that could allow for unintended modification of page-cache-backed data via failure to preserve the shared-fragment marker during socket buffer coalescing, causing ESP input processing to decrypt shared fragments in place. This vulnerability can be chained with CVE-2026-109618 and CVE-2026-109619 to implant PHP webshells and run commands as… Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Oct 31, 2026 for US agencies).",
    "date_published": "2026-10-28T00:00:00Z",
    "tags": [
     "kernel"
@@ -493,7 +493,7 @@
    "id": "CVE-2025-39964",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-39964",
    "title": "[CRITICAL] Linux Kernel Race Condition Vulnerability",
-   "content_text": "Linux Kernel contains a race condition vulnerability which allows concurrent writes to the same AF_ALG socket causing data to be unpredictably interleaved and creating inconsistencies in the socket's internal state. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline 2026-09-21 for US agencies).",
+   "content_text": "Linux Kernel contains a race condition vulnerability which allows concurrent writes to the same AF_ALG socket causing data to be unpredictably interleaved and creating inconsistencies in the socket's internal state. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Sep 21, 2026 for US agencies).",
    "date_published": "2026-09-18T00:00:00Z",
    "tags": [
     "kernel"
@@ -503,7 +503,7 @@
    "id": "CVE-2026-53266",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53266",
    "title": "[CRITICAL] Linux Kernel Out-of-Bounds Write Vulnerability",
-   "content_text": "Linux Kernel contains an out-of-bounds write vulnerability in the ebtables SNAT target which allows an ARP sender hardware address rewrite to write directly into a nonlinear socket-buffer fragment backed by a splice-imported file page. The impacted product(s) could be end-of-life (EoL) and/or end-of-service (EoS). Users are advised to discontinue use and/or transition to a supported version. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline 2026-09-21 for US agencies).",
+   "content_text": "Linux Kernel contains an out-of-bounds write vulnerability in the ebtables SNAT target which allows an ARP sender hardware address rewrite to write directly into a nonlinear socket-buffer fragment backed by a splice-imported file page. The impacted product(s) could be end-of-life (EoL) and/or end-of-service (EoS). Users are advised to discontinue use and/or transition to a supported version. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Sep 21, 2026 for US agencies).",
    "date_published": "2026-09-18T00:00:00Z",
    "tags": [
     "kernel"
@@ -513,7 +513,7 @@
    "id": "CVE-2025-39682",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-39682",
    "title": "[CRITICAL] Linux Kernel Improper Check for Unusual or Exceptional Conditions Vulnerability",
-   "content_text": "Linux Kernel contains an improper check for unusual or exceptional conditions vulnerability in the TLS receive path which allows a zero-length record retrieved from the rx_list to bypass the intended recvmsg() record-type handling, potentially causing subsequent TLS records to be processed using incorrect zero-copy and queuing assumptions. The impacted product(s) could be end-of-life (EoL) and/or end-of-service… Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline 2026-09-21 for US agencies).",
+   "content_text": "Linux Kernel contains an improper check for unusual or exceptional conditions vulnerability in the TLS receive path which allows a zero-length record retrieved from the rx_list to bypass the intended recvmsg() record-type handling, potentially causing subsequent TLS records to be processed using incorrect zero-copy and queuing assumptions. The impacted product(s) could be end-of-life (EoL) and/or end-of-service… Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Sep 21, 2026 for US agencies).",
    "date_published": "2026-09-18T00:00:00Z",
    "tags": [
     "kernel"
@@ -523,7 +523,7 @@
    "id": "CVE-2026-53362",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53362",
    "title": "[CRITICAL] Linux Kernel Unspecified Vulnerability",
-   "content_text": "Linux Kernel contains an unspecified vulnerability that can allow for privilege escalation via IPv6 networking subsystem. This vulnerability can impact multiple products, including but not limited to Suse, Red Hat, and other products using Linux. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline 2026-08-30 for US agencies).",
+   "content_text": "Linux Kernel contains an unspecified vulnerability that can allow for privilege escalation via IPv6 networking subsystem. This vulnerability can impact multiple products, including but not limited to Suse, Red Hat, and other products using Linux. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Aug 30, 2026 for US agencies).",
    "date_published": "2026-08-27T00:00:00Z",
    "tags": [
     "kernel"
@@ -533,7 +533,7 @@
    "id": "CVE-2022-0995",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-0995",
    "title": "[CRITICAL] Linux Kernel Out-of-Bounds Write Vulnerability",
-   "content_text": "Linux Kernel contains an out-of-bounds memory write vulnerability which could allow a local user to gain privileged access or cause a denial of service on the system. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline 2026-08-29 for US agencies).",
+   "content_text": "Linux Kernel contains an out-of-bounds memory write vulnerability which could allow a local user to gain privileged access or cause a denial of service on the system. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Aug 29, 2026 for US agencies).",
    "date_published": "2026-08-26T00:00:00Z",
    "tags": [
     "kernel"
@@ -591,7 +591,7 @@
    "id": "CVE-2022-0492",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-0492",
    "title": "[CRITICAL] Linux Kernel Improper Authentication Vulnerability",
-   "content_text": "Linux Kernel contains an improper authentication vulnerability which could allow for privilege escalation via the cgroups v1 release_agent feature. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline 2026-06-05 for US agencies).",
+   "content_text": "Linux Kernel contains an improper authentication vulnerability which could allow for privilege escalation via the cgroups v1 release_agent feature. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Jun 5, 2026 for US agencies).",
    "date_published": "2026-06-02T00:00:00Z",
    "tags": [
     "kernel"
@@ -649,7 +649,7 @@
    "id": "CVE-2026-31431",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31431",
    "title": "[CRITICAL] Linux Kernel Incorrect Resource Transfer Between Spheres Vulnerability",
-   "content_text": "Linux Kernel contains an incorrect resource transfer between spheres vulnerability that could allow for privilege escalation. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline 2026-05-15 for US agencies).",
+   "content_text": "Linux Kernel contains an incorrect resource transfer between spheres vulnerability that could allow for privilege escalation. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline May 15, 2026 for US agencies).",
    "date_published": "2026-05-01T00:00:00Z",
    "tags": [
     "kernel"
@@ -719,7 +719,7 @@
    "id": "CVE-2018-14634",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-14634",
    "title": "[CRITICAL] Linux Kernel Integer Overflow Vulnerability",
-   "content_text": "Linux Kernel contains an integer overflow vulnerability in the create_elf_tables() function which could allow an unprivileged local user with access to SUID (or otherwise privileged) binary to escalate their privileges on the system. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline 2026-02-16 for US agencies).",
+   "content_text": "Linux Kernel contains an integer overflow vulnerability in the create_elf_tables() function which could allow an unprivileged local user with access to SUID (or otherwise privileged) binary to escalate their privileges on the system. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Feb 16, 2026 for US agencies).",
    "date_published": "2026-01-26T00:00:00Z",
    "tags": [
     "kernel"
@@ -860,7 +860,7 @@
    "url": "https://www.anza.xyz/blog/precompile-alignment-bug-root-cause-analysis",
    "title": "[WATCH] Precompile Alignment Bug: Root Cause Analysis",
    "content_text": "Root cause of the ed25519 and secp256r1 precompile bug exposed by Agave's transaction-view option in v2.2. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-15T18:57:59Z",
+   "date_published": "2026-11-15T21:50:50Z",
    "tags": [
     "agave"
    ]
@@ -870,7 +870,7 @@
    "url": "https://www.anza.xyz/blog/web3-js-exploit-root-cause-analysis",
    "title": "[WATCH] web3.js Exploit: Root Cause Analysis",
    "content_text": "How compromised versions of @solana/web3.js reached npm, who was affected, and what changed afterward. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-15T18:57:59Z",
+   "date_published": "2026-11-15T21:50:50Z",
    "tags": [
     "agave"
    ]
@@ -880,7 +880,7 @@
    "url": "https://www.anza.xyz/blog/agave-network-patch-root-cause-analysis",
    "title": "[WATCH] Agave Network Patch: Root Cause Analysis",
    "content_text": "A vulnerability that could crash leaders one by one, how Anza patched it, and how the network upgraded in August 2024. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-15T18:57:59Z",
+   "date_published": "2026-11-15T21:50:50Z",
    "tags": [
     "agave"
    ]
@@ -890,7 +890,7 @@
    "url": "https://www.anza.xyz/blog/securing-solana-against-a-powerful-quantum-adversary",
    "title": "[INFO] Securing Solana Against a Powerful Quantum Adversary",
    "content_text": "What a post-quantum transition means for Solana: where elliptic curves live in the protocol and what replaces them. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-15T18:57:59Z",
+   "date_published": "2026-11-15T21:50:50Z",
    "tags": [
     "agave"
    ]

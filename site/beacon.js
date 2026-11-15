@@ -1,7 +1,6 @@
 /* SoLyrae Beacon page. Loaded after app.js (shares its helpers). Data: data/beacon.json, built by tools/build_beacon.py */
 const BC_LEVELS = [['critical', 'Critical'], ['high', 'High'], ['watch', 'Watch'], ['info', 'Info']];
 const BC_GROUPS = [['Validator clients', ['agave', 'jito', 'firedancer']], ['Built on', ['rust']], ['Operating system', ['kernel', 'ubuntu', 'debian', 'systemd']], ['Network and tools', ['openssl', 'openssh', 'docker']]];
-const BC_EMAIL_ENDPOINT = ''; // set to the address of the email service when it is connected; empty keeps the form switched off
 const BC_BASE = 'https://www.solyrae.com';
 let BC = null;
 const bst = { q: '', levels: new Set(), comps: new Set(), shown: 18, pick: new Set() };
@@ -80,18 +79,23 @@ function bcFollow() {
   const row = (label, url) => `<div class="bc-feed"><span>${esc(label)}</span><code title="${esc(url)}">${esc(url.replace('https://', ''))}</code><button class="copy" data-copy="${esc(url)}">Copy</button></div>`;
   $('#bc-allfeeds').innerHTML = row('Atom', BC_BASE + '/feeds/beacon.atom') + row('JSON Feed', BC_BASE + '/feeds/beacon.json');
   bcFeeds();
-  const form = $('#bc-form');
-  if (BC_EMAIL_ENDPOINT) { $('#bc-soon').hidden = true; }
-  else { $('#bc-send').disabled = true; $('#bc-mail').disabled = true; $('#bc-min').disabled = true; $('#bc-msg').textContent = 'Email alerts open soon. The feeds already work.'; }
-  form.addEventListener('submit', async e => {
-    e.preventDefault(); if (!BC_EMAIL_ENDPOINT) return;
-    const msg = $('#bc-msg'); msg.textContent = 'Sending…';
-    try {
-      const r = await fetch(BC_EMAIL_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: $('#bc-mail').value, components: [...bst.pick], minLevel: $('#bc-min').value }) });
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      msg.textContent = 'Almost done: check your inbox to confirm your address.';
-    } catch (err) { console.warn(err); msg.textContent = 'Something went wrong. Please try again, or use a feed.'; }
-  });
+  $('#bc-sub').addEventListener('submit', bcSubscribe);
+}
+async function bcSubscribe(e) {
+  e.preventDefault();
+  const msg = $('#bc-sub-msg'), btn = $('#bc-sub-btn'), email = $('#bc-mail').value.trim();
+  const say = (t, bad) => { msg.textContent = t; msg.style.color = bad ? 'var(--bad)' : 'var(--ok)'; };
+  if (!bst.pick.size) return say('Pick one or more components in step 1 first.', true);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return say('Please enter a valid email address.', true);
+  btn.disabled = true; say('Sending…');
+  try {
+    const r = await fetch('/api/subscribe', { method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ email, components: [...bst.pick], website: $('#bc-hp').value }) });
+    const j = await r.json().catch(() => ({}));
+    if (r.ok && j.ok) { say('Almost done. Check your inbox and confirm your subscription.'); $('#bc-mail').value = ''; }
+    else say(j.error || 'Something went wrong. Please try again later.', true);
+  } catch (err) { say('Something went wrong. Please try again later.', true); }
+  btn.disabled = false;
 }
 function bcFeeds() {
   const row = (k) => { const url = `${BC_BASE}/feeds/beacon-${k}.atom`; return `<div class="bc-feed"><span>${esc(BC.components[k])}</span><code title="${esc(url)}">${esc(url.replace('https://', ''))}</code><button class="copy" data-copy="${esc(url)}">Copy</button></div>`; };

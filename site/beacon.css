@@ -61,7 +61,6 @@
 .bc-feed span{flex:none}
 .bc-email{display:grid;gap:10px;margin-top:14px}
 .bc-email input,.bc-email select{padding:12px 14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:var(--r);font-family:var(--mono);font-size:.88rem;width:100%}
-.bc-soon{display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--accent);color:var(--accent);padding:2px 9px;border-radius:999px;margin-left:8px;vertical-align:middle}
 .bc-src{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 24px;margin-top:14px;font-size:.88rem}
 .bc-src li{list-style:none;display:flex;gap:8px;align-items:baseline}
 .bc-src i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--ok)}

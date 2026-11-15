@@ -71,7 +71,7 @@
   <div class="wrap">
     <span class="kicker">Follow</span>
     <h2>Get the alerts where you work</h2>
-    <p class="lead" style="max-width:none">Choose what you run. You get a feed for exactly that, and soon the same choice by email.</p>
+    <p class="lead" style="max-width:none">Choose what you run. You get a feed and a daily email for exactly that.</p>
     <div class="bc-follow">
       <div class="bc-box">
         <h3>1. What do you run?</h3>
@@ -83,14 +83,15 @@
         <div class="bc-feeds" id="bc-feeds"></div>
       </div>
       <div class="bc-box">
-        <h3>Email <span class="bc-soon" id="bc-soon">Opens soon</span></h3>
-        <p class="note">Get an email when something matching your choices appears. Pick the minimum level to avoid noise.</p>
-        <form class="bc-email" id="bc-form" autocomplete="off">
-          <input type="email" id="bc-mail" placeholder="you@example.com" aria-label="Email address" required>
-          <select id="bc-min" aria-label="Minimum level"><option value="info">All levels</option><option value="watch">Watch and above</option><option value="high" selected>High and above</option><option value="critical">Critical only</option></select>
-          <button class="btn btn-fill" type="submit" id="bc-send">Notify me</button>
-          <p class="note" id="bc-msg" style="margin:0"></p>
+        <h3>3. Daily email</h3>
+        <p class="note">One email a day with the new Critical, High and Watch alerts for what you picked, only on days with something new. You confirm by email and can unsubscribe with one click.</p>
+        <form class="bc-email" id="bc-sub" novalidate>
+          <input type="email" id="bc-mail" placeholder="you@example.com" autocomplete="email" aria-label="Your email">
+          <input type="text" id="bc-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <button class="btn btn-fill" type="submit" id="bc-sub-btn">Subscribe</button>
+          <p class="note" id="bc-sub-msg" role="status" aria-live="polite"></p>
         </form>
+        <p class="note" style="font-size:.8rem;margin-top:10px">We use your email only to send these alerts. See the <a href="privacy.html" style="color:var(--accent)">privacy notice</a>.</p>
       </div>
       <div class="bc-box">
         <h3>All alerts in one feed</h3>

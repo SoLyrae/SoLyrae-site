@@ -6,6 +6,7 @@ Reads public security sources, scores every item and writes:
   site/feeds/beacon.atom           all items (Atom)
   site/feeds/beacon-<part>.atom    one feed per component
   site/feeds/beacon.json           JSON Feed 1.1 with all items
+and once a day emails the new alerts to the Beacon lists in Brevo (tools/beacon_email.py; needs BREVO_API_KEY).
 
 Sources (all public, no key needed; an NVD key is optional and only adds CVSS scores):
   - OSV scan of the exact dependency list (Cargo.lock) of the latest Agave and Jito releases
@@ -107,6 +108,14 @@ def trunc(s, n=420):
     """Shorten at a word boundary."""
     s = s or ""
     return s if len(s) <= n else s[:n].rsplit(" ", 1)[0].rstrip(".,;:") + "…"
+
+
+def plain(s):
+    """Removes Markdown marks that some advisories use (`code`, **bold**, [text](link), # headings)."""
+    s = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", s or "")
+    s = re.sub(r"(?m)^\s*#+\s*", "", s)
+    s = s.replace("`", "").replace("**", "").replace("__", "").replace("\\_", "_")
+    return re.sub(r"\s+", " ", s).strip()
 
 
 def log(name, url, ok, count):
@@ -516,6 +525,8 @@ def main():
                 fresh_os.append(i)
     items += fresh_os
     items = finish(items)
+    for i in items:
+        i["title"], i["summary"] = plain(i["title"]), plain(i["summary"])
     if NVD_KEY:
         log("NVD (CVSS scores)", "https://nvd.nist.gov/", True, sum(1 for v in NVD.values() if v))
     else:
@@ -543,6 +554,8 @@ def main():
           "items": [{"id": i["id"], "url": i["source"]["url"], "title": f"[{i['level'].upper()}] {i['title']}", "content_text": f"{i['summary']} {i.get('affects','')}. {i.get('action','')}",
                      "date_published": i.get("published") or iso(NOW), "tags": i["components"]} for i in ordered[:80]]}
     (FEEDS / "beacon.json").write_text(json.dumps(jf, ensure_ascii=False, indent=1), encoding="utf-8")
+    import beacon_email
+    beacon_email.send_digests(items, COMPONENTS, SITE / "data" / "email_digest.json")
     print(f"done: {len(items)} items, counts {out['counts']}")
 
 

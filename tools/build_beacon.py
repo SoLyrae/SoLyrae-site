@@ -110,6 +110,15 @@ def trunc(s, n=420):
     return s if len(s) <= n else s[:n].rsplit(" ", 1)[0].rstrip(".,;:") + "…"
 
 
+def us_day(s):
+    """'2026-11-12' -> 'Nov 12, 2026' (US format used across the site)."""
+    try:
+        d = datetime.strptime(str(s)[:10], "%Y-%m-%d")
+        return d.strftime("%b ") + str(d.day) + d.strftime(", %Y")
+    except Exception:
+        return "n/a"
+
+
 def plain(s):
     """Removes Markdown marks that some advisories use (`code`, **bold**, [text](link), # headings)."""
     s = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", s or "")
@@ -383,7 +392,7 @@ def kev_items():
         out.append({
             "id": cve, "type": "kev", "title": v.get("vulnerabilityName") or cve, "summary": trunc(v.get("shortDescription", "")),
             "components": comps, "level": "critical", "cves": [cve], "published": iso(added), "updated": iso(added),
-            "affects": label.strip(), "fixed": "", "action": "Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline " + str(v.get("dueDate", "n/a")) + " for US agencies).",
+            "affects": label.strip(), "fixed": "", "action": "Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline " + us_day(v.get("dueDate")) + " for US agencies).",
             "source": {"name": "CISA Known Exploited Vulnerabilities", "url": f"https://nvd.nist.gov/vuln/detail/{cve}"},
             "kev": True,
         })

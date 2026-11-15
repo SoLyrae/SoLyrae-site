@@ -10,7 +10,7 @@ const bcRel = iso => {
   const m = Math.round((Date.now() - Date.parse(iso)) / 60000);
   return m < 2 ? 'just now' : m < 90 ? `${m} minutes ago` : m < 2880 ? `${Math.round(m / 60)} hours ago` : `${Math.round(m / 1440)} days ago`;
 };
-const bcDate = i => i.dateLabel && !i.published ? i.dateLabel : (i.published ? new Date(i.published).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : (i.dateLabel || ''));
+const bcDate = i => i.dateLabel && !i.published ? i.dateLabel : (i.published ? new Date(i.published).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : (i.dateLabel || ''));
 
 function bcStatus() {
   const S = beaconSummary(BC), [label, color] = BEACON_STATUS[S.status];
@@ -26,7 +26,7 @@ function bcStatus() {
 
 function bcVersions() {
   const v = BC.versions || {}, card = (k, t, d, u) => `<${u ? 'a href="' + esc(u) + '" target="_blank" rel="noopener"' : 'div'}><div class="k">${t}</div><div class="v">${esc(k)}</div><div class="d">${d}</div></${u ? 'a' : 'div'}>`;
-  const when = x => x ? new Date(x).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }) : '';
+  const when = x => x ? new Date(x).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '';
   $('#bc-ver').innerHTML =
     (v.agave ? card(v.agave.version, 'Agave stable', 'Released ' + when(v.agave.published), v.agave.url) : '')
     + (v.jito ? card(v.jito.version, 'Jito mainnet', 'Released ' + when(v.jito.published), v.jito.url) : '')

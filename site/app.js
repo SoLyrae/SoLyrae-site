@@ -198,8 +198,8 @@ function layout() {
     <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div></header>`;
   $('#ftr').outerHTML = `<footer class="bottom"><div class="wrap"><div class="foot">
-    <div><a class="brand" href="${ROOT}index.html"><img src="${ROOT}logo.svg" alt="" width="30" height="30">SoLyrae</a><p class="note" style="margin-top:12px;max-width:34ch">An independent Solana validator that publishes its numbers and the whole network's.</p></div>
-    <div><h4>Site</h4><ul><li><a href="${ROOT}stake.html">Stake with us</a></li><li><a href="${ROOT}performance.html">Performance</a></li><li><a href="${ROOT}explorer.html">Explorer</a></li><li><a href="${ROOT}beacon.html">Beacon</a></li><li><a href="${ROOT}calculator.html">Rewards calculator</a></li><li><a href="${ROOT}blog/index.html">Blog</a></li><li><a href="${ROOT}faq.html">FAQ</a></li><li><a href="${ROOT}about.html">Our story</a></li><li><a href="${ROOT}methodology.html">How we measure</a></li><li><a href="${ROOT}security.html">Security</a></li><li><a href="${ROOT}privacy.html">Legal notice</a></li><li><a href="${ROOT}contact.html">Contact</a></li></ul></div>
+    <div><a class="brand" href="${ROOT}index.html"><img src="${ROOT}logo.svg" alt="" width="30" height="30">SoLyrae</a><p class="note" style="margin-top:12px;max-width:34ch">Making it easier for everyone to secure Solana.</p></div>
+    <div><h4>Site</h4><ul class="two-col"><li><a href="${ROOT}stake.html">Stake with us</a></li><li><a href="${ROOT}performance.html">Performance</a></li><li><a href="${ROOT}explorer.html">Explorer</a></li><li><a href="${ROOT}beacon.html">Beacon</a></li><li><a href="${ROOT}calculator.html">Rewards calculator</a></li><li><a href="${ROOT}blog/index.html">Blog</a></li><li><a href="${ROOT}faq.html">FAQ</a></li><li><a href="${ROOT}about.html">Our story</a></li><li><a href="${ROOT}methodology.html">How we measure</a></li><li><a href="${ROOT}security.html">Security</a></li><li><a href="${ROOT}privacy.html">Legal notice</a></li><li><a href="${ROOT}contact.html">Contact</a></li></ul></div>
     <div><h4>Contact</h4><ul><li><a href="mailto:info@solyrae.com">info@solyrae.com</a></li><li><a href="https://x.com/SoLyrae_Solana" target="_blank" rel="noopener">X @SoLyrae_Solana</a></li></ul></div>
     <div><h4>Data sources</h4><ul><li>Powered by <a href="https://stakewiz.com" target="_blank" rel="noopener">Stakewiz</a></li><li><a href="https://vx.tools" target="_blank" rel="noopener">Vortex (vx.tools)</a></li><li>IP Geolocation by <a href="https://db-ip.com" target="_blank" rel="noopener">DB-IP</a></li></ul></div>
   </div><p class="disc">Staking involves risk and rewards are not guaranteed. Figures come from public Solana data through third-party services and may differ slightly between sources. Past performance does not predict future results. Nothing here is financial advice. &copy; ${new Date().getFullYear()} SoLyrae.</p></div></footer>`;
@@ -303,7 +303,8 @@ async function pageHome() {
   // every 5 minutes: reload the validator list and redraw the figures on this page
   autoRefresh(5 * 60 * 1000, async () => { if (await refreshList()) { await refreshNet(); await renderHome(true); } });
 }
-const postCard = p => `<a class="post-card" href="${ROOT}blog/${p.slug}.html"><span class="meta">${esc(p.tag)} &middot; ${esc(p.date)}</span><h3>${esc(p.title)}</h3><p>${esc(p.excerpt)}</p></a>`;
+const usDate = iso => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }); // Nov 14, 2026
+const postCard = p => `<a class="post-card" href="${ROOT}blog/${p.slug}.html"><span class="meta">${esc(p.tag)} &middot; ${esc(usDate(p.date))}</span><h3>${esc(p.title)}</h3><p>${esc(p.excerpt)}</p></a>`;
 
 async function pagePerformance() {
   try {

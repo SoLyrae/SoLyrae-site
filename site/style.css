@@ -286,7 +286,9 @@ details p{color:var(--muted);margin-top:10px}
 .drawer .vs{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-left:8px}
 
 footer.bottom{border-top:1px solid var(--line);padding:50px 0 60px;background:var(--panel2)}
-.foot{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px}
+.foot{display:grid;grid-template-columns:1.1fr 1.7fr .9fr 1fr;gap:30px}
+.foot ul.two-col{columns:2;column-gap:28px}
+.foot ul.two-col li{break-inside:avoid}
 footer h4{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;font-weight:500}
 footer li{list-style:none;margin-bottom:8px;font-size:.92rem}
 footer li a:hover{color:var(--accent)}

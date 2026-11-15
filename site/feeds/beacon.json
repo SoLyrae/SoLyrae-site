@@ -860,7 +860,7 @@
    "url": "https://www.anza.xyz/blog/precompile-alignment-bug-root-cause-analysis",
    "title": "[WATCH] Precompile Alignment Bug: Root Cause Analysis",
    "content_text": "Root cause of the ed25519 and secp256r1 precompile bug exposed by Agave's transaction-view option in v2.2. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-15T13:06:59Z",
+   "date_published": "2026-11-15T15:51:59Z",
    "tags": [
     "agave"
    ]
@@ -870,7 +870,7 @@
    "url": "https://www.anza.xyz/blog/web3-js-exploit-root-cause-analysis",
    "title": "[WATCH] web3.js Exploit: Root Cause Analysis",
    "content_text": "How compromised versions of @solana/web3.js reached npm, who was affected, and what changed afterward. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-15T13:06:59Z",
+   "date_published": "2026-11-15T15:51:59Z",
    "tags": [
     "agave"
    ]
@@ -880,7 +880,7 @@
    "url": "https://www.anza.xyz/blog/agave-network-patch-root-cause-analysis",
    "title": "[WATCH] Agave Network Patch: Root Cause Analysis",
    "content_text": "A vulnerability that could crash leaders one by one, how Anza patched it, and how the network upgraded in August 2024. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-15T13:06:59Z",
+   "date_published": "2026-11-15T15:51:59Z",
    "tags": [
     "agave"
    ]
@@ -890,7 +890,7 @@
    "url": "https://www.anza.xyz/blog/securing-solana-against-a-powerful-quantum-adversary",
    "title": "[INFO] Securing Solana Against a Powerful Quantum Adversary",
    "content_text": "What a post-quantum transition means for Solana: where elliptic curves live in the protocol and what replaces them. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-15T13:06:59Z",
+   "date_published": "2026-11-15T15:51:59Z",
    "tags": [
     "agave"
    ]

@@ -248,6 +248,35 @@ def scan_lock(repo, tag):
     return hits
 
 
+def audit_notes(repo, tag):
+    """The client team's own assessment of known advisories: the `--ignore` entries of ci/do-audit.sh at that release,
+    with the reason written above each one (e.g. "# Agave Ok: build-time only ..."). Returns {advisory id: reason}."""
+    raw = fetch(f"https://raw.githubusercontent.com/{repo}/{tag}/ci/do-audit.sh")
+    if not raw:
+        return {}
+    notes, block = {}, []
+    for line in raw.decode("utf-8", "replace").splitlines():
+        s = line.strip()
+        if s.startswith("#"):
+            block.append(s.lstrip("#").strip())
+            continue
+        m = re.search(r"--ignore\s+((?:RUSTSEC|GHSA)-[\w-]+)", s)
+        if m:
+            # keep the free-text explanation; drop the standard header fields cargo-audit prints (Crate, Version, Title...)
+            header = ("Crate:", "Version:", "Title:", "Date:", "ID:", "URL:", "Solution:", "Warning:")
+            reason = []
+            for c in block:
+                if not c or c.startswith(header):
+                    continue
+                reason.append(re.sub(r"^[\w ]+ Ok:\s*", "", c))
+            notes[m.group(1)] = " ".join(reason).strip()
+            block = []
+        elif not s:
+            block = []
+    print(f"  {repo} {tag}: {len(notes)} advisories assessed in ci/do-audit.sh")
+    return notes
+
+
 OSV_CACHE = {}
 def osv(id_):
     if id_ not in OSV_CACHE:
@@ -259,7 +288,9 @@ def osv(id_):
 def dependency_items(clients):
     """clients: {component: (repo, tag, release_url)}"""
     by_adv = {}  # canonical id -> {"clients": set, "crates": set}
+    notes = {}   # component -> {advisory id: the client team's reason for ignoring it}
     for comp, (repo, tag, url) in clients.items():
+        notes[comp] = audit_notes(repo, tag)
         for vid, crates in scan_lock(repo, tag).items():
             d = by_adv.setdefault(vid, {"clients": {}, "crates": set()})
             d["clients"][comp] = tag
@@ -302,14 +333,36 @@ def dependency_items(clients):
                         fixed.add(e["fixed"])
         comps = ["rust"] + sorted(d["clients"])
         pub = parse_dt(v.get("published")) or NOW
-        items.append({
+        action = "Compiled into the release. Watch for a client release that updates this crate." if sev != "info" else "Informational: a dependency of the client, usually no action for operators."
+        # the client teams' own assessment wins: if every release that ships the crate marks the advisory as not applicable,
+        # Beacon shows their reason and lowers the alert to Info
+        ids = {vid, *aliases}
+        assessed = {c: next((notes.get(c, {})[i] for i in ids if i in notes.get(c, {})), None) for c in d["clients"]}
+        assessed = {c: r for c, r in assessed.items() if r is not None}
+        assessment = None
+        if assessed:
+            # we link to the team's own note instead of quoting it, so their reasoning is never paraphrased wrongly
+            teams = " and ".join(COMPONENTS[c] for c in sorted(assessed))
+            repo, tag, _ = clients[sorted(assessed)[0]]
+            assessment = {"by": teams, "url": f"https://github.com/{repo}/blob/{tag}/ci/do-audit.sh"}
+            plural = "s" if len(assessed) > 1 else ""
+            if len(assessed) == len(d["clients"]):
+                sev = "info"
+                action = (f"Already reviewed by the {teams} team{plural}: the release's audit configuration lists this advisory as accepted, "
+                          "with the team's reasoning in ci/do-audit.sh. No action needed.")
+            else:
+                action += f" The {teams} team lists it as accepted in its audit configuration."
+        item = {
             "id": vid, "type": "dependency", "title": title, "summary": trunc(details),
             "components": comps, "level": sev, "cves": cves, "published": iso(pub), "updated": iso(parse_dt(v.get("modified")) or pub),
             "affects": "Used by " + ", ".join(f"{COMPONENTS[c]} {t}" for c, t in sorted(d["clients"].items())) + ": " + ", ".join(sorted(d["crates"])[:4]),
             "fixed": ("Fixed in " + ", ".join(sorted(fixed)[:4])) if fixed else "",
-            "action": "Compiled into the release. Watch for a client release that updates this crate." if sev != "info" else "Informational: a dependency of the client, usually no action for operators.",
+            "action": action,
             "source": {"name": "OSV / RustSec" if vid.startswith("RUSTSEC") else "OSV / GitHub", "url": "https://osv.dev/vulnerability/" + vid},
-        })
+        }
+        if assessment:
+            item["assessment"] = assessment
+        items.append(item)
     return items
 
 

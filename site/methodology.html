@@ -72,9 +72,10 @@ table.m td{white-space:normal;vertical-align:top;line-height:1.5}
 
     <h2 style="margin-top:56px;font-size:1.5rem">Beacon, the security bulletin</h2>
     <ul style="padding-left:20px;line-height:1.9">
-      <li><strong>Sources:</strong> Anza's blog and the Agave, Jito and Firedancer releases; the Rust security database and OSV, matched against the exact list of Rust crates inside the latest Agave and Jito releases; Ubuntu and Debian security notices; the US cyber agency's list of known exploited vulnerabilities (CISA KEV); and FIRST's EPSS score for the likelihood of exploitation.</li>
+      <li><strong>Sources:</strong> Anza's blog and the Agave, Jito and Firedancer releases; the Rust security database and OSV, matched against the exact list of Rust crates inside the latest Agave and Jito releases; Ubuntu and Debian security notices; the US cyber agency's list of known exploited vulnerabilities (CISA KEV); FIRST's EPSS score for the likelihood of exploitation; NVD severity scores; and, for the minimum client version required by the Solana Foundation Delegation Program, Vortex, with a link to the Foundation's published criteria.</li>
+      <li><strong>Client team assessments:</strong> a match between a crate and an advisory is not a confirmed vulnerability in the client. When the Agave or Jito team lists an advisory as ignored in its own audit configuration (ci/do-audit.sh) for that release, Beacon shows the assessment, links to it and lowers the alert to Info.</li>
       <li><strong>Levels:</strong> Critical means the flaw is on the CISA list of exploited vulnerabilities. High means a severe rating or a high chance of exploitation. Watch means worth planning for. Info is context, such as unmaintained crates.</li>
-      <li><strong>Refresh:</strong> the bulletin is rebuilt automatically every few hours. No person edits the alerts, so always confirm in the linked source.</li>
+      <li><strong>Refresh:</strong> the bulletin is rebuilt automatically every three hours, and the Beacon page shows when it was last checked and whether each source could be reached. No person edits the alerts, so always confirm in the linked source.</li>
       <li><strong>Limit:</strong> serious flaws in the clients are handled privately until a fix is out, so Beacon only shows what is already public. It does not replace Anza's private alerts to validators.</li>
     </ul>
 

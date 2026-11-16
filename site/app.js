@@ -600,5 +600,5 @@ document.addEventListener('DOMContentLoaded', () => {
   if (p === 'decentralization') { pageDecentral(); autoRefresh(5 * 60 * 1000, async () => { if (await refreshList() && await refreshNet()) await pageDecentral(); }); }
   if (p === 'calculator') pageCalc();
   if (p === 'compare') pageCompare();
-  if (p === 'stake') pageStake();  if (p === 'blog') $('#all-posts').innerHTML = POSTS.map(postCard).join('');
+  if (p === 'stake') pageStake();  if (p === 'blog' && $('#all-posts')) $('#all-posts').innerHTML = POSTS.map(postCard).join(''); // articles share data-page="blog" but have no list
 });

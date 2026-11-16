@@ -507,6 +507,170 @@ def versions():
     return v, a, j
 
 
+# ---------------------------------------------------------------- source 5: official operator notices
+# Notices sent to operators by the core teams (for example in the Solana validator Discord) are not published in a
+# machine-readable form, so they are added by hand to tools/official_notices.json, always with a link to the original.
+# For every CVE they mention, Beacon follows the patch status on the Ubuntu and Debian trackers automatically.
+NOTICES_FILE = Path(__file__).resolve().parent / "official_notices.json"
+UBUNTU_LTS = {"resolute": "Ubuntu 26.04 LTS", "noble": "Ubuntu 24.04 LTS", "jammy": "Ubuntu 22.04 LTS", "focal": "Ubuntu 20.04 LTS"}
+DEBIAN_REL = {"trixie": "Debian 13", "bookworm": "Debian 12"}
+
+
+def ubuntu_patch(cve):
+    j = get_json(f"https://ubuntu.com/security/cves/{cve}.json")
+    out = []
+    for p in (j or {}).get("packages", []):
+        if p.get("name") != "linux":
+            continue
+        st = {s["release_codename"]: s for s in p.get("statuses", [])}
+        for code, label in UBUNTU_LTS.items():
+            s = st.get(code)
+            if not s or s.get("status") == "DNE":
+                continue
+            status = s.get("status")
+            if status == "released":
+                out.append({"distro": label, "status": "fixed", "detail": f"Fixed in linux {s.get('description', '')}".strip()})
+            elif status == "not-affected":
+                out.append({"distro": label, "status": "not-affected", "detail": "Not affected"})
+            elif status == "ignored":
+                out.append({"distro": label, "status": "no-fix", "detail": "No fix planned" + (f" ({s['description']})" if s.get("description") else "")})
+            else:
+                out.append({"distro": label, "status": "pending", "detail": "Fix not released yet"})
+    return out
+
+
+def debian_patch(cve):
+    raw = fetch(f"https://security-tracker.debian.org/tracker/{cve}")
+    if not raw:
+        return []
+    page = raw.decode("utf-8", "replace")
+    part = page.split("Vulnerable and fixed packages", 1)[-1].split("</table>", 1)[0]
+    rel = {}
+    for row in re.findall(r"<tr>(.*?)</tr>", part, re.S):
+        cells = [text(c) for c in re.findall(r"<td[^>]*>(.*?)</td>", row, re.S)]
+        if len(cells) < 4:
+            continue
+        base = cells[1].replace("(security)", "").strip()
+        if base in DEBIAN_REL:
+            if cells[3] == "fixed":
+                rel[base] = ("fixed", cells[2])
+            else:
+                rel.setdefault(base, ("pending", cells[2]))
+    return [{"distro": DEBIAN_REL[b], "status": s, "detail": (f"Fixed in linux {v}" if s == "fixed" else "Fix not released yet")}
+            for b, (s, v) in sorted(rel.items(), key=lambda x: x[0] != "trixie")]
+
+
+# ---------------------------------------------------------------- source 6: Linux kernel CVEs that touch what a validator exposes
+# The kernel publishes hundreds of CVEs a month (848 in the 30 days to Nov 16, 2026), most for hardware or features a
+# validator does not use, and NVD often scores them weeks later. Beacon keeps only those in the parts a validator exposes
+# to the internet (TCP/UDP/IP, core networking, XDP used by Firedancer, and the network cards common in servers) whose
+# description points to a crash or memory-safety bug. It is a filter, so it can miss or over-include: the method page says so.
+KERNEL_DAYS = 45
+KERNEL_PART = re.compile(r"^(tcp|udp|inet|inet6|ipv4|ipv6|ip|ip6|net: (core|skbuff|sock|gro|gso|dev|tcp|udp|ipv4|ipv6)|xdp|xsk|af_xdp|"
+                         r"net/mlx5e?|mlx5e?|net: mlx5e?|ice|net: ice|i40e|bnxt|bnxt_en|net: bnxt)\b", re.I)
+KERNEL_SKIP = re.compile(r"\b(sr|seg6|ipsec|xfrm|tunnel|gre|vxlan|bridge|openvswitch|sched|smc|rds|mptcp|bluetooth|wifi|sctp|tipc|nfc|can)\b", re.I)
+KERNEL_BUG = re.compile(r"use-after-free|\bUAF\b|NULL pointer|null-ptr|out-of-bounds|\bOOB\b|overflow|panic|crash|double free|memory corruption|underflow", re.I)
+
+
+def kernel_items():
+    if not NVD_KEY:
+        log("NVD Linux kernel CVEs (network filter)", "https://nvd.nist.gov/", False, 0)
+        return []
+    end = NOW
+    start = end - timedelta(days=KERNEL_DAYS)
+    fmt = "%Y-%m-%dT%H:%M:%S.000"
+    vulns, idx, ok = [], 0, True
+    while True:
+        j = get_json("https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=Linux%20kernel"
+                     f"&pubStartDate={start.strftime(fmt)}&pubEndDate={end.strftime(fmt)}&resultsPerPage=2000&startIndex={idx}",
+                     headers={"apiKey": NVD_KEY})
+        if not j:
+            ok = False
+            break
+        vulns += j.get("vulnerabilities", [])
+        idx += len(j.get("vulnerabilities", []))
+        if idx >= j.get("totalResults", 0) or not j.get("vulnerabilities"):
+            break
+        time.sleep(1)
+    out = []
+    for v in vulns:
+        c = v["cve"]
+        desc = next((d["value"] for d in c.get("descriptions", []) if d.get("lang") == "en"), "")
+        if not desc.startswith("In the Linux kernel"):
+            continue
+        m = re.search(r"resolved:\s*\n\s*\n?\s*([^\n]+)", desc)
+        head = (m.group(1) if m else "").strip()
+        if not KERNEL_PART.match(head) or KERNEL_SKIP.search(head) or not KERNEL_BUG.search(desc):
+            continue
+        score = None
+        for k in ("cvssMetricV31", "cvssMetricV40", "cvssMetricV30"):
+            if k in c.get("metrics", {}):
+                score = c["metrics"][k][0]["cvssData"]["baseScore"]
+                break
+        NVD[c["id"]] = score
+        body = desc.split(head, 1)[-1].strip()
+        part = head.split(":")[0].strip()
+        nic = re.match(r"(net/)?(mlx5e?|ice|i40e|bnxt)", part, re.I) or "net: mlx5" in head.lower() or "net: ice" in head.lower() or "net: bnxt" in head.lower()
+        patch = ubuntu_patch(c["id"]) + debian_patch(c["id"])
+        fixed = [p["distro"] for p in patch if p["status"] == "fixed"]
+        out.append({
+            "id": c["id"], "type": "kernel", "title": "Linux kernel: " + head, "summary": trunc(body),
+            "components": ["kernel"], "level": "watch", "cves": [c["id"]],
+            "published": iso(parse_dt(c.get("published", "")[:19] + "Z") or NOW), "updated": iso(parse_dt(c.get("lastModified", "")[:19] + "Z") or NOW),
+            "affects": "Linux kernel, " + ("network card driver" if nic else "network stack") + f" ({part})",
+            "fixed": ("Fixed kernels available for " + ", ".join(fixed) + ".") if fixed else "",
+            "action": "Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+            "note": "Selected automatically because it affects a part of the kernel that validators expose to the network. It may not affect every setup; confirm in the linked source.",
+            "source": {"name": "NVD (Linux kernel CVE)", "url": f"https://nvd.nist.gov/vuln/detail/{c['id']}"},
+            "patch": patch, "kernelWatch": True, **({"cvss": score} if score else {}),
+        })
+        time.sleep(0.2)
+    log("NVD Linux kernel CVEs (network filter)", "https://nvd.nist.gov/", ok, len(out))
+    return out
+
+
+def notice_items():
+    try:
+        notices = json.loads(NOTICES_FILE.read_text(encoding="utf-8"))
+    except Exception as e:
+        print("  official notices not read:", e, file=sys.stderr)
+        notices = []
+    out = []
+    for n in notices:
+        patch = []
+        for cve in n.get("cves", []):
+            patch += ubuntu_patch(cve) + debian_patch(cve)
+        fixed = [p["distro"] for p in patch if p["status"] == "fixed"]
+        pending = [p["distro"] for p in patch if p["status"] == "pending"]
+        fix_txt = ""
+        if patch:
+            fix_txt = ("Patched kernels available for " + ", ".join(fixed) + "." if fixed else "") + \
+                      (" Not yet released for " + ", ".join(pending) + "." if pending else "")
+        out.append({
+            "id": n["id"], "type": "notice", "title": n["title"], "summary": n.get("summary", ""),
+            "components": n.get("components", ["kernel"]), "level": "critical", "cves": n.get("cves", []),
+            "published": iso(parse_dt(n.get("published")) or NOW), "updated": iso(NOW),
+            "affects": n.get("affects", ""), "fixed": fix_txt.strip(), "action": n.get("action", ""),
+            "source": n["source"], "official": True, "patch": patch,
+        })
+    log("Official operator notices", "https://www.solyrae.com/methodology.html", True, len(out))
+    return out
+
+
+def link_notices(items):
+    """Distribution updates that fix a CVE named in an official notice become critical and say so."""
+    flagged = {c: i["title"] for i in items if i["type"] == "notice" for c in i.get("cves", [])}
+    # a kernel CVE that already has an official notice is shown once, as the notice
+    items = [it for it in items if not (it["type"] == "kernel" and set(it.get("cves", [])) & set(flagged))]
+    for it in items:
+        if it["type"] in ("ubuntu", "debian"):
+            hit = sorted(set(it.get("cves", [])) & set(flagged))
+            if hit:
+                it["level"] = "critical"
+                it["action"] = it["action"] + f" This update fixes {', '.join(hit)}, which an official operator notice asks validators to patch urgently."
+    return items
+
+
 # ---------------------------------------------------------------- scoring and output
 def finish(items):
     cves = [c for i in items for c in i.get("cves", [])]
@@ -521,6 +685,10 @@ def finish(items):
             it["epss"] = round(eps, 4)
             if eps >= 0.1:
                 it["level"] = bump(it["level"], "high")
+        if it["type"] == "kernel" and it.get("cvss"):
+            lv = level_from_cvss(it["cvss"])
+            if lv and LEVELS.index(lv) < LEVELS.index(it["level"]):
+                it["level"] = lv
         if NVD_KEY and it["type"] in ("ubuntu", "debian") and it.get("cves"):
             sc = max([nvd_score(c) or 0 for c in it["cves"][:6]] or [0])
             if sc:
@@ -576,18 +744,20 @@ def main():
     items = dependency_items(clients)
     log("OSV scan of client dependencies", "https://osv.dev", bool(clients), len(items))
     fresh_os = ubuntu_items() + debian_items()
-    items += kev_items() + anza_items()
+    items += kev_items() + anza_items() + notice_items()
+    fresh_os += kernel_items()
 
-    # Ubuntu and Debian feeds only show the latest entries, so keep what we already collected (last 400 days)
+    # Ubuntu and Debian feeds only show the latest entries, and the kernel query covers 45 days,
+    # so keep what we already collected (last 400 days)
     cutoff = NOW - timedelta(days=400)
     seen = {i["id"] for i in fresh_os}
     for i in prev.values():
-        if i["type"] in ("ubuntu", "debian") and i["id"] not in seen:
+        if i["type"] in ("ubuntu", "debian", "kernel") and i["id"] not in seen:
             d = parse_dt(i.get("published"))
             if d and d >= cutoff:
                 fresh_os.append(i)
     items += fresh_os
-    items = finish(items)
+    items = link_notices(finish(items))
     for i in items:
         i["title"], i["summary"] = plain(i["title"]), plain(i["summary"])
     if NVD_KEY:

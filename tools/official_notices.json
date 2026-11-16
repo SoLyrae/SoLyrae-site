@@ -1,0 +1,16 @@
+[
+  {
+    "id": "NOTICE-2026-11-16-NOISYTCP",
+    "published": "2026-11-16T12:00:00Z",
+    "title": "Linux kernel vulnerability CVE-2026-99288 (NoisyTCP) requires immediate operator action",
+    "cves": ["CVE-2026-99288"],
+    "components": ["kernel", "agave", "jito", "firedancer"],
+    "affects": "All Agave and Firedancer nodes, staked or unstaked",
+    "summary": "An official notice to Solana validator operators asks for immediate action on CVE-2026-99288 (NoisyTCP), a flaw in how the Linux kernel looks up established TCP connections that can crash the server.",
+    "action": "Upgrade to a patched kernel as soon as your distribution ships one, and check its security advisory to confirm whether your running kernel is affected. If no patched kernel is available yet, disable SYN cookies as a temporary measure, following the operator instructions (no validator restart is needed), and restore the previous setting once a patched kernel is booted.",
+    "source": {
+      "name": "Solana Foundation notice, Solana Tech Discord #mb-announcements",
+      "url": "https://docs.google.com/document/d/e/2PACX-1vTMvUdimUtfFtP2yu-fUQFwNIWZ_VITujSH1sbrGJpAG0rhjD7JQ8T21hpla85fySLy6wVjGCZ1rafm/pub"
+    }
+  }
+]

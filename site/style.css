@@ -301,6 +301,7 @@ footer li a:hover{color:var(--accent)}
   .strip{grid-template-columns:repeat(2,1fr)}
   .strip>div:nth-child(2){border-right:0}
   .strip>div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .strip .lbl{min-height:3.4em;display:flex;align-items:flex-end} /* labels may wrap to two lines: keep the numbers on one baseline */
   .grid-6{grid-template-columns:repeat(2,1fr)}
   .grid-6>div:nth-child(3n){border-right:1px solid var(--line)}
   .grid-6>div:nth-child(2n){border-right:0}

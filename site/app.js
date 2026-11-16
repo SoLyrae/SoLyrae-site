@@ -282,6 +282,7 @@ async function renderHome(refresh = false) {
     $('#bars-org').innerHTML = barsHtml(N.byProv); $('#bars-country').innerHTML = barsHtml(N.byCountry); $('#bars-client').innerHTML = barsHtml(N.byClient);
     $$('#bars-org,#bars-country,#bars-client').forEach(e => { e.classList.remove('sk'); e.style.minHeight = ''; });
     set('nak_org', num(nakamoto(N.byProv.map(g => g.stake), N.total))); set('nak_country', num(nakamoto(N.byCountry.map(g => g.stake), N.total)));
+    set('nak_client', num(nakamoto(N.byClient.map(g => g.stake), N.total)));
   }).catch(e => { console.warn(e); if (!refresh) { set('n_nak', 'N/A'); apiError('#bars-org,#bars-country,#bars-client', 'Network data'); } });
   getHistory(5).then(h => $('#hist-wrap').innerHTML = historyTable(h)).catch(() => { if (!refresh) apiError('#hist-wrap', 'Epoch history'); });
 }

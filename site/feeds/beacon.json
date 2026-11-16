@@ -5,6 +5,19 @@
  "feed_url": "https://www.solyrae.com/feeds/beacon.json",
  "items": [
   {
+   "id": "NOTICE-2026-11-16-NOISYTCP",
+   "url": "https://docs.google.com/document/d/e/2PACX-1vTMvUdimUtfFtP2yu-fUQFwNIWZ_VITujSH1sbrGJpAG0rhjD7JQ8T21hpla85fySLy6wVjGCZ1rafm/pub",
+   "title": "[CRITICAL] Linux kernel vulnerability CVE-2026-99288 (NoisyTCP) requires immediate operator action",
+   "content_text": "An official notice to Solana validator operators asks for immediate action on CVE-2026-99288 (NoisyTCP), a flaw in how the Linux kernel looks up established TCP connections that can crash the server. All Agave and Firedancer nodes, staked or unstaked. Upgrade to a patched kernel as soon as your distribution ships one, and check its security advisory to confirm whether your running kernel is affected. If no patched kernel is available yet, disable SYN cookies as a temporary measure, following the operator instructions (no validator restart is needed), and restore the previous setting once a patched kernel is booted.",
+   "date_published": "2026-11-16T12:00:00Z",
+   "tags": [
+    "kernel",
+    "agave",
+    "jito",
+    "firedancer"
+   ]
+  },
+  {
    "id": "USN-9027-2",
    "url": "https://ubuntu.com/security/notices/USN-9027-2",
    "title": "[CRITICAL] Linux kernel (FIPS) vulnerabilities",
@@ -34,6 +47,26 @@
    "date_published": "2026-11-13T00:00:00Z",
    "tags": [
     "debian",
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-98432",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98432",
+   "title": "[CRITICAL] Linux kernel: ipv4: free inet_opt and ireq_opt after an RCU grace period",
+   "content_text": "tcp_v4_syn_recv_sock() transfers ownership of ireq->ireq_opt to the child socket (newinet->inet_opt) without copying it. Another cpu can concurrently process a retransmitted SYN for the same request socket, and send a SYNACK from tcp_check_req(). tcp_v4_send_synack() and inet_csk_route_req() read ireq->ireq_opt under rcu_read_lock() only, and ip_build_and_send_pkt() and ip_options_build() then read opt->optlen… Linux kernel, network stack (ipv4). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-15T13:17:13Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-99270",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99270",
+   "title": "[HIGH] Linux kernel: tcp: Fix potential UAF in reqsk_timer_handler().",
+   "content_text": "When TCP socket migration fails at inet_ehash_insert() in reqsk_timer_handler(), we jump to the no_ownership: label and free the new reqsk immediately with reqsk_free(). Thus, we must stop the new reqsk's timer before jumping to the label, but the timer might be missed since the cited commit, resulting in UAF. As we are in the original reqsk's timer context, we can safely call timer_delete_sync() for the new… Linux kernel, network stack (tcp). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-11-03T13:17:24Z",
+   "tags": [
     "kernel"
    ]
   },
@@ -110,6 +143,46 @@
    "date_published": "2026-11-02T00:00:00Z",
    "tags": [
     "debian",
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-99138",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99138",
+   "title": "[WATCH] Linux kernel: tcp: fix use-after-free in do_tcp_getsockopt(TCP_CC_INFO)",
+   "content_text": "do_tcp_getsockopt() reads icsk->icsk_ca_ops and dereferences the get_info function pointer without rcu_read_lock(). With BPF struct_ops congestion control, ca_ops can point to dynamically allocated memory that is freed concurrently, resulting in a use-after-free when the kernel dereferences or calls through the stale pointer. BUG: KASAN: slab-use-after-free in do_tcp_getsockopt+0x2037/0x23e0 Read of size 8 at… Linux kernel, network stack (tcp). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-28T11:17:33Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-99139",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99139",
+   "title": "[WATCH] Linux kernel: tcp: fix use-after-free in do_tcp_getsockopt(TCP_CONGESTION)",
+   "content_text": "do_tcp_getsockopt() reads icsk->icsk_ca_ops->name without holding rcu_read_lock(). Since commit 0baf26b0fcd7 (\"bpf: tcp: Support tcp_congestion_ops in bpf\"), icsk_ca_ops can point to dynamically allocated BPF struct_ops memory that may be freed concurrently via setsockopt(TCP_CONGESTION), leading to a use-after-free. BUG: KASAN: slab-use-after-free in _copy_to_user+0x37/0x60 Read of size 16 at addr… Linux kernel, network stack (tcp). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-28T11:17:33Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-99081",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99081",
+   "title": "[HIGH] Linux kernel: bnxt_en: fix DMA mapping length for padded small packets",
+   "content_text": "Stefan Fleischmann reported Intel IOMMU DMA Read faults on BCM57412 NetXtreme-E NICs when transmitting packets on VLAN/macvlan interfaces: DMAR: [DMA Read NO_PASID] Request device [18:00.0] fault addr 0xfc499000 [fault reason 0x06] PTE Read access is not set bnxt_en 0000:18:00.0 eno1np0: Abandoning msg {0xb4 0x41a} len: 0 due to firmware status: 0x2000001 ... NETDEV WATCHDOG: eno1np0 (bnxt_en)… Linux kernel, network card driver (bnxt_en). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-23T13:17:32Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-99074",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99074",
+   "title": "[WATCH] Linux kernel: ipv4: stop PMTU walk when nexthop group shrinks",
+   "content_text": "Commit 7d3f3b4367f3 (\"net: ipv4: Cache pmtu for all packet paths if multipath enabled\") made ip_rt_update_pmtu() update every path. For nexthop objects, fib_info_num_path() and fib_info_nhc() independently load nh->nh_grp. RCU protects each group's lifetime but does not make the loads observe the same group. If replacement shrinks the group after the loop accepts an index, fib_info_nhc() returns NULL and… Linux kernel, network stack (ipv4). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-23T13:17:31Z",
+   "tags": [
     "kernel"
    ]
   },
@@ -204,6 +277,56 @@
    ]
   },
   {
+   "id": "CVE-2026-98965",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98965",
+   "title": "[HIGH] Linux kernel: ice: Restore Ordered MMIO Writes for Tx Doorbells",
+   "content_text": "The DQL accounting state which tracks the number of bytes queued for the NIC to transmit, namely dql->num_queued, is updated by the ICE driver when it invokes netdev_tx_sent_queue(). Subsequently the driver updates the hardware queue tail allowing the NIC to begin processing the work queue. The queue accounting update should be ordered before the NIC begins transmitting descriptors. The transmit path currently… Linux kernel, network card driver (ice). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-23T13:17:17Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-98532",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98532",
+   "title": "[HIGH] Linux kernel: ipv6: do not let ipv6_find_hdr() return an offset past the packet end",
+   "content_text": "ipv6_find_hdr() walks the extension header chain, skipping each header by the length that header itself declares. ipv6_optlen() returns up to 2048, and the skip is never checked against skb->len, so the offset stored in *offset can point past the end of the packet. openvswitch installs that offset as the transport header, and update_ipv6_checksum() then reads and writes the transport checksum field out of… Linux kernel, network stack (ipv6). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-18T16:17:04Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-98374",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98374",
+   "title": "[HIGH] Linux kernel: tcp: fix use-after-free of retransmit_skb_hint in tcp_send_synack()",
+   "content_text": "When tcp_send_synack() replaces the cloned SYN skb at the head of the retransmit queue with a copy, it frees the original with tcp_rtx_queue_unlink_and_free() and only repairs tp->highest_sack. tp->retransmit_skb_hint keeps pointing at the freed skbuff_fclone_cache object. The dangling hint is read in tcp_verify_retransmit_hint() and used as the root of the rbtree walk in tcp_xmit_retransmit_queue(). … Linux kernel, network stack (tcp). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-07T13:17:23Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-99055",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99055",
+   "title": "[WATCH] Linux kernel: tcp: reject net_iov in zerocopy receive mapping hints",
+   "content_text": "After copying a readable prefix, receive_fallback_to_copy() asks tcp_zerocopy_set_hint_for_skb() where page mapping can resume. If the next skb is unreadable, find_next_mappable_frag() passes its net_iov fragment to can_map_frag(). skb_frag_page() returns NULL for a net_iov, but can_map_frag() dereferences it in PageCompound(). A v7.2 KASAN run on a connected TCP socket with 64 readable bytes followed by a… Linux kernel, network stack (tcp). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-23T13:17:29Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-99044",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99044",
+   "title": "[WATCH] Linux kernel: ice: fix use-after-free in dynamic port cleanup",
+   "content_text": "ice_dealloc_dynamic_port() uses dyn_port->vsi->idx to erase the dynamic port from pf->dyn_ports. However, it frees the VSI before reading the index for the erase, resulting in a use-after-free. Follow the reverse of the allocation order in ice_alloc_dynamic_port() by erasing the xarray entry before freeing the VSI. Linux kernel, network card driver (ice). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-23T13:17:27Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
    "id": "RUSTSEC-2026-0387",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0387",
    "title": "[INFO] Multiple timing variability issues in operations intended to be constant-time",
@@ -247,6 +370,46 @@
    "tags": [
     "rust",
     "agave"
+   ]
+  },
+  {
+   "id": "CVE-2026-98807",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98807",
+   "title": "[WATCH] Linux kernel: net/mlx5: Fix slab-out-of-bounds when handling team device events",
+   "content_text": "The mlx5_handle_changeupper_event() and mlx5_handle_changeinfodata_event() functions check for LAG masters (which includes both bonding and team devices) but only call bonding-specific APIs. When processing team device events, calling bond_slave_get_rcu() and bond_is_slave_inactive() on team_port structures causes KASAN to detect an out-of-bounds memory access since team_port is smaller than bond slave. Fix this by… Linux kernel, network card driver (net/mlx5). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-18T16:17:34Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-98573",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98573",
+   "title": "[WATCH] Linux kernel: net: skbuff: fix pull-bound underflow in skb_checksum_setup_ipv6()",
+   "content_text": "skb_maybe_pull_tail() subtracts skb_headlen(skb) from the unsigned max argument and passes the result to pskb_pull_tail() as a signed int. The function does not ensure that max is at least skb_headlen(skb). This can happen while parsing IPv6 extension headers when an skb already has a linear area larger than MAX_IPV6_HDR_LEN. Once the parser needs data beyond the linear area, max - skb_headlen(skb) wraps and is… Linux kernel, network stack (net). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-18T16:17:09Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-98393",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98393",
+   "title": "[WATCH] Linux kernel: net: ipv4: Fix UDP length overflow with PMTU discover and big MTU",
+   "content_text": "This commit bounds cork->base.fragsize to IP_MAX_MTU to avoid a possible overflow of UDP length that triggers a WARN in udp_set_len_short when setsockopt IP_MTU_DISCOVER is set to IP_PMTUDISC_PROBE, and a large packet is sent over a netdev with an unusually large MTU. Steps to reproduce: 1. Set device MTU bigger than IP_MAX_MTU + 20. cork->base.fragsize will be set to that MTU in ip_setup_cork. 2. Set… Linux kernel, network stack (net). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-14T14:17:50Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-98299",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98299",
+   "title": "[WATCH] Linux kernel: tcp: do not let tcp_rmem be set below 4096",
+   "content_text": "We can hit a division by zero crash in tcp_rcvbuf_grow() and tcp_rcv_space_adjust(): divide error: 0000 [#1] PREEMPT SMP RIP: 0010:tcp_rcvbuf_grow+0x187/0x450 net/ipv4/tcp_input.c:939 ... grow = div_u64(((u64)rcvwin << 1) * (newval - oldval), oldval); The division uses oldval = tp->rcvq_space.space as divisor. When tp->rcvq_space.space is zero, this leads to a divide-by-zero exception. tp->rcvq_space.space is… Linux kernel, network stack (tcp). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-10-06T09:18:20Z",
+   "tags": [
+    "kernel"
    ]
   },
   {
@@ -735,164 +898,6 @@
     "rust",
     "agave",
     "jito"
-   ]
-  },
-  {
-   "id": "ANZA-january-2026-gossip-and-vote-processing-security-patch-summa",
-   "url": "https://www.anza.xyz/blog/january-2026-gossip-and-vote-processing-security-patch-summary",
-   "title": "[WATCH] January 2026: Gossip and Vote Processing Security Patch Summary",
-   "content_text": "Two critical potential security vulnerabilities were responsibly disclosed to Anza via GitHub security advisories in December 2025. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-01-01T00:00:00Z",
-   "tags": [
-    "agave"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2024-0344",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2024-0344",
-   "title": "[INFO] Timing variability in curve25519-dalek's Scalar29::sub/Scalar52::sub",
-   "content_text": "Timing variability of any kind is problematic when working with potentially secret values such as elliptic curve scalars, and such issues can potentially leak private keys and other secrets. Such a problem was recently discovered in curve25519-dalek. The Scalar29::sub (32-bit) and Scalar52::sub (64-bit) functions contained usage of a mask value inside a loop where LLVM saw an opportunity to insert a branch… Used by Agave v4.4.1, Jito v4.4.1-jito: curve25519-dalek 3.2.0. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
-   "date_published": "2024-06-18T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2024-0421",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2024-0421",
-   "title": "[INFO] idna accepts Punycode labels that do not produce any non-ASCII when decoded",
-   "content_text": "idna 0.5.0 and earlier accepts Punycode labels that do not produce any non-ASCII output, which means that either ASCII labels or the empty root label can be masked such that they appear unequal without IDNA processing or when processed with a different implementation and equal when processed with idna 0.5.0 or earlier. Concretely, example.org and xn--example-.org become equal after processing by idna 0.5.0… Used by Agave v4.4.1, Jito v4.4.1-jito: idna 0.1.5. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
-   "date_published": "2024-12-09T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2022-0093",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2022-0093",
-   "title": "[INFO] Double Public Key Signing Function Oracle Attack on ed25519-dalek",
-   "content_text": "Versions of ed25519-dalek prior to v2.0 model private and public keys as separate types which can be assembled into a Keypair, and also provide APIs for serializing and deserializing 64-byte private/public keypairs. Such APIs and serializations are inherently unsafe as the public key is one of the inputs used in the deterministic computation of the S part of the signature, but not in the R value. An… Used by Agave v4.4.1, Jito v4.4.1-jito: ed25519-dalek 1.0.1. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
-   "date_published": "2022-06-11T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "GHSA-h97m-ww89-6jmq",
-   "url": "https://osv.dev/vulnerability/GHSA-h97m-ww89-6jmq",
-   "title": "[INFO] idna accepts Punycode labels that do not produce any non-ASCII when decoded",
-   "content_text": "idna 0.5.0 and earlier accepts Punycode labels that do not produce any non-ASCII output, which means that either ASCII labels or the empty root label can be masked such that they appear unequal without IDNA processing or when processed with a different implementation and equal when processed with idna 0.5.0 or earlier. Concretely, example.org and xn--example-.org become equal after processing by idna 0.5.0… Used by Agave v4.4.1, Jito v4.4.1-jito: idna 0.1.5. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
-   "date_published": "2024-12-09T20:41:10Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2024-0384",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2024-0384",
-   "title": "[INFO] instant is unmaintained",
-   "content_text": "This crate is no longer maintained, and the author recommends using the maintained [web-time] crate instead. [web-time]: https://crates.io/crates/web-time Used by Agave v4.4.1, Jito v4.4.1-jito: instant 0.1.12. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2024-09-01T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "GHSA-x4gp-pqpj-f43q",
-   "url": "https://osv.dev/vulnerability/GHSA-x4gp-pqpj-f43q",
-   "title": "[INFO] curve25519-dalek has timing variability in curve25519-dalek's Scalar29::sub/Scalar52::sub",
-   "content_text": "Timing variability of any kind is problematic when working with potentially secret values such as elliptic curve scalars, and such issues can potentially leak private keys and other secrets. Such a problem was recently discovered in curve25519-dalek. The Scalar29::sub (32-bit) and Scalar52::sub (64-bit) functions contained usage of a mask value inside a loop where LLVM saw an opportunity to insert a branch… Used by Agave v4.4.1, Jito v4.4.1-jito: curve25519-dalek 3.2.0. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
-   "date_published": "2024-06-18T21:56:24Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2024-0449",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2024-0449",
-   "title": "[INFO] unsafe-libyaml is unmaintained",
-   "content_text": "The repository was archived by its owner on 2024-03-25 and is read-only. The last release is 0.2.11 (March 2024). unsafe-libyaml is a machine translation of libyaml's C code into unsafe Rust (c2rust). Bugs found in it will not be fixed upstream. It is used by serde_yaml (itself deprecated) and by forks such as serde_yaml_ng. ## Alternatives Consider a YAML parser… Used by Agave v4.4.1, Jito v4.4.1-jito: unsafe-libyaml 0.2.11. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2024-03-25T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2023-0126",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2023-0126",
-   "title": "[INFO] Aliasing violation in OrdSet insertion",
-   "content_text": "Inserting into an im::OrdSet (for example by collecting an iterator into one) can violate Rust's aliasing rules: Miri reports a stacked borrows violation in sized_chunks::Chunk::force_copy(), which is called during insertion, where a shared borrow is invalidated by a unique borrow before the read through it completes. This is undefined behavior, reachable from safe code. No fixed version is available, as the… Used by Agave v4.4.1, Jito v4.4.1-jito: im 15.1.0. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2023-02-04T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2020-0016",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2020-0016",
-   "title": "[WATCH] net2 crate has been deprecated; use socket2 instead",
-   "content_text": "The net2 crate has been deprecated and users are encouraged to considered socket2 instead. Used by Agave v4.4.1, Jito v4.4.1-jito: net2 0.2.37. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2020-05-01T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "ANZA-precompile-alignment-bug-root-cause-analysis",
-   "url": "https://www.anza.xyz/blog/precompile-alignment-bug-root-cause-analysis",
-   "title": "[WATCH] Precompile Alignment Bug: Root Cause Analysis",
-   "content_text": "Root cause of the ed25519 and secp256r1 precompile bug exposed by Agave's transaction-view option in v2.2. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-16T15:20:24Z",
-   "tags": [
-    "agave"
-   ]
-  },
-  {
-   "id": "ANZA-web3-js-exploit-root-cause-analysis",
-   "url": "https://www.anza.xyz/blog/web3-js-exploit-root-cause-analysis",
-   "title": "[WATCH] web3.js Exploit: Root Cause Analysis",
-   "content_text": "How compromised versions of @solana/web3.js reached npm, who was affected, and what changed afterward. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-16T15:20:24Z",
-   "tags": [
-    "agave"
-   ]
-  },
-  {
-   "id": "ANZA-agave-network-patch-root-cause-analysis",
-   "url": "https://www.anza.xyz/blog/agave-network-patch-root-cause-analysis",
-   "title": "[WATCH] Agave Network Patch: Root Cause Analysis",
-   "content_text": "A vulnerability that could crash leaders one by one, how Anza patched it, and how the network upgraded in August 2024. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-16T15:20:24Z",
-   "tags": [
-    "agave"
-   ]
-  },
-  {
-   "id": "ANZA-securing-solana-against-a-powerful-quantum-adversary",
-   "url": "https://www.anza.xyz/blog/securing-solana-against-a-powerful-quantum-adversary",
-   "title": "[INFO] Securing Solana Against a Powerful Quantum Adversary",
-   "content_text": "What a post-quantum transition means for Solana: where elliptic curves live in the protocol and what replaces them. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-16T15:20:24Z",
-   "tags": [
-    "agave"
    ]
   }
  ]

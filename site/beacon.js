@@ -62,7 +62,7 @@ function bcRender() {
   const list = bcFiltered();
   $('#bc-count').textContent = `Showing ${Math.min(bst.shown, list.length)} of ${list.length} alerts`;
   $('#bc-list').innerHTML = list.length ? list.slice(0, bst.shown).map(bcCard).join('') : '<p class="note">No alerts match these filters.</p>';
-  const more = $('#bc-more'); more.hidden = list.length <= bst.shown;
+  const more = $('#bc-more'); more.hidden = list.length <= bst.shown; more.style.display = more.hidden ? 'none' : ''; // .btn sets display, so [hidden] alone is not enough
 }
 
 function bcControls() {

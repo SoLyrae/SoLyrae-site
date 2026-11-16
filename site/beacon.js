@@ -47,14 +47,15 @@ function bcFiltered() {
 
 function bcCard(i) {
   const flags = [i.kev ? '<span class="bc-flag hot">Exploited in the wild</span>' : '', i.epss != null && i.epss >= 0.01 ? `<span class="bc-flag" title="Chance of exploitation in the next 30 days">EPSS ${Math.round(i.epss * 100)}%</span>` : '',
-    i.cvss ? `<span class="bc-flag">CVSS ${i.cvss}</span>` : ''].join('');
+    i.cvss ? `<span class="bc-flag">CVSS ${i.cvss}</span>` : '',
+    i.assessment ? `<span class="bc-flag" title="The client team has reviewed this advisory">Reviewed by ${esc(i.assessment.by)}</span>` : ''].join('');
   const ids = [i.id, ...(i.cves || []).filter(c => c !== i.id)].slice(0, 4).map(esc).join(' &middot; ');
   const rows = [['Affects', i.affects], ['Fix', i.fixed], ['What to do', i.action]].filter(r => r[1]).map(r => `<b>${r[0]}</b><span>${esc(r[1])}</span>`).join('');
   return `<article class="bc-card lv-${i.level}"><div class="bc-top"><span class="bc-badge">${i.level}</span>${flags}<span class="bc-date">${esc(bcDate(i))}</span></div>
     <h3>${esc(i.title)}</h3><p class="s">${esc(i.summary)}</p>
     <div class="bc-comp">${i.components.map(c => `<span>${esc(BC.components[c] || c)}</span>`).join('')}</div>
     <div class="bc-rows">${rows}</div>
-    <div class="bc-foot"><a href="${esc(i.source.url)}" target="_blank" rel="noopener">Source: ${esc(i.source.name)}</a><span>${ids}</span></div></article>`;
+    <div class="bc-foot"><a href="${esc(i.source.url)}" target="_blank" rel="noopener">Source: ${esc(i.source.name)}</a>${i.assessment ? `<a href="${esc(i.assessment.url)}" target="_blank" rel="noopener">${esc(i.assessment.by)} assessment</a>` : ''}<span>${ids}</span></div></article>`;
 }
 
 function bcRender() {

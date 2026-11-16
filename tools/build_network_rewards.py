@@ -68,7 +68,10 @@ def one(rec, epoch):
             print(f"  {done_count} validators done", flush=True)
     if infl is None:
         # no earnings record for the epoch: if the leaderboard also shows no rewards, the validator earned nothing for its stakers
-        if rec.get("rewards", {}).get("totalLamports", 0) > 0:
+        rw = rec.get("rewards")
+        if rw is None:  # the leaderboard has no reward data for this validator yet: skip it rather than count a false zero
+            return None
+        if (rw.get("totalLamports") or 0) > 0:
             return None
         infl = 0
     return {"vote": vote, "stake": stake, "infl": infl / stake * 1000, "tips": (tips or 0) / stake * 1000}

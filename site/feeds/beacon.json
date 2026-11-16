@@ -195,7 +195,7 @@
    "id": "RUSTSEC-2026-0486",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0486",
    "title": "[WATCH] xattr functions mark unwritten bytes as initialized when given a zero-length buffer",
-   "content_text": "The extended-attribute functions in rustix::fs (getxattr, lgetxattr, fgetxattr, listxattr, llistxattr and flistxattr) write into a Buffer and then mark as many bytes initialized as the system call reported. When the buffer has zero length, the operating system treats the call as a size query: it writes nothing and returns the size of the attribute value or of the name list. rustix still marked that… Used by Agave v4.4.1, Jito v4.4.1-jito: rustix 1.1.4. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "The extended-attribute functions in rustix::fs (getxattr, lgetxattr, fgetxattr, listxattr, llistxattr and flistxattr) write into a Buffer and then mark as many bytes initialized as the system call reported. When the buffer has zero length, the operating system treats the call as a size query: it writes nothing and returns the size of the attribute value or of the name list. rustix still marked that… Used by Agave v4.4.1, Jito v4.4.1-jito: rustix 1.1.4. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-27T12:00:00Z",
    "tags": [
     "rust",
@@ -265,7 +265,7 @@
    "id": "RUSTSEC-2026-0395",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0395",
    "title": "[WATCH] Use-after-free with CParameter::StableInBuffer",
-   "content_text": "With CParameter::StableInBuffer(true) (experimental feature), the C library keeps a pointer to the input of one streaming call and reads from it in later calls, including flush_stream and end_stream, which take no input. An InBuffer only borrows its slice for one call, so safe code could free it in between, and freed memory was compressed into the frame. The C library behaves this way since zstd 1.5.4… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "With CParameter::StableInBuffer(true) (experimental feature), the C library keeps a pointer to the input of one streaming call and reads from it in later calls, including flush_stream and end_stream, which take no input. An InBuffer only borrows its slice for one call, so safe code could free it in between, and freed memory was compressed into the frame. The C library behaves this way since zstd 1.5.4… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",
@@ -277,7 +277,7 @@
    "id": "RUSTSEC-2026-0396",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0396",
    "title": "[WATCH] Seekable reads a NULL or out-of-bounds seek table",
-   "content_text": "Seekable did not record whether it was initialized. On a fresh Seekable, or one whose init_buff() failed, decompress, offset_to_frame_index and frame_decompressed_size made the C library read a NULL seek table. After a failed re-initialization, decompress returned data from the refused buffer using the previous seek table. Separately, frame_decompressed_size(num_frames()), on Seekable and… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "Seekable did not record whether it was initialized. On a fresh Seekable, or one whose init_buff() failed, decompress, offset_to_frame_index and frame_decompressed_size made the C library read a NULL seek table. After a failed re-initialization, decompress returned data from the refused buffer using the previous seek table. Separately, frame_decompressed_size(num_frames()), on Seekable and… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",
@@ -289,7 +289,7 @@
    "id": "RUSTSEC-2026-0397",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0397",
    "title": "[WATCH] OutBuffer::around_pos exposes uninitialized memory",
-   "content_text": "OutBuffer::around_pos accepted a position past the initialized length of a Vec . The next streaming call then marked everything before the position as initialized, so safe code could read stale heap memory between the vector's previous length and that position. The flaw was corrected by zero-filling that gap. Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "OutBuffer::around_pos accepted a position past the initialized length of a Vec . The next streaming call then marked everything before the position as initialized, so safe code could read stale heap memory between the vector's previous length and that position. The flaw was corrected by zero-filling that gap. Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",
@@ -301,7 +301,7 @@
    "id": "RUSTSEC-2026-0399",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0399",
    "title": "[WATCH] Use-after-free through init_using_cdict and init_using_ddict",
-   "content_text": "CCtx::init_using_cdict and DCtx::init_using_ddict (experimental feature, deprecated) took the dictionary as &CDict and &DDict with only 'b: 'a, so the dictionary itself could be dropped while the context still pointed at it. The same mistake in other constructors was fixed earlier ( ). The flaw was corrected by taking &'a CDict and &'a DDict . Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "CCtx::init_using_cdict and DCtx::init_using_ddict (experimental feature, deprecated) took the dictionary as &CDict and &DDict with only 'b: 'a, so the dictionary itself could be dropped while the context still pointed at it. The same mistake in other constructors was fixed earlier ( ). The flaw was corrected by taking &'a CDict and &'a DDict . Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",
@@ -313,7 +313,7 @@
    "id": "RUSTSEC-2026-0400",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0400",
    "title": "[WATCH] Use-after-free of a dictionary after a one-shot call on a context with an open stream",
-   "content_text": "The one-shot DCtx and CCtx methods assumed the C library resets the context, but it leaves an open stream as it is. When a stream was left unfinished on a context, a one-shot call such as decompress_using_dict could leave the context pointing at the dictionary borrowed for that call, and the next streaming call resumed the stream against it after it was freed: decompressed output then contained freed heap… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "The one-shot DCtx and CCtx methods assumed the C library resets the context, but it leaves an open stream as it is. When a stream was left unfinished on a context, a one-shot call such as decompress_using_dict could leave the context pointing at the dictionary borrowed for that call, and the next streaming call resumed the stream against it after it was freed: decompressed output then contained freed heap… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",
@@ -325,7 +325,7 @@
    "id": "RUSTSEC-2026-0401",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0401",
    "title": "[WATCH] Out-of-bounds read in train_from_buffer when sample sizes overflow",
-   "content_text": "ZDICT_trainFromBuffer is never told the length of the samples buffer, so train_from_buffer checked that the sample sizes add up to it. With overflow checks off, as in release builds, that sum wrapped around: sizes totalling 2^64 plus the buffer length passed the check, and the trainer read past the end of the buffer. zstd::dict::from_continuous relies on this check from zstd 0.4.10; older versions of zstd had… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "ZDICT_trainFromBuffer is never told the length of the samples buffer, so train_from_buffer checked that the sample sizes add up to it. With overflow checks off, as in release builds, that sum wrapped around: sizes totalling 2^64 plus the buffer length passed the check, and the trainer read past the end of the buffer. zstd::dict::from_continuous relies on this check from zstd 0.4.10; older versions of zstd had… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",
@@ -337,7 +337,7 @@
    "id": "RUSTSEC-2026-0402",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0402",
    "title": "[WATCH] Heap buffer overflow in CCtx::try_clone on a multithreaded context",
-   "content_text": "CCtx::try_clone (experimental feature, deprecated) copies tables sized from the context's applied parameters. Starting a multithreaded frame (zstdmt feature) replaces those parameters with the workers' without resizing the context's own tables, so after an abandoned single-threaded frame, the copy wrote up to 512 KiB past a heap allocation, or read past one. This became reachable with the bundled zstd 1.5.6… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "CCtx::try_clone (experimental feature, deprecated) copies tables sized from the context's applied parameters. Starting a multithreaded frame (zstdmt feature) replaces those parameters with the workers' without resizing the context's own tables, so after an abandoned single-threaded frame, the copy wrote up to 512 KiB past a heap allocation, or read past one. This became reachable with the bundled zstd 1.5.6… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",
@@ -349,7 +349,7 @@
    "id": "RUSTSEC-2026-0404",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0404",
    "title": "[WATCH] Double free in DCtx::try_clone",
-   "content_text": "DCtx::try_clone (experimental feature, deprecated) is a plain copy of the C context. A context owning a dictionary (from load_dictionary, ref_prefix or init_using_dict) or a dictionary table (ref_ddict with RefMultipleDDicts) ended up with both copies freeing it. A context cloned mid-frame resumed on uninitialized stream state. The clone also silently lost the WindowLogMax limit. The flaw was… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "DCtx::try_clone (experimental feature, deprecated) is a plain copy of the C context. A context owning a dictionary (from load_dictionary, ref_prefix or init_using_dict) or a dictionary table (ref_ddict with RefMultipleDDicts) ended up with both copies freeing it. A context cloned mid-frame resumed on uninitialized stream state. The clone also silently lost the WindowLogMax limit. The flaw was… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",
@@ -361,7 +361,7 @@
    "id": "RUSTSEC-2026-0405",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0405",
    "title": "[WATCH] Out-of-bounds read with an out-of-range InBuffer::pos",
-   "content_text": "InBuffer's fields are public, so safe code can set pos past the end of src. The position was passed to the C library unchecked, and ZSTD_seekable_compressStream, unlike the other streaming functions, does not validate it: it read past the end of the input slice, by up to the frame size, and compressed that memory into the output. The flaw was corrected by checking the position before every call into the C… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "InBuffer's fields are public, so safe code can set pos past the end of src. The position was passed to the C library unchecked, and ZSTD_seekable_compressStream, unlike the other streaming functions, does not validate it: it read past the end of the input slice, by up to the frame size, and compressed that memory into the output. The flaw was corrected by checking the position before every call into the C… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",
@@ -373,7 +373,7 @@
    "id": "RUSTSEC-2026-0406",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0406",
    "title": "[WATCH] Use-after-free when changing a multithreaded context with an unfinished frame",
-   "content_text": "When a multithreaded frame (zstdmt feature, CParameter::NbWorkers) is left unfinished, its jobs may still be running on the worker threads: the C library only waits for them when the next frame starts, or when the context is freed. A session reset makes the context accept changes again in the meantime, so: - unloading the dictionary (load_dictionary, ref_cdict, ref_prefix, disable_dictionary, init*, or… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "When a multithreaded frame (zstdmt feature, CParameter::NbWorkers) is left unfinished, its jobs may still be running on the worker threads: the C library only waits for them when the next frame starts, or when the context is freed. A session reset makes the context accept changes again in the meantime, so: - unloading the dictionary (load_dictionary, ref_cdict, ref_prefix, disable_dictionary, init*, or… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",
@@ -433,7 +433,7 @@
    "id": "RUSTSEC-2026-0386",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0386",
    "title": "[WATCH] AsyncFd::new and related constructors violate I/O safety",
-   "content_text": "tokio::io::unix::AsyncFd provides safe constructors (new, with_interest, try_new, and try_with_interest) that accept any T: AsRawFd rather than requiring proof of ownership or validity of the file descriptor. Because RawFd implements AsRawFd, safe code can construct an AsyncFd from an arbitrary or closed file descriptor, or close/replace the underlying file descriptor while the AsyncFd is still… Used by Agave v4.4.1, Jito v4.4.1-jito: tokio 1.53.1. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "tokio::io::unix::AsyncFd provides safe constructors (new, with_interest, try_new, and try_with_interest) that accept any T: AsRawFd rather than requiring proof of ownership or validity of the file descriptor. Because RawFd implements AsRawFd, safe code can construct an AsyncFd from an arbitrary or closed file descriptor, or close/replace the underlying file descriptor while the AsyncFd is still… Used by Agave v4.4.1, Jito v4.4.1-jito: tokio 1.53.1. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-13T12:00:00Z",
    "tags": [
     "rust",
@@ -445,7 +445,7 @@
    "id": "RUSTSEC-2026-0441",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0441",
    "title": "[INFO] pin-utils is unmaintained",
-   "content_text": "The [upstream repository] was archived on October 1, 2026, after the release of version 0.1.1. For local pinning, replace pin_mut! with [core::pin::pin!], available since Rust 1.68. For pin projection, replace unsafe_pinned! and unsafe_unpinned! with [pin-project] or [pin-project-lite]. [upstream repository]: https://github.com/rust-lang/pin-utils [core::pin::pin!]… Used by Agave v4.4.1, Jito v4.4.1-jito: pin-utils 0.1.0. Informational: a dependency of the client, usually no action for operators.",
+   "content_text": "The [upstream repository] was archived on October 1, 2026, after the release of version 0.1.1. For local pinning, replace pin_mut! with [core::pin::pin!], available since Rust 1.68. For pin projection, replace unsafe_pinned! and unsafe_unpinned! with [pin-project] or [pin-project-lite]. [upstream repository]: https://github.com/rust-lang/pin-utils [core::pin::pin!]… Used by Agave v4.4.1, Jito v4.4.1-jito: pin-utils 0.1.0. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-01T12:00:00Z",
    "tags": [
     "rust",
@@ -457,7 +457,7 @@
    "id": "RUSTSEC-2026-0523",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0523",
    "title": "[WATCH] MAX_STREAM_DATA frame can open streams beyond the stream limit",
-   "content_text": "When a MAX_STREAM_DATA frame named a peer-initiated bidirectional stream that was not open yet, received_max_stream_data treated the stream, and every lower-numbered stream, as opened without checking the stream ID against the limit advertised to the peer. RFC 9000 section 4.6 requires closing the connection with STREAM_LIMIT_ERROR in this case, and the STREAM and RESET_STREAM handlers already did so. After the… Used by Agave v4.4.1, Jito v4.4.1-jito: quinn-proto 0.11.18. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "When a MAX_STREAM_DATA frame named a peer-initiated bidirectional stream that was not open yet, received_max_stream_data treated the stream, and every lower-numbered stream, as opened without checking the stream ID against the limit advertised to the peer. RFC 9000 section 4.6 requires closing the connection with STREAM_LIMIT_ERROR in this case, and the STREAM and RESET_STREAM handlers already did so. After the… Used by Agave v4.4.1, Jito v4.4.1-jito: quinn-proto 0.11.18. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-09-30T12:00:00Z",
    "tags": [
     "rust",
@@ -469,7 +469,7 @@
    "id": "RUSTSEC-2026-0524",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0524",
    "title": "[WATCH] Long Retry token can panic or exhaust memory in a QUIC client",
-   "content_text": "A client kept the token from a Retry packet without any length limit and put it into the header of every Initial packet it sent afterwards. Initial datagrams are 1200 bytes. When the token and connection IDs left no room for the minimum payload, PacketBuilder::new computed a minimum packet size larger than the maximum, which only a debug assertion checked. On the next poll_transmit, debug builds panic, and… Used by Agave v4.4.1, Jito v4.4.1-jito: quinn-proto 0.11.18. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "A client kept the token from a Retry packet without any length limit and put it into the header of every Initial packet it sent afterwards. Initial datagrams are 1200 bytes. When the token and connection IDs left no room for the minimum payload, PacketBuilder::new computed a minimum packet size larger than the maximum, which only a debug assertion checked. On the next poll_transmit, debug builds panic, and… Used by Agave v4.4.1, Jito v4.4.1-jito: quinn-proto 0.11.18. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-09-30T12:00:00Z",
    "tags": [
     "rust",
@@ -481,7 +481,7 @@
    "id": "RUSTSEC-2026-0538",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0538",
    "title": "[WATCH] Receive loop can spin after a truncated datagram",
-   "content_text": "Some targets read one datagram per recvmsg call instead of using recvmmsg: Apple platforms without the fast-apple-datapath feature, OpenBSD, NetBSD, Solaris and illumos, and from 0.6 also DragonFly BSD, Redox and GNU/Hurd. On these targets the receive loop set up its msghdr only once and looked at the MSG_TRUNC flag before checking whether recvmsg had failed. After a datagram larger than the receive… Used by Agave v4.4.1, Jito v4.4.1-jito: quinn-udp 0.5.5. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "Some targets read one datagram per recvmsg call instead of using recvmmsg: Apple platforms without the fast-apple-datapath feature, OpenBSD, NetBSD, Solaris and illumos, and from 0.6 also DragonFly BSD, Redox and GNU/Hurd. On these targets the receive loop set up its msghdr only once and looked at the MSG_TRUNC flag before checking whether recvmsg had failed. After a datagram larger than the receive… Used by Agave v4.4.1, Jito v4.4.1-jito: quinn-udp 0.5.5. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-09-30T12:00:00Z",
    "tags": [
     "rust",
@@ -543,7 +543,7 @@
    "id": "GHSA-qwgh-2vcv-g2f7",
    "url": "https://osv.dev/vulnerability/GHSA-qwgh-2vcv-g2f7",
    "title": "[WATCH] block_buffer: panic corrupts inline buffer position",
-   "content_text": "Summary A caught panic may leave the cursor position of EagerBuffer or ReadBuffer in a corrupted state; this in turn allows out-of-bounds reads/writes. ### Details & PoC The following two tests fail miri: rust #[cfg(miri)] #[test] fn eager_digest_blocks_panic_corrupts_inline_position() { // EagerBuffer stores its cursor in the last byte of the internal block. // When digest_blocks completes a… Used by Agave v4.4.1, Jito v4.4.1-jito: block-buffer 0.12.0. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "Summary A caught panic may leave the cursor position of EagerBuffer or ReadBuffer in a corrupted state; this in turn allows out-of-bounds reads/writes. ### Details & PoC The following two tests fail miri: rust #[cfg(miri)] #[test] fn eager_digest_blocks_panic_corrupts_inline_position() { // EagerBuffer stores its cursor in the last byte of the internal block. // When digest_blocks completes a… Used by Agave v4.4.1, Jito v4.4.1-jito: block-buffer 0.12.0. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-08-19T19:15:34Z",
    "tags": [
     "rust",
@@ -555,7 +555,7 @@
    "id": "RUSTSEC-2026-0255",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0255",
    "title": "[WATCH] Panic-safety unsoundness in Chunk, RingBuffer, and InlineArray (use-after-free / double-free)",
-   "content_text": "Several methods in sized-chunks drop elements before updating the length/boundary metadata. If an element's Drop panics during the drop, the metadata update is skipped, so the container still treats the already-dropped elements as live. When the container's own Drop runs, those elements are visited again — a use-after-free / double-free reachable from safe Rust. The RingBuffer methods require the… Used by Agave v4.4.1, Jito v4.4.1-jito: sized-chunks 0.6.5. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "Several methods in sized-chunks drop elements before updating the length/boundary metadata. If an element's Drop panics during the drop, the metadata update is skipped, so the container still treats the already-dropped elements as live. When the container's own Drop runs, those elements are visited again — a use-after-free / double-free reachable from safe Rust. The RingBuffer methods require the… Used by Agave v4.4.1, Jito v4.4.1-jito: sized-chunks 0.6.5. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-08-11T12:00:00Z",
    "tags": [
     "rust",
@@ -567,7 +567,7 @@
    "id": "RUSTSEC-2026-0221",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0221",
    "title": "[WATCH] event-listener allows !Send tags to cross thread boundaries via StackSlot",
-   "content_text": "Affected versions of event-listener unconditionally implement Send and Sync for StackSlot , the stack-allocated listener type created by the listener! macro. This allows a !Send tag type set via Event::with_tag to be moved to another thread and accessed via StackSlot::wait, causing a data race in safe code. Used by Agave v4.4.1, Jito v4.4.1-jito: event-listener 5.3.1. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "Affected versions of event-listener unconditionally implement Send and Sync for StackSlot , the stack-allocated listener type created by the listener! macro. This allows a !Send tag type set via Event::with_tag to be moved to another thread and accessed via StackSlot::wait, causing a data race in safe code. Used by Agave v4.4.1, Jito v4.4.1-jito: event-listener 5.3.1. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-07-13T12:00:00Z",
    "tags": [
     "rust",
@@ -579,7 +579,7 @@
    "id": "RUSTSEC-2026-0186",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0186",
    "title": "[WATCH] Unchecked pointer offset in crate memmap2",
-   "content_text": "Affected versionf of memmap2 did not perform enough validation on the offset and len parameters of Mmap::[unchecked_]advise_range(), MmapMut::[unchecked_]advise_ranage() and MmapMut::flush[_async]_range(). This can cause undefined behavior due to invalid values being passed to [pointer::offset()] and [pointer::add()] when passing an out-of-bounds range to any of the affected functions. The flaw was… Used by Agave v4.4.1, Jito v4.4.1-jito: memmap2 0.5.10. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "Affected versionf of memmap2 did not perform enough validation on the offset and len parameters of Mmap::[unchecked_]advise_range(), MmapMut::[unchecked_]advise_ranage() and MmapMut::flush[_async]_range(). This can cause undefined behavior due to invalid values being passed to [pointer::offset()] and [pointer::add()] when passing an out-of-bounds range to any of the affected functions. The flaw was… Used by Agave v4.4.1, Jito v4.4.1-jito: memmap2 0.5.10. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-06-20T12:00:00Z",
    "tags": [
     "rust",
@@ -601,7 +601,7 @@
    "id": "RUSTSEC-2026-0253",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0253",
    "title": "[WATCH] Potential use-after-free due to lack of panic safety in LruCache::pop()",
-   "content_text": "LruCache::pop() in lru was not panic-safe. If the Drop implementation of a stored key panics during pop(), self.detach() is never called, leaving dangling pointers in the internal doubly-linked list. A subsequent cache operation that triggers eviction can then dereference these dangling pointers: - The node is freed from the map, but remains linked in the LRU list due to the skipped detach() call - When… Used by Agave v4.4.1, Jito v4.4.1-jito: lru 0.7.8. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "LruCache::pop() in lru was not panic-safe. If the Drop implementation of a stored key panics during pop(), self.detach() is never called, leaving dangling pointers in the internal doubly-linked list. A subsequent cache operation that triggers eviction can then dereference these dangling pointers: - The node is freed from the map, but remains linked in the LRU list due to the skipped detach() call - When… Used by Agave v4.4.1, Jito v4.4.1-jito: lru 0.7.8. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-05-12T12:00:00Z",
    "tags": [
     "rust",
@@ -613,7 +613,7 @@
    "id": "RUSTSEC-2026-0247",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0247",
    "title": "[INFO] bitmaps is unmaintained",
-   "content_text": "The bitmaps crate is unmaintained; all versions are affected. The GitHub repository was archived by the owner on 2026-05-03. Recommended alternatives: * fixedbitset * bitvec Used by Agave v4.4.1, Jito v4.4.1-jito: bitmaps 2.1.0. Informational: a dependency of the client, usually no action for operators.",
+   "content_text": "The bitmaps crate is unmaintained; all versions are affected. The GitHub repository was archived by the owner on 2026-05-03. Recommended alternatives: * fixedbitset * bitvec Used by Agave v4.4.1, Jito v4.4.1-jito: bitmaps 2.1.0. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2026-05-03T12:00:00Z",
    "tags": [
     "rust",
@@ -625,7 +625,7 @@
    "id": "RUSTSEC-2026-0248",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0248",
    "title": "[INFO] im is unmaintained",
-   "content_text": "The im crate is unmaintained; all versions are affected. The GitHub repository was archived by the owner on 2026-05-03. Recommended alternative: * imbl is a maintained fork of this crate Used by Agave v4.4.1, Jito v4.4.1-jito: im 15.1.0. Informational: a dependency of the client, usually no action for operators.",
+   "content_text": "The im crate is unmaintained; all versions are affected. The GitHub repository was archived by the owner on 2026-05-03. Recommended alternative: * imbl is a maintained fork of this crate Used by Agave v4.4.1, Jito v4.4.1-jito: im 15.1.0. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2026-05-03T12:00:00Z",
    "tags": [
     "rust",
@@ -637,7 +637,7 @@
    "id": "RUSTSEC-2026-0251",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0251",
    "title": "[INFO] sized-chunks is unmaintained",
-   "content_text": "The sized-chunks crate is unmaintained; all versions are affected. The GitHub repository was archived by the owner on 2026-05-03. Recommended alternative: * imbl-sized-chunks, a popular fork of this crate Used by Agave v4.4.1, Jito v4.4.1-jito: sized-chunks 0.6.5. Informational: a dependency of the client, usually no action for operators.",
+   "content_text": "The sized-chunks crate is unmaintained; all versions are affected. The GitHub repository was archived by the owner on 2026-05-03. Recommended alternative: * imbl-sized-chunks, a popular fork of this crate Used by Agave v4.4.1, Jito v4.4.1-jito: sized-chunks 0.6.5. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2026-05-03T12:00:00Z",
    "tags": [
     "rust",
@@ -659,7 +659,7 @@
    "id": "RUSTSEC-2025-0161",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2025-0161",
    "title": "[INFO] libsecp256k1 is unmaintained",
-   "content_text": "The maintainers recommend using k256 instead. Used by Agave v4.4.1, Jito v4.4.1-jito: libsecp256k1 0.7.2. Informational: a dependency of the client, usually no action for operators.",
+   "content_text": "The maintainers recommend using k256 instead. Used by Agave v4.4.1, Jito v4.4.1-jito: libsecp256k1 0.7.2. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2025-01-14T12:00:00Z",
    "tags": [
     "rust",
@@ -671,7 +671,7 @@
    "id": "GHSA-cq8v-f236-94qc",
    "url": "https://osv.dev/vulnerability/GHSA-cq8v-f236-94qc",
    "title": "[INFO] Rand is unsound with a custom logger using rand::rng()",
-   "content_text": "It has been reported (by @lopopolo) that the rand library is unsound (i.e. that safe code using the public API can cause Undefined Behaviour) when all the following conditions are met: - The log and thread_rng features are enabled - A custom logger is… Used by Agave v4.4.1, Jito v4.4.1-jito: rand 0.7.3. Informational: a dependency of the client, usually no action for operators.",
+   "content_text": "It has been reported (by @lopopolo) that the rand library is unsound (i.e. that safe code using the public API can cause Undefined Behaviour) when all the following conditions are met: - The log and thread_rng features are enabled - A custom logger is… Used by Agave v4.4.1, Jito v4.4.1-jito: rand 0.7.3. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2026-04-14T01:03:36Z",
    "tags": [
     "rust",
@@ -683,7 +683,7 @@
    "id": "RUSTSEC-2026-0097",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0097",
    "title": "[INFO] Rand is unsound with a custom logger using rand::rng()",
-   "content_text": "It has been reported (by @lopopolo) that the rand library is unsound (i.e. that safe code using the public API can cause Undefined Behaviour) when all the following conditions are met: - The log and thread_rng features are enabled - A [custom… Used by Agave v4.4.1, Jito v4.4.1-jito: rand 0.7.3. Informational: a dependency of the client, usually no action for operators.",
+   "content_text": "It has been reported (by @lopopolo) that the rand library is unsound (i.e. that safe code using the public API can cause Undefined Behaviour) when all the following conditions are met: - The log and thread_rng features are enabled - A [custom… Used by Agave v4.4.1, Jito v4.4.1-jito: rand 0.7.3. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2026-04-09T12:00:00Z",
    "tags": [
     "rust",
@@ -707,7 +707,7 @@
    "id": "RUSTSEC-2024-0436",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2024-0436",
    "title": "[INFO] paste - no longer maintained",
-   "content_text": "The creator of the crate paste has stated in the README.md that this project is not longer maintained as well as archived the repository ## Possible Alternative(s) - [pastey]: a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate - [with_builtin_macros]: crate providing a [superset of paste's functionality… Used by Agave v4.4.1, Jito v4.4.1-jito: paste 1.0.15. Informational: a dependency of the client, usually no action for operators.",
+   "content_text": "The creator of the crate paste has stated in the README.md that this project is not longer maintained as well as archived the repository ## Possible Alternative(s) - [pastey]: a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate - [with_builtin_macros]: crate providing a [superset of paste's functionality… Used by Agave v4.4.1, Jito v4.4.1-jito: paste 1.0.15. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2024-10-07T12:00:00Z",
    "tags": [
     "rust",
@@ -729,7 +729,7 @@
    "id": "RUSTSEC-2025-0141",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2025-0141",
    "title": "[INFO] Bincode is unmaintained",
-   "content_text": "Due to a doxxing and harassment incident, the bincode team has taken the decision to cease development permanently. The team considers version 1.3.3 a complete version of bincode that is not in need of any updates. ## Alternatives to consider * wincode * postcard * bitcode *… Used by Agave v4.4.1, Jito v4.4.1-jito: bincode 1.3.3. Informational: a dependency of the client, usually no action for operators.",
+   "content_text": "Due to a doxxing and harassment incident, the bincode team has taken the decision to cease development permanently. The team considers version 1.3.3 a complete version of bincode that is not in need of any updates. ## Alternatives to consider * wincode * postcard * bitcode *… Used by Agave v4.4.1, Jito v4.4.1-jito: bincode 1.3.3. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2025-12-16T12:00:00Z",
    "tags": [
     "rust",
@@ -799,7 +799,7 @@
    "id": "RUSTSEC-2024-0384",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2024-0384",
    "title": "[INFO] instant is unmaintained",
-   "content_text": "This crate is no longer maintained, and the author recommends using the maintained [web-time] crate instead. [web-time]: https://crates.io/crates/web-time Used by Agave v4.4.1, Jito v4.4.1-jito: instant 0.1.12. Informational: a dependency of the client, usually no action for operators.",
+   "content_text": "This crate is no longer maintained, and the author recommends using the maintained [web-time] crate instead. [web-time]: https://crates.io/crates/web-time Used by Agave v4.4.1, Jito v4.4.1-jito: instant 0.1.12. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2024-09-01T12:00:00Z",
    "tags": [
     "rust",
@@ -823,7 +823,7 @@
    "id": "RUSTSEC-2024-0449",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2024-0449",
    "title": "[INFO] unsafe-libyaml is unmaintained",
-   "content_text": "The repository was archived by its owner on 2024-03-25 and is read-only. The last release is 0.2.11 (March 2024). unsafe-libyaml is a machine translation of libyaml's C code into unsafe Rust (c2rust). Bugs found in it will not be fixed upstream. It is used by serde_yaml (itself deprecated) and by forks such as serde_yaml_ng. ## Alternatives Consider a YAML parser… Used by Agave v4.4.1, Jito v4.4.1-jito: unsafe-libyaml 0.2.11. Informational: a dependency of the client, usually no action for operators.",
+   "content_text": "The repository was archived by its owner on 2024-03-25 and is read-only. The last release is 0.2.11 (March 2024). unsafe-libyaml is a machine translation of libyaml's C code into unsafe Rust (c2rust). Bugs found in it will not be fixed upstream. It is used by serde_yaml (itself deprecated) and by forks such as serde_yaml_ng. ## Alternatives Consider a YAML parser… Used by Agave v4.4.1, Jito v4.4.1-jito: unsafe-libyaml 0.2.11. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2024-03-25T12:00:00Z",
    "tags": [
     "rust",
@@ -835,7 +835,7 @@
    "id": "RUSTSEC-2023-0126",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2023-0126",
    "title": "[INFO] Aliasing violation in OrdSet insertion",
-   "content_text": "Inserting into an im::OrdSet (for example by collecting an iterator into one) can violate Rust's aliasing rules: Miri reports a stacked borrows violation in sized_chunks::Chunk::force_copy(), which is called during insertion, where a shared borrow is invalidated by a unique borrow before the read through it completes. This is undefined behavior, reachable from safe code. No fixed version is available, as the… Used by Agave v4.4.1, Jito v4.4.1-jito: im 15.1.0. Informational: a dependency of the client, usually no action for operators.",
+   "content_text": "Inserting into an im::OrdSet (for example by collecting an iterator into one) can violate Rust's aliasing rules: Miri reports a stacked borrows violation in sized_chunks::Chunk::force_copy(), which is called during insertion, where a shared borrow is invalidated by a unique borrow before the read through it completes. This is undefined behavior, reachable from safe code. No fixed version is available, as the… Used by Agave v4.4.1, Jito v4.4.1-jito: im 15.1.0. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2023-02-04T12:00:00Z",
    "tags": [
     "rust",
@@ -847,7 +847,7 @@
    "id": "RUSTSEC-2020-0016",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2020-0016",
    "title": "[WATCH] net2 crate has been deprecated; use socket2 instead",
-   "content_text": "The net2 crate has been deprecated and users are encouraged to considered socket2 instead. Used by Agave v4.4.1, Jito v4.4.1-jito: net2 0.2.37. Compiled into the release. Watch for a client release that updates this crate.",
+   "content_text": "The net2 crate has been deprecated and users are encouraged to considered socket2 instead. Used by Agave v4.4.1, Jito v4.4.1-jito: net2 0.2.37. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2020-05-01T12:00:00Z",
    "tags": [
     "rust",
@@ -860,7 +860,7 @@
    "url": "https://www.anza.xyz/blog/precompile-alignment-bug-root-cause-analysis",
    "title": "[WATCH] Precompile Alignment Bug: Root Cause Analysis",
    "content_text": "Root cause of the ed25519 and secp256r1 precompile bug exposed by Agave's transaction-view option in v2.2. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-16T00:47:38Z",
+   "date_published": "2026-11-16T01:03:20Z",
    "tags": [
     "agave"
    ]
@@ -870,7 +870,7 @@
    "url": "https://www.anza.xyz/blog/web3-js-exploit-root-cause-analysis",
    "title": "[WATCH] web3.js Exploit: Root Cause Analysis",
    "content_text": "How compromised versions of @solana/web3.js reached npm, who was affected, and what changed afterward. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-16T00:47:38Z",
+   "date_published": "2026-11-16T01:03:20Z",
    "tags": [
     "agave"
    ]
@@ -880,7 +880,7 @@
    "url": "https://www.anza.xyz/blog/agave-network-patch-root-cause-analysis",
    "title": "[WATCH] Agave Network Patch: Root Cause Analysis",
    "content_text": "A vulnerability that could crash leaders one by one, how Anza patched it, and how the network upgraded in August 2024. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-16T00:47:38Z",
+   "date_published": "2026-11-16T01:03:20Z",
    "tags": [
     "agave"
    ]
@@ -890,7 +890,7 @@
    "url": "https://www.anza.xyz/blog/securing-solana-against-a-powerful-quantum-adversary",
    "title": "[INFO] Securing Solana Against a Powerful Quantum Adversary",
    "content_text": "What a post-quantum transition means for Solana: where elliptic curves live in the protocol and what replaces them. Agave validators. Read Anza's write-up and check that you run a release that includes the fix.",
-   "date_published": "2026-11-16T00:47:38Z",
+   "date_published": "2026-11-16T01:03:20Z",
    "tags": [
     "agave"
    ]

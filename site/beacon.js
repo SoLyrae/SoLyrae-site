@@ -46,11 +46,15 @@ function bcFiltered() {
 }
 
 function bcCard(i) {
-  const flags = [i.kev ? '<span class="bc-flag hot">Exploited in the wild</span>' : '', i.epss != null && i.epss >= 0.01 ? `<span class="bc-flag" title="Chance of exploitation in the next 30 days">EPSS ${Math.round(i.epss * 100)}%</span>` : '',
+  const flags = [i.official ? '<span class="bc-flag hot">Official operator notice</span>' : '',
+    i.kernelWatch ? '<span class="bc-flag" title="Selected by Beacon\'s kernel network filter">Kernel network filter</span>' : '', i.kev ? '<span class="bc-flag hot">Exploited in the wild</span>' : '', i.epss != null && i.epss >= 0.01 ? `<span class="bc-flag" title="Chance of exploitation in the next 30 days">EPSS ${Math.round(i.epss * 100)}%</span>` : '',
     i.cvss ? `<span class="bc-flag">CVSS ${i.cvss}</span>` : '',
     i.assessment ? `<span class="bc-flag" title="The client team has reviewed this advisory">Reviewed by ${esc(i.assessment.by)}</span>` : ''].join('');
   const ids = [i.id, ...(i.cves || []).filter(c => c !== i.id)].slice(0, 4).map(esc).join(' &middot; ');
-  const rows = [['Affects', i.affects], ['Fix', i.fixed], ['What to do', i.action]].filter(r => r[1]).map(r => `<b>${r[0]}</b><span>${esc(r[1])}</span>`).join('');
+  const PST = { fixed: 'var(--ok)', pending: 'var(--bad)', 'not-affected': 'var(--muted)', 'no-fix': 'var(--muted)' };
+  const patch = (i.patch || []).map(p => `<span style="display:block"><i style="display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;background:${PST[p.status] || 'var(--muted)'}"></i>${esc(p.distro)}: ${esc(p.detail)}</span>`).join('');
+  const rows = [['Affects', i.affects], ['What to do', i.action], ['Fix', i.patch && i.patch.length ? '' : i.fixed], ['Why listed', i.note]].filter(r => r[1]).map(r => `<b>${r[0]}</b><span>${esc(r[1])}</span>`).join('')
+    + (patch ? `<b>Patch status</b><span>${patch}</span>` : '');
   return `<article class="bc-card lv-${i.level}"><div class="bc-top"><span class="bc-badge">${i.level}</span>${flags}<span class="bc-date">${esc(bcDate(i))}</span></div>
     <h3>${esc(i.title)}</h3><p class="s">${esc(i.summary)}</p>
     <div class="bc-comp">${i.components.map(c => `<span>${esc(BC.components[c] || c)}</span>`).join('')}</div>

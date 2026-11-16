@@ -30,7 +30,7 @@ function bcVersions() {
     (v.agave ? card(v.agave.version, 'Agave stable', 'Released ' + when(v.agave.published), v.agave.url) : '')
     + (v.jito ? card(v.jito.version, 'Jito mainnet', 'Released ' + when(v.jito.published), v.jito.url) : '')
     + (v.firedancer ? card(v.firedancer.version, 'Firedancer mainnet', 'Released ' + when(v.firedancer.published), v.firedancer.url) : '')
-    + (v.sfdpMinAgave ? card('v' + v.sfdpMinAgave, 'Minimum for the SFDP', 'Agave, mainnet', '') : '');
+    + (v.sfdpMinAgave ? card('v' + v.sfdpMinAgave, 'Minimum for the SFDP', 'Agave, mainnet · official criteria', 'https://solana.org/delegation-criteria') : '');
 }
 
 // open alerts first (dependency of the latest release, or published in the last 30 days), then by level and date

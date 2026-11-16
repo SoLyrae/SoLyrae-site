@@ -333,7 +333,8 @@ def dependency_items(clients):
                         fixed.add(e["fixed"])
         comps = ["rust"] + sorted(d["clients"])
         pub = parse_dt(v.get("published")) or NOW
-        action = "Compiled into the release. Watch for a client release that updates this crate." if sev != "info" else "Informational: a dependency of the client, usually no action for operators."
+        action = ("Included in the client release. Follow official client updates and guidance." if sev != "info"
+                  else "Informational: a dependency of the client release. Follow official client updates and guidance.")
         # the client teams' own assessment wins: if every release that ships the crate marks the advisory as not applicable,
         # Beacon shows their reason and lowers the alert to Info
         ids = {vid, *aliases}

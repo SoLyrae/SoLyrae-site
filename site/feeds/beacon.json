@@ -683,6 +683,30 @@
    ]
   },
   {
+   "id": "RUSTSEC-2026-0543",
+   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0543",
+   "title": "[INFO] chrono is unmaintained",
+   "content_text": "The chrono crate is unmaintained; all versions are affected. Recommended alternatives: - jiff - time Used by Agave v4.4.1, Jito v4.4.1-jito: chrono 0.4.45. Informational: a dependency of the client release. Follow official client updates and guidance.",
+   "date_published": "2026-09-14T12:00:00Z",
+   "tags": [
+    "rust",
+    "agave",
+    "jito"
+   ]
+  },
+  {
+   "id": "RUSTSEC-2026-0542",
+   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0542",
+   "title": "[INFO] humantime is unmaintained",
+   "content_text": "Because chrono is now unmaintained and humantime wraps chrono, it is also unmaintained; all versions are affected. Used by Agave v4.4.1, Jito v4.4.1-jito: humantime 2.4.0. Informational: a dependency of the client release. Follow official client updates and guidance.",
+   "date_published": "2026-09-14T12:00:00Z",
+   "tags": [
+    "rust",
+    "agave",
+    "jito"
+   ]
+  },
+  {
    "id": "CVE-2026-53362",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53362",
    "title": "[CRITICAL] Linux Kernel Unspecified Vulnerability",
@@ -872,28 +896,6 @@
    "title": "[INFO] paste - no longer maintained",
    "content_text": "The creator of the crate paste has stated in the README.md that this project is not longer maintained as well as archived the repository ## Possible Alternative(s) - [pastey]: a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate - [with_builtin_macros]: crate providing a [superset of paste's functionality… Used by Agave v4.4.1, Jito v4.4.1-jito: paste 1.0.15. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2024-10-07T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "CVE-2018-14634",
-   "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-14634",
-   "title": "[CRITICAL] Linux Kernel Integer Overflow Vulnerability",
-   "content_text": "Linux Kernel contains an integer overflow vulnerability in the create_elf_tables() function which could allow an unprivileged local user with access to SUID (or otherwise privileged) binary to escalate their privileges on the system. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Feb 16, 2026 for US agencies).",
-   "date_published": "2026-01-26T00:00:00Z",
-   "tags": [
-    "kernel"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2025-0141",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2025-0141",
-   "title": "[INFO] Bincode is unmaintained",
-   "content_text": "Due to a doxxing and harassment incident, the bincode team has taken the decision to cease development permanently. The team considers version 1.3.3 a complete version of bincode that is not in need of any updates. ## Alternatives to consider * wincode * postcard * bitcode *… Used by Agave v4.4.1, Jito v4.4.1-jito: bincode 1.3.3. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2025-12-16T12:00:00Z",
    "tags": [
     "rust",
     "agave",

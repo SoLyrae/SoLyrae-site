@@ -40,11 +40,44 @@
    ]
   },
   {
+   "id": "USN-9174-1",
+   "url": "https://ubuntu.com/security/notices/USN-9174-1",
+   "title": "[HIGH] Linux kernel (GCP FIPS) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Intel NPU Driver; - Compute… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T15:12:43Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
    "id": "USN-9168-2",
    "url": "https://ubuntu.com/security/notices/USN-9168-2",
    "title": "[HIGH] Linux kernel (FIPS) vulnerabilities",
    "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Compressed RAM block device driver; - Bluetooth drivers; - GPIO subsystem; - GPU drivers; - HID subsystem; - Microsoft Hyper-V drivers; - Hardware monitoring… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
    "date_published": "2026-11-19T15:12:17Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9171-2",
+   "url": "https://ubuntu.com/security/notices/USN-9171-2",
+   "title": "[CRITICAL] Linux kernel (Oracle) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking; - Ethernet bridge; - Netfilter; - XFRM subsystem; (CVE-2026-98432, CVE-2026-99999) Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T15:12:06Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9170-2",
+   "url": "https://ubuntu.com/security/notices/USN-9170-2",
+   "title": "[CRITICAL] Linux kernel (AWS FIPS) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking; - Ethernet bridge; - Netfilter; - SCTP protocol; - XFRM subsystem; (CVE-2026-64564, CVE-2026-98432, CVE-2026-99999) Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T15:12:06Z",
    "tags": [
     "ubuntu",
     "kernel"
@@ -853,40 +886,6 @@
    "title": "[CRITICAL] Linux Kernel Improper Check for Unusual or Exceptional Conditions Vulnerability",
    "content_text": "Linux Kernel contains an improper check for unusual or exceptional conditions vulnerability in the TLS receive path which allows a zero-length record retrieved from the rx_list to bypass the intended recvmsg() record-type handling, potentially causing subsequent TLS records to be processed using incorrect zero-copy and queuing assumptions. The impacted product(s) could be end-of-life (EoL) and/or end-of-service… Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Sep 21, 2026 for US agencies).",
    "date_published": "2026-09-18T00:00:00Z",
-   "tags": [
-    "kernel"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0543",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0543",
-   "title": "[INFO] chrono is unmaintained",
-   "content_text": "The chrono crate is unmaintained; all versions are affected. Recommended alternatives: - jiff - time Used by Agave v4.4.1, Jito v4.4.1-jito: chrono 0.4.45. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2026-09-14T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0542",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0542",
-   "title": "[INFO] humantime is unmaintained",
-   "content_text": "Because chrono is now unmaintained and humantime wraps chrono, it is also unmaintained; all versions are affected. Used by Agave v4.4.1, Jito v4.4.1-jito: humantime 2.4.0. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2026-09-14T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "CVE-2026-53362",
-   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53362",
-   "title": "[CRITICAL] Linux Kernel Unspecified Vulnerability",
-   "content_text": "Linux Kernel contains an unspecified vulnerability that can allow for privilege escalation via IPv6 networking subsystem. This vulnerability can impact multiple products, including but not limited to Suse, Red Hat, and other products using Linux. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Aug 30, 2026 for US agencies).",
-   "date_published": "2026-08-27T00:00:00Z",
    "tags": [
     "kernel"
    ]

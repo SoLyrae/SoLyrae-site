@@ -18,6 +18,126 @@
    ]
   },
   {
+   "id": "USN-9175-1",
+   "url": "https://ubuntu.com/security/notices/USN-9175-1",
+   "title": "[HIGH] Linux kernel (Oracle) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Intel NPU Driver; - Compute… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T15:43:10Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9173-1",
+   "url": "https://ubuntu.com/security/notices/USN-9173-1",
+   "title": "[HIGH] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Intel NPU… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T15:13:04Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9168-2",
+   "url": "https://ubuntu.com/security/notices/USN-9168-2",
+   "title": "[HIGH] Linux kernel (FIPS) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Compressed RAM block device driver; - Bluetooth drivers; - GPIO subsystem; - GPU drivers; - HID subsystem; - Microsoft Hyper-V drivers; - Hardware monitoring… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T15:12:17Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-99320",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99320",
+   "title": "[HIGH] Linux kernel: ipv6: raw: fix use-after-free in rawv6_send_hdrinc()",
+   "content_text": "rawv6_send_hdrinc() caches the route before handing the skb to l3mdev_ip6_out(). The VRF output path may replace skb->dst and release the original route, leaving the cached pointer stale. The function later dereferences that pointer for statistics accounting and as the output device passed to NF_HOOK(). Its RCU read-side critical section starts after l3mdev_ip6_out(), so it cannot prevent the old route from being… Linux kernel, network stack (ipv6). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-11-19T09:18:18Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9172-1",
+   "url": "https://ubuntu.com/security/notices/USN-9172-1",
+   "title": "[CRITICAL] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking; - Ethernet bridge; - Netfilter; - XFRM subsystem; (CVE-2026-98432, CVE-2026-99999) Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T13:43:11Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9171-1",
+   "url": "https://ubuntu.com/security/notices/USN-9171-1",
+   "title": "[CRITICAL] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking; - Ethernet bridge; - Netfilter; - XFRM subsystem; (CVE-2026-98432, CVE-2026-99999) Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T13:43:00Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9170-1",
+   "url": "https://ubuntu.com/security/notices/USN-9170-1",
+   "title": "[CRITICAL] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking; - Ethernet bridge; - Netfilter; - SCTP protocol; - XFRM subsystem; (CVE-2026-64564, CVE-2026-98432, CVE-2026-99999) Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T13:42:53Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9167-1",
+   "url": "https://ubuntu.com/security/notices/USN-9167-1",
+   "title": "[HIGH] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Drivers core; - Compressed RAM block device driver; - Bluetooth drivers; - GPIO subsystem; - GPU drivers; - HID subsystem; - Microsoft Hyper-V drivers; -… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T13:42:41Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9169-1",
+   "url": "https://ubuntu.com/security/notices/USN-9169-1",
+   "title": "[CRITICAL] Linux kernel (AWS) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - x86 architecture; - GPU drivers; - HID subsystem; - I3C subsystem; - MemoryStick subsystem; - Network drivers; - Ethernet team driver; - NVME drivers; - S/390 drivers; - SCSI subsystem; - Greybus lights staging drivers… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T13:42:36Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9168-1",
+   "url": "https://ubuntu.com/security/notices/USN-9168-1",
+   "title": "[HIGH] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Compressed RAM block device driver; - Bluetooth drivers; - GPIO subsystem; - GPU drivers; - HID subsystem; - Microsoft Hyper-V drivers; - Hardware monitoring… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T13:42:32Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9166-1",
+   "url": "https://ubuntu.com/security/notices/USN-9166-1",
+   "title": "[HIGH] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Compute Acceleration Framework; - FireWire subsystem; - GPIO subsystem; - GPU drivers; - Microsoft Hyper-V drivers; - I2C subsystem; - Multiple… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T13:41:59Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
    "id": "USN-9160-1",
    "url": "https://ubuntu.com/security/notices/USN-9160-1",
    "title": "[CRITICAL] Linux kernel (Azure) vulnerabilities",
@@ -69,16 +189,6 @@
    "date_published": "2026-11-19T09:57:49Z",
    "tags": [
     "ubuntu",
-    "kernel"
-   ]
-  },
-  {
-   "id": "CVE-2026-99320",
-   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99320",
-   "title": "[WATCH] Linux kernel: ipv6: raw: fix use-after-free in rawv6_send_hdrinc()",
-   "content_text": "rawv6_send_hdrinc() caches the route before handing the skb to l3mdev_ip6_out(). The VRF output path may replace skb->dst and release the original route, leaving the cached pointer stale. The function later dereferences that pointer for statistics accounting and as the output device passed to NF_HOOK(). Its RCU read-side critical section starts after l3mdev_ip6_out(), so it cannot prevent the old route from being… Linux kernel, network stack (ipv6). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
-   "date_published": "2026-11-19T09:18:18Z",
-   "tags": [
     "kernel"
    ]
   },
@@ -779,122 +889,6 @@
    "date_published": "2026-08-27T00:00:00Z",
    "tags": [
     "kernel"
-   ]
-  },
-  {
-   "id": "CVE-2022-0995",
-   "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-0995",
-   "title": "[CRITICAL] Linux Kernel Out-of-Bounds Write Vulnerability",
-   "content_text": "Linux Kernel contains an out-of-bounds memory write vulnerability which could allow a local user to gain privileged access or cause a denial of service on the system. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Aug 29, 2026 for US agencies).",
-   "date_published": "2026-08-26T00:00:00Z",
-   "tags": [
-    "kernel"
-   ]
-  },
-  {
-   "id": "GHSA-qwgh-2vcv-g2f7",
-   "url": "https://osv.dev/vulnerability/GHSA-qwgh-2vcv-g2f7",
-   "title": "[WATCH] block_buffer: panic corrupts inline buffer position",
-   "content_text": "Summary A caught panic may leave the cursor position of EagerBuffer or ReadBuffer in a corrupted state; this in turn allows out-of-bounds reads/writes. ### Details & PoC The following two tests fail miri: rust #[cfg(miri)] #[test] fn eager_digest_blocks_panic_corrupts_inline_position() { // EagerBuffer stores its cursor in the last byte of the internal block. // When digest_blocks completes a… Used by Agave v4.4.1, Jito v4.4.1-jito: block-buffer 0.12.0. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-08-19T19:15:34Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0255",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0255",
-   "title": "[WATCH] Panic-safety unsoundness in Chunk, RingBuffer, and InlineArray (use-after-free / double-free)",
-   "content_text": "Several methods in sized-chunks drop elements before updating the length/boundary metadata. If an element's Drop panics during the drop, the metadata update is skipped, so the container still treats the already-dropped elements as live. When the container's own Drop runs, those elements are visited again — a use-after-free / double-free reachable from safe Rust. The RingBuffer methods require the… Used by Agave v4.4.1, Jito v4.4.1-jito: sized-chunks 0.6.5. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-08-11T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0221",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0221",
-   "title": "[WATCH] event-listener allows !Send tags to cross thread boundaries via StackSlot",
-   "content_text": "Affected versions of event-listener unconditionally implement Send and Sync for StackSlot , the stack-allocated listener type created by the listener! macro. This allows a !Send tag type set via Event::with_tag to be moved to another thread and accessed via StackSlot::wait, causing a data race in safe code. Used by Agave v4.4.1, Jito v4.4.1-jito: event-listener 5.3.1. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-07-13T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0186",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0186",
-   "title": "[WATCH] Unchecked pointer offset in crate memmap2",
-   "content_text": "Affected versionf of memmap2 did not perform enough validation on the offset and len parameters of Mmap::[unchecked_]advise_range(), MmapMut::[unchecked_]advise_ranage() and MmapMut::flush[_async]_range(). This can cause undefined behavior due to invalid values being passed to [pointer::offset()] and [pointer::add()] when passing an out-of-bounds range to any of the affected functions. The flaw was… Used by Agave v4.4.1, Jito v4.4.1-jito: memmap2 0.5.10. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-06-20T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "CVE-2022-0492",
-   "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-0492",
-   "title": "[CRITICAL] Linux Kernel Improper Authentication Vulnerability",
-   "content_text": "Linux Kernel contains an improper authentication vulnerability which could allow for privilege escalation via the cgroups v1 release_agent feature. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Jun 5, 2026 for US agencies).",
-   "date_published": "2026-06-02T00:00:00Z",
-   "tags": [
-    "kernel"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0253",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0253",
-   "title": "[WATCH] Potential use-after-free due to lack of panic safety in LruCache::pop()",
-   "content_text": "LruCache::pop() in lru was not panic-safe. If the Drop implementation of a stored key panics during pop(), self.detach() is never called, leaving dangling pointers in the internal doubly-linked list. A subsequent cache operation that triggers eviction can then dereference these dangling pointers: - The node is freed from the map, but remains linked in the LRU list due to the skipped detach() call - When… Used by Agave v4.4.1, Jito v4.4.1-jito: lru 0.7.8. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-05-12T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0247",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0247",
-   "title": "[INFO] bitmaps is unmaintained",
-   "content_text": "The bitmaps crate is unmaintained; all versions are affected. The GitHub repository was archived by the owner on 2026-05-03. Recommended alternatives: * fixedbitset * bitvec Used by Agave v4.4.1, Jito v4.4.1-jito: bitmaps 2.1.0. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2026-05-03T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0248",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0248",
-   "title": "[INFO] im is unmaintained",
-   "content_text": "The im crate is unmaintained; all versions are affected. The GitHub repository was archived by the owner on 2026-05-03. Recommended alternative: * imbl is a maintained fork of this crate Used by Agave v4.4.1, Jito v4.4.1-jito: im 15.1.0. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2026-05-03T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0251",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0251",
-   "title": "[INFO] sized-chunks is unmaintained",
-   "content_text": "The sized-chunks crate is unmaintained; all versions are affected. The GitHub repository was archived by the owner on 2026-05-03. Recommended alternative: * imbl-sized-chunks, a popular fork of this crate Used by Agave v4.4.1, Jito v4.4.1-jito: sized-chunks 0.6.5. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2026-05-03T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
    ]
   }
  ]

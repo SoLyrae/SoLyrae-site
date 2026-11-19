@@ -29,6 +29,50 @@
    ]
   },
   {
+   "id": "USN-9164-1",
+   "url": "https://ubuntu.com/security/notices/USN-9164-1",
+   "title": "[CRITICAL] Linux kernel (FIPS) vulnerabilities",
+   "content_text": "Demi Marie Obenour and Simon Gaiser discovered that several Xen para- virtualization device frontends did not properly restrict the access rights of device backends. An attacker could possibly use a malicious Xen backend to gain access to memory pages of a guest VM or cause a denial of service in the guest. (CVE-2022-23036, CVE-2022-23037) Several security issues were discovered in the Linux kernel. An attacker… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T09:58:05Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9163-1",
+   "url": "https://ubuntu.com/security/notices/USN-9163-1",
+   "title": "[WATCH] Linux kernel vulnerability",
+   "content_text": "A security issue was discovered in the Linux kernel. An attacker could possibly use this to compromise the system. This update corrects flaws in the following subsystems: - File systems infrastructure; Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T09:57:59Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9162-1",
+   "url": "https://ubuntu.com/security/notices/USN-9162-1",
+   "title": "[CRITICAL] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - S/390 drivers; - File systems infrastructure; - Internal shared memory driver; (CVE-2025-39691, CVE-2025-39726) Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T09:57:50Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9161-1",
+   "url": "https://ubuntu.com/security/notices/USN-9161-1",
+   "title": "[CRITICAL] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - S/390 drivers; - File systems infrastructure; - Internal shared memory driver; - Tracing infrastructure; (CVE-2025-39689, CVE-2025-39691, CVE-2025-39726) Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T09:57:49Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
    "id": "CVE-2026-99320",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99320",
    "title": "[WATCH] Linux kernel: ipv6: raw: fix use-after-free in rawv6_send_hdrinc()",
@@ -847,52 +891,6 @@
    "title": "[INFO] sized-chunks is unmaintained",
    "content_text": "The sized-chunks crate is unmaintained; all versions are affected. The GitHub repository was archived by the owner on 2026-05-03. Recommended alternative: * imbl-sized-chunks, a popular fork of this crate Used by Agave v4.4.1, Jito v4.4.1-jito: sized-chunks 0.6.5. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2026-05-03T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "CVE-2026-31431",
-   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31431",
-   "title": "[CRITICAL] Linux Kernel Incorrect Resource Transfer Between Spheres Vulnerability",
-   "content_text": "Linux Kernel contains an incorrect resource transfer between spheres vulnerability that could allow for privilege escalation. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline May 15, 2026 for US agencies).",
-   "date_published": "2026-05-01T00:00:00Z",
-   "tags": [
-    "kernel"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2025-0161",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2025-0161",
-   "title": "[INFO] libsecp256k1 is unmaintained",
-   "content_text": "The maintainers recommend using k256 instead. Used by Agave v4.4.1, Jito v4.4.1-jito: libsecp256k1 0.7.2. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2025-01-14T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "GHSA-cq8v-f236-94qc",
-   "url": "https://osv.dev/vulnerability/GHSA-cq8v-f236-94qc",
-   "title": "[INFO] Rand is unsound with a custom logger using rand::rng()",
-   "content_text": "It has been reported (by @lopopolo) that the rand library is unsound (i.e. that safe code using the public API can cause Undefined Behaviour) when all the following conditions are met: - The log and thread_rng features are enabled - A custom logger is… Used by Agave v4.4.1, Jito v4.4.1-jito: rand 0.7.3. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2026-04-14T01:03:36Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0097",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0097",
-   "title": "[INFO] Rand is unsound with a custom logger using rand::rng()",
-   "content_text": "It has been reported (by @lopopolo) that the rand library is unsound (i.e. that safe code using the public API can cause Undefined Behaviour) when all the following conditions are met: - The log and thread_rng features are enabled - A [custom… Used by Agave v4.4.1, Jito v4.4.1-jito: rand 0.7.3. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2026-04-09T12:00:00Z",
    "tags": [
     "rust",
     "agave",

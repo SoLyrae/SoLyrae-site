@@ -18,6 +18,27 @@
    ]
   },
   {
+   "id": "USN-9160-1",
+   "url": "https://ubuntu.com/security/notices/USN-9160-1",
+   "title": "[CRITICAL] Linux kernel (Azure) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - USB Gadget drivers; - Memory management; - Multiple devices driver; - ARM64 architecture; - EROFS file system; - Network file systems library; - Networking core; - eXpress Data Path; - Stream parser; - ARM32 architecture; - M68K… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-19T09:58:38Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-99320",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99320",
+   "title": "[WATCH] Linux kernel: ipv6: raw: fix use-after-free in rawv6_send_hdrinc()",
+   "content_text": "rawv6_send_hdrinc() caches the route before handing the skb to l3mdev_ip6_out(). The VRF output path may replace skb->dst and release the original route, leaving the cached pointer stale. The function later dereferences that pointer for statistics accounting and as the output device passed to NF_HOOK(). Its RCU read-side critical section starts after l3mdev_ip6_out(), so it cannot prevent the old route from being… Linux kernel, network stack (ipv6). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-11-19T09:18:18Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
    "id": "USN-9027-2",
    "url": "https://ubuntu.com/security/notices/USN-9027-2",
    "title": "[CRITICAL] Linux kernel (FIPS) vulnerabilities",
@@ -872,30 +893,6 @@
    "title": "[INFO] Rand is unsound with a custom logger using rand::rng()",
    "content_text": "It has been reported (by @lopopolo) that the rand library is unsound (i.e. that safe code using the public API can cause Undefined Behaviour) when all the following conditions are met: - The log and thread_rng features are enabled - A [custom… Used by Agave v4.4.1, Jito v4.4.1-jito: rand 0.7.3. Informational: a dependency of the client release. Follow official client updates and guidance.",
    "date_published": "2026-04-09T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "GHSA-w5vr-6qhr-36cc",
-   "url": "https://osv.dev/vulnerability/GHSA-w5vr-6qhr-36cc",
-   "title": "[INFO] ed25519-dalek Double Public Key Signing Function Oracle Attack",
-   "content_text": "Versions of ed25519-dalek prior to v2.0 model private and public keys as separate types which can be assembled into a Keypair, and also provide APIs for serializing and deserializing 64-byte private/public keypairs. Such APIs and serializations are inherently unsafe as the public key is one of the inputs used in the deterministic computation of the S part of the signature, but not in the R value. An… Used by Agave v4.4.1, Jito v4.4.1-jito: ed25519-dalek 1.0.1. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
-   "date_published": "2023-08-14T21:10:29Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2024-0436",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2024-0436",
-   "title": "[INFO] paste - no longer maintained",
-   "content_text": "The creator of the crate paste has stated in the README.md that this project is not longer maintained as well as archived the repository ## Possible Alternative(s) - [pastey]: a fork of paste and is aimed to be a drop-in replacement with additional features for paste crate - [with_builtin_macros]: crate providing a [superset of paste's functionality… Used by Agave v4.4.1, Jito v4.4.1-jito: paste 1.0.15. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2024-10-07T12:00:00Z",
    "tags": [
     "rust",
     "agave",

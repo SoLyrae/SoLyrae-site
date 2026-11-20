@@ -18,6 +18,26 @@
    ]
   },
   {
+   "id": "CVE-2026-99708",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99708",
+   "title": "[WATCH] Linux kernel: ipv6: reject wrapped temporary address preferred lifetimes",
+   "content_text": "ipv6_create_tempaddr() raises a temporary address's preferred lifetime to regen_advance + age + 1 when the configured lifetime is too short. The result is stored in a u32, while regen_advance and age are unsigned long. If the sum wraps or is truncated, the stored lifetime can still be less than or equal to regen_advance + age. addrconf_verify_rtnl() then sees the new address as due for regeneration and creates… Linux kernel, network stack (ipv6). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-11-20T06:18:06Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-99709",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99709",
+   "title": "[WATCH] Linux kernel: inet: frags: limit the truesize of a reassembly queue",
+   "content_text": "The truesize of fragments in a reassembly queue is only bounded by the per netns ipfrag_high_thresh sysctl, which has no upper limit. inet_frag_reasm_finish() sums the truesize of all fragments in an int. If this sum reaches 2^32, it wraps, and the final sk_wmem_alloc adjustment of the socket owning the reassembled skb can cancel its own reference, leading to a use-after-free of this socket. This can be triggered… Linux kernel, network stack (inet). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-11-20T06:18:06Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
    "id": "USN-9175-1",
    "url": "https://ubuntu.com/security/notices/USN-9175-1",
    "title": "[HIGH] Linux kernel (Oracle) vulnerabilities",
@@ -865,26 +885,6 @@
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-39964",
    "title": "[CRITICAL] Linux Kernel Race Condition Vulnerability",
    "content_text": "Linux Kernel contains a race condition vulnerability which allows concurrent writes to the same AF_ALG socket causing data to be unpredictably interleaved and creating inconsistencies in the socket's internal state. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Sep 21, 2026 for US agencies).",
-   "date_published": "2026-09-18T00:00:00Z",
-   "tags": [
-    "kernel"
-   ]
-  },
-  {
-   "id": "CVE-2026-53266",
-   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53266",
-   "title": "[CRITICAL] Linux Kernel Out-of-Bounds Write Vulnerability",
-   "content_text": "Linux Kernel contains an out-of-bounds write vulnerability in the ebtables SNAT target which allows an ARP sender hardware address rewrite to write directly into a nonlinear socket-buffer fragment backed by a splice-imported file page. The impacted product(s) could be end-of-life (EoL) and/or end-of-service (EoS). Users are advised to discontinue use and/or transition to a supported version. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Sep 21, 2026 for US agencies).",
-   "date_published": "2026-09-18T00:00:00Z",
-   "tags": [
-    "kernel"
-   ]
-  },
-  {
-   "id": "CVE-2025-39682",
-   "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-39682",
-   "title": "[CRITICAL] Linux Kernel Improper Check for Unusual or Exceptional Conditions Vulnerability",
-   "content_text": "Linux Kernel contains an improper check for unusual or exceptional conditions vulnerability in the TLS receive path which allows a zero-length record retrieved from the rx_list to bypass the intended recvmsg() record-type handling, potentially causing subsequent TLS records to be processed using incorrect zero-copy and queuing assumptions. The impacted product(s) could be end-of-life (EoL) and/or end-of-service… Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Sep 21, 2026 for US agencies).",
    "date_published": "2026-09-18T00:00:00Z",
    "tags": [
     "kernel"

@@ -21,7 +21,7 @@
    "id": "USN-9175-1",
    "url": "https://ubuntu.com/security/notices/USN-9175-1",
    "title": "[HIGH] Linux kernel (Oracle) vulnerabilities",
-   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Intel NPU Driver; - Compute… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Intel NPU Driver; - Compute… Ubuntu 24.04. Run apt update and apt upgrade, then reboot if the kernel changed.",
    "date_published": "2026-11-19T15:43:10Z",
    "tags": [
     "ubuntu",
@@ -32,7 +32,7 @@
    "id": "USN-9173-1",
    "url": "https://ubuntu.com/security/notices/USN-9173-1",
    "title": "[HIGH] Linux kernel vulnerabilities",
-   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Intel NPU… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Intel NPU… Ubuntu 22.04, 24.04. Run apt update and apt upgrade, then reboot if the kernel changed.",
    "date_published": "2026-11-19T15:13:04Z",
    "tags": [
     "ubuntu",

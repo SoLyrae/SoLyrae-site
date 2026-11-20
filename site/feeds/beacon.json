@@ -18,6 +18,72 @@
    ]
   },
   {
+   "id": "USN-9183-1",
+   "url": "https://ubuntu.com/security/notices/USN-9183-1",
+   "title": "[HIGH] Linux kernel (FIPS) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - USB Gadget drivers; - Memory management; - Multiple devices driver; - Network file systems library; - Networking core; - eXpress Data Path; - Stream parser; - Kernel build system; - ARM32 architecture; - ARM64 architecture; - M68K… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-20T15:34:40Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9173-2",
+   "url": "https://ubuntu.com/security/notices/USN-9173-2",
+   "title": "[HIGH] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Intel NPU… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-20T15:33:51Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9168-3",
+   "url": "https://ubuntu.com/security/notices/USN-9168-3",
+   "title": "[HIGH] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Compressed RAM block device driver; - Bluetooth drivers; - GPIO subsystem; - GPU drivers; - HID subsystem; - Microsoft Hyper-V drivers; - Hardware monitoring… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-20T15:33:37Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9167-2",
+   "url": "https://ubuntu.com/security/notices/USN-9167-2",
+   "title": "[HIGH] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Drivers core; - Compressed RAM block device driver; - Bluetooth drivers; - GPIO subsystem; - GPU drivers; - HID subsystem; - Microsoft Hyper-V drivers; -… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-20T15:33:37Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9169-2",
+   "url": "https://ubuntu.com/security/notices/USN-9169-2",
+   "title": "[CRITICAL] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - x86 architecture; - GPU drivers; - HID subsystem; - I3C subsystem; - MemoryStick subsystem; - Network drivers; - Ethernet team driver; - NVME drivers; - S/390 drivers; - SCSI subsystem; - Greybus lights staging drivers… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-20T15:33:29Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9170-3",
+   "url": "https://ubuntu.com/security/notices/USN-9170-3",
+   "title": "[CRITICAL] Linux kernel (Oracle) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking; - Ethernet bridge; - Netfilter; - SCTP protocol; - XFRM subsystem; (CVE-2026-64564, CVE-2026-98432, CVE-2026-99999) Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-20T15:33:20Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
    "id": "CVE-2026-99708",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99708",
    "title": "[WATCH] Linux kernel: ipv6: reject wrapped temporary address preferred lifetimes",
@@ -818,76 +884,6 @@
     "rust",
     "agave",
     "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0386",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0386",
-   "title": "[WATCH] AsyncFd::new and related constructors violate I/O safety",
-   "content_text": "tokio::io::unix::AsyncFd provides safe constructors (new, with_interest, try_new, and try_with_interest) that accept any T: AsRawFd rather than requiring proof of ownership or validity of the file descriptor. Because RawFd implements AsRawFd, safe code can construct an AsyncFd from an arbitrary or closed file descriptor, or close/replace the underlying file descriptor while the AsyncFd is still… Used by Agave v4.4.1, Jito v4.4.1-jito: tokio 1.53.1. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-10-13T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0441",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0441",
-   "title": "[INFO] pin-utils is unmaintained",
-   "content_text": "The [upstream repository] was archived on October 1, 2026, after the release of version 0.1.1. For local pinning, replace pin_mut! with [core::pin::pin!], available since Rust 1.68. For pin projection, replace unsafe_pinned! and unsafe_unpinned! with [pin-project] or [pin-project-lite]. [upstream repository]: https://github.com/rust-lang/pin-utils [core::pin::pin!]… Used by Agave v4.4.1, Jito v4.4.1-jito: pin-utils 0.1.0. Informational: a dependency of the client release. Follow official client updates and guidance.",
-   "date_published": "2026-10-01T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0523",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0523",
-   "title": "[WATCH] MAX_STREAM_DATA frame can open streams beyond the stream limit",
-   "content_text": "When a MAX_STREAM_DATA frame named a peer-initiated bidirectional stream that was not open yet, received_max_stream_data treated the stream, and every lower-numbered stream, as opened without checking the stream ID against the limit advertised to the peer. RFC 9000 section 4.6 requires closing the connection with STREAM_LIMIT_ERROR in this case, and the STREAM and RESET_STREAM handlers already did so. After the… Used by Agave v4.4.1, Jito v4.4.1-jito: quinn-proto 0.11.18. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-09-30T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0524",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0524",
-   "title": "[WATCH] Long Retry token can panic or exhaust memory in a QUIC client",
-   "content_text": "A client kept the token from a Retry packet without any length limit and put it into the header of every Initial packet it sent afterwards. Initial datagrams are 1200 bytes. When the token and connection IDs left no room for the minimum payload, PacketBuilder::new computed a minimum packet size larger than the maximum, which only a debug assertion checked. On the next poll_transmit, debug builds panic, and… Used by Agave v4.4.1, Jito v4.4.1-jito: quinn-proto 0.11.18. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-09-30T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0538",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0538",
-   "title": "[WATCH] Receive loop can spin after a truncated datagram",
-   "content_text": "Some targets read one datagram per recvmsg call instead of using recvmmsg: Apple platforms without the fast-apple-datapath feature, OpenBSD, NetBSD, Solaris and illumos, and from 0.6 also DragonFly BSD, Redox and GNU/Hurd. On these targets the receive loop set up its msghdr only once and looked at the MSG_TRUNC flag before checking whether recvmsg had failed. After a datagram larger than the receive… Used by Agave v4.4.1, Jito v4.4.1-jito: quinn-udp 0.5.5. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-09-30T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "CVE-2025-39964",
-   "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-39964",
-   "title": "[CRITICAL] Linux Kernel Race Condition Vulnerability",
-   "content_text": "Linux Kernel contains a race condition vulnerability which allows concurrent writes to the same AF_ALG socket causing data to be unpredictably interleaved and creating inconsistencies in the socket's internal state. Linux Kernel. Update or mitigate as the vendor advises. CISA lists this flaw as exploited in attacks (deadline Sep 21, 2026 for US agencies).",
-   "date_published": "2026-09-18T00:00:00Z",
-   "tags": [
-    "kernel"
    ]
   }
  ]

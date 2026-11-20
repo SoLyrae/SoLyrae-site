@@ -18,6 +18,17 @@
    ]
   },
   {
+   "id": "USN-9184-1",
+   "url": "https://ubuntu.com/security/notices/USN-9184-1",
+   "title": "[CRITICAL] Linux kernel (NVIDIA Tegra IGX) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - x86 architecture; - Hardware monitoring drivers; - OCFS2 file system; - IPv4 networking; - Ethernet bridge; - Netfilter; - XFRM subsystem; (CVE-2025-21656, CVE-2026-63940, CVE-2026-74350, CVE-2026-98432, CVE-2026-99999) Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-20T16:08:41Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
    "id": "USN-9183-1",
    "url": "https://ubuntu.com/security/notices/USN-9183-1",
    "title": "[HIGH] Linux kernel (FIPS) vulnerabilities",
@@ -867,18 +878,6 @@
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0403",
    "title": "[INFO] Uninitialized memory exposed when streaming decompression of a legacy frame fails",
    "content_text": "When decompression fails inside a legacy (zstd v0.4 to v0.7) frame, the bundled zstd library reports the output buffer as fully written although nothing was written. DCtx::decompress_stream committed that position even on error, and for a Vec destination this extended the vector's length over uninitialized memory. Legacy support is enabled by default. A 5- or 6-byte corrupt legacy frame is enough: through… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
-   "date_published": "2026-10-16T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0410",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0410",
-   "title": "[INFO] WebAssembly allocator shim corrupts memory on allocation failure",
-   "content_text": "On wasm32, zstd-sys provides malloc and free to the C library through a shim over Rust's allocator. The shim did not check for allocation failure: it wrote its size header to address 0 and returned address 4, which the C library used as a valid buffer. free(NULL) also read below address 0. Whenever the instance cannot grow its memory by what a frame asks for, a small crafted frame (a 9-byte header declaring a… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-sys 2.1.0+zstd.1.5.7. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",

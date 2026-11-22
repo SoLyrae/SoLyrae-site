@@ -95,6 +95,18 @@
    ]
   },
   {
+   "id": "RUSTSEC-2026-0592",
+   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0592",
+   "title": "[WATCH] Stack overflow in Url::origin() on nested blob: URLs",
+   "content_text": "In url 2.5.8 and earlier, Url::origin() handled a blob: URL by parsing its path as another URL and calling itself on the result. It did so regardless of the inner URL's scheme, blob included. Each blob: prefix cost one stack frame, with no limit on nesting depth. Url::parse() accepts a URL with 10,000 blob: prefixes followed by https://example.com/ (50,020 bytes in total); calling Url::origin() on… Used by Agave v4.4.1, Jito v4.4.1-jito: url 1.7.2, url 2.5.8. Included in the client release. Follow official client updates and guidance.",
+   "date_published": "2026-11-20T12:00:00Z",
+   "tags": [
+    "rust",
+    "agave",
+    "jito"
+   ]
+  },
+  {
    "id": "CVE-2026-99708",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99708",
    "title": "[WATCH] Linux kernel: ipv6: reject wrapped temporary address preferred lifetimes",
@@ -866,18 +878,6 @@
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0398",
    "title": "[INFO] Seekable::decompress sets a Vec length beyond its capacity for offsets past the end",
    "content_text": "ZSTD_seekable_decompress shortens the requested length to the end of the data without checking that the offset is before it. For an offset past the end, it returns a wrapped-around length without writing anything, and Seekable::decompress passed that length to Vec::set_len. With the seekable feature, whoever supplies the archive, or chooses the offset, can leave the caller's Vec with a length far beyond… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
-   "date_published": "2026-10-16T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0403",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0403",
-   "title": "[INFO] Uninitialized memory exposed when streaming decompression of a legacy frame fails",
-   "content_text": "When decompression fails inside a legacy (zstd v0.4 to v0.7) frame, the bundled zstd library reports the output buffer as fully written although nothing was written. DCtx::decompress_stream committed that position even on error, and for a Vec destination this extended the vector's length over uninitialized memory. Legacy support is enabled by default. A 5- or 6-byte corrupt legacy frame is enough: through… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",

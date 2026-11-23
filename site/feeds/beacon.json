@@ -18,6 +18,36 @@
    ]
   },
   {
+   "id": "CVE-2026-99709",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99709",
+   "title": "[WATCH] Linux kernel: inet: frags: limit the truesize of a reassembly queue",
+   "content_text": "The truesize of fragments in a reassembly queue is only bounded by the per netns ipfrag_high_thresh sysctl, which has no upper limit. inet_frag_reasm_finish() sums the truesize of all fragments in an int. If this sum reaches 2^32, it wraps, and the final sk_wmem_alloc adjustment of the socket owning the reassembled skb can cancel its own reference, leading to a use-after-free of this socket. This can be triggered… Linux kernel, network stack (inet). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-11-20T06:18:06Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-99320",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99320",
+   "title": "[HIGH] Linux kernel: ipv6: raw: fix use-after-free in rawv6_send_hdrinc()",
+   "content_text": "rawv6_send_hdrinc() caches the route before handing the skb to l3mdev_ip6_out(). The VRF output path may replace skb->dst and release the original route, leaving the cached pointer stale. The function later dereferences that pointer for statistics accounting and as the output device passed to NF_HOOK(). Its RCU read-side critical section starts after l3mdev_ip6_out(), so it cannot prevent the old route from being… Linux kernel, network stack (ipv6). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-11-19T09:18:18Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
+   "id": "CVE-2026-99270",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99270",
+   "title": "[HIGH] Linux kernel: tcp: Fix potential UAF in reqsk_timer_handler().",
+   "content_text": "When TCP socket migration fails at inet_ehash_insert() in reqsk_timer_handler(), we jump to the no_ownership: label and free the new reqsk immediately with reqsk_free(). Thus, we must stop the new reqsk's timer before jumping to the label, but the timer might be missed since the cited commit, resulting in UAF. As we are in the original reqsk's timer context, we can safely call timer_delete_sync() for the new… Linux kernel, network stack (tcp). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
+   "date_published": "2026-11-03T13:17:24Z",
+   "tags": [
+    "kernel"
+   ]
+  },
+  {
    "id": "DSA-6652-1",
    "url": "https://lists.debian.org/debian-security-announce/2026/msg00574.html",
    "title": "[WATCH] linux - security update",
@@ -128,16 +158,6 @@
    ]
   },
   {
-   "id": "CVE-2026-99709",
-   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99709",
-   "title": "[WATCH] Linux kernel: inet: frags: limit the truesize of a reassembly queue",
-   "content_text": "The truesize of fragments in a reassembly queue is only bounded by the per netns ipfrag_high_thresh sysctl, which has no upper limit. inet_frag_reasm_finish() sums the truesize of all fragments in an int. If this sum reaches 2^32, it wraps, and the final sk_wmem_alloc adjustment of the socket owning the reassembled skb can cancel its own reference, leading to a use-after-free of this socket. This can be triggered… Linux kernel, network stack (inet). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
-   "date_published": "2026-11-20T06:18:06Z",
-   "tags": [
-    "kernel"
-   ]
-  },
-  {
    "id": "USN-9175-1",
    "url": "https://ubuntu.com/security/notices/USN-9175-1",
    "title": "[HIGH] Linux kernel (Oracle) vulnerabilities",
@@ -200,16 +220,6 @@
    "date_published": "2026-11-19T15:12:06Z",
    "tags": [
     "ubuntu",
-    "kernel"
-   ]
-  },
-  {
-   "id": "CVE-2026-99320",
-   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99320",
-   "title": "[HIGH] Linux kernel: ipv6: raw: fix use-after-free in rawv6_send_hdrinc()",
-   "content_text": "rawv6_send_hdrinc() caches the route before handing the skb to l3mdev_ip6_out(). The VRF output path may replace skb->dst and release the original route, leaving the cached pointer stale. The function later dereferences that pointer for statistics accounting and as the output device passed to NF_HOOK(). Its RCU read-side critical section starts after l3mdev_ip6_out(), so it cannot prevent the old route from being… Linux kernel, network stack (ipv6). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
-   "date_published": "2026-11-19T09:18:18Z",
-   "tags": [
     "kernel"
    ]
   },
@@ -384,16 +394,6 @@
    "title": "[CRITICAL] Linux kernel: ipv4: free inet_opt and ireq_opt after an RCU grace period",
    "content_text": "tcp_v4_syn_recv_sock() transfers ownership of ireq->ireq_opt to the child socket (newinet->inet_opt) without copying it. Another cpu can concurrently process a retransmitted SYN for the same request socket, and send a SYNACK from tcp_check_req(). tcp_v4_send_synack() and inet_csk_route_req() read ireq->ireq_opt under rcu_read_lock() only, and ip_build_and_send_pkt() and ip_options_build() then read opt->optlen… Linux kernel, network stack (ipv4). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
    "date_published": "2026-10-15T13:17:13Z",
-   "tags": [
-    "kernel"
-   ]
-  },
-  {
-   "id": "CVE-2026-99270",
-   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99270",
-   "title": "[HIGH] Linux kernel: tcp: Fix potential UAF in reqsk_timer_handler().",
-   "content_text": "When TCP socket migration fails at inet_ehash_insert() in reqsk_timer_handler(), we jump to the no_ownership: label and free the new reqsk immediately with reqsk_free(). Thus, we must stop the new reqsk's timer before jumping to the label, but the timer might be missed since the cited commit, resulting in UAF. As we are in the original reqsk's timer context, we can safely call timer_delete_sync() for the new… Linux kernel, network stack (tcp). Check your distribution's security notice for this CVE and plan a kernel update and reboot once a fix is available.",
-   "date_published": "2026-11-03T13:17:24Z",
    "tags": [
     "kernel"
    ]

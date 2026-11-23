@@ -18,6 +18,17 @@
    ]
   },
   {
+   "id": "DSA-6652-1",
+   "url": "https://lists.debian.org/debian-security-announce/2026/msg00574.html",
+   "title": "[WATCH] linux - security update",
+   "content_text": "Several vulnerabilities have been discovered in the Linux kernel that may lead to a privilege escalation, denial of service or information leaks. https://security-tracker.debian.org/tracker/DSA-6652-1 Debian stable. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-22T00:00:00Z",
+   "tags": [
+    "debian",
+    "kernel"
+   ]
+  },
+  {
    "id": "USN-9184-1",
    "url": "https://ubuntu.com/security/notices/USN-9184-1",
    "title": "[CRITICAL] Linux kernel (NVIDIA Tegra IGX) vulnerabilities",
@@ -866,18 +877,6 @@
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0391",
    "title": "[INFO] Data from an abandoned stream leaks into the next stream on a reused context",
    "content_text": "The with_context constructors of the stream encoders and decoders used the borrowed context as it was. When a stream was abandoned on a context, for example an encoder dropped before finish() after an error, whatever it left there was carried into the next stream: the input buffered by the previous encoder (up to 128 KiB, or all of it with zstdmt) became the start of the next frame, and a decoder returned… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd 0.14.0. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
-   "date_published": "2026-10-16T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0398",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0398",
-   "title": "[INFO] Seekable::decompress sets a Vec length beyond its capacity for offsets past the end",
-   "content_text": "ZSTD_seekable_decompress shortens the requested length to the end of the data without checking that the offset is before it. For an offset past the end, it returns a wrapped-around length without writing anything, and Seekable::decompress passed that length to Vec::set_len. With the seekable feature, whoever supplies the archive, or chooses the offset, can leave the caller's Vec with a length far beyond… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",

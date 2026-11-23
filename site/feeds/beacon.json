@@ -18,6 +18,17 @@
    ]
   },
   {
+   "id": "USN-9187-1",
+   "url": "https://ubuntu.com/security/notices/USN-9187-1",
+   "title": "[WATCH] libssh vulnerabilities",
+   "content_text": "Haruto Kimura, Rinku Das, and Yi Lin discovered that libssh did not correctly handle SSH channel open messages advertising a zero maximum packet size. An authenticated user could possibly use this issue to cause libssh to use excessive resources, leading to a denial of service. This issue only affected Ubuntu 16.04 LTS, Ubuntu 18.04 LTS, and Ubuntu 20.04 LTS. (CVE-2026-59843) Mikhail Ilin and Saransh Rana discovered… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-23T17:32:05Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
    "id": "CVE-2026-99709",
    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99709",
    "title": "[WATCH] Linux kernel: inet: frags: limit the truesize of a reassembly queue",
@@ -865,18 +876,6 @@
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0406",
    "title": "[WATCH] Use-after-free when changing a multithreaded context with an unfinished frame",
    "content_text": "When a multithreaded frame (zstdmt feature, CParameter::NbWorkers) is left unfinished, its jobs may still be running on the worker threads: the C library only waits for them when the next frame starts, or when the context is freed. A session reset makes the context accept changes again in the meantime, so: - unloading the dictionary (load_dictionary, ref_cdict, ref_prefix, disable_dictionary, init*, or… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-10-16T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0391",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0391",
-   "title": "[INFO] Data from an abandoned stream leaks into the next stream on a reused context",
-   "content_text": "The with_context constructors of the stream encoders and decoders used the borrowed context as it was. When a stream was abandoned on a context, for example an encoder dropped before finish() after an error, whatever it left there was carried into the next stream: the input buffered by the previous encoder (up to 128 KiB, or all of it with zstdmt) became the start of the next frame, and a decoder returned… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd 0.14.0. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",

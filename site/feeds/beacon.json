@@ -18,6 +18,105 @@
    ]
   },
   {
+   "id": "USN-9192-1",
+   "url": "https://ubuntu.com/security/notices/USN-9192-1",
+   "title": "[CRITICAL] Linux kernel (NVIDIA) vulnerabilities",
+   "content_text": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory. (CVE-2023-20585) Several security issues were discovered in the Linux kernel. An attacker could possibly use these to… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-24T08:42:57Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9191-1",
+   "url": "https://ubuntu.com/security/notices/USN-9191-1",
+   "title": "[HIGH] Linux kernel (Azure) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Intel NPU… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-24T08:42:14Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9190-1",
+   "url": "https://ubuntu.com/security/notices/USN-9190-1",
+   "title": "[HIGH] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Compute Acceleration Framework; - FireWire subsystem; - GPIO subsystem; - GPU drivers; - Microsoft Hyper-V drivers; - I2C subsystem; - Multiple… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-24T08:41:13Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9173-3",
+   "url": "https://ubuntu.com/security/notices/USN-9173-3",
+   "title": "[HIGH] Linux kernel (NVIDIA) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Intel NPU… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-24T08:41:02Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9174-2",
+   "url": "https://ubuntu.com/security/notices/USN-9174-2",
+   "title": "[HIGH] Linux kernel (Low Latency NVIDIA) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Intel NPU Driver; - Compute… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-24T08:40:59Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9167-3",
+   "url": "https://ubuntu.com/security/notices/USN-9167-3",
+   "title": "[HIGH] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Drivers core; - Compressed RAM block device driver; - Bluetooth drivers; - GPIO subsystem; - GPU drivers; - HID subsystem; - Microsoft Hyper-V drivers; -… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-24T08:40:58Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9168-4",
+   "url": "https://ubuntu.com/security/notices/USN-9168-4",
+   "title": "[HIGH] Linux kernel (Azure) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Compressed RAM block device driver; - Bluetooth drivers; - GPIO subsystem; - GPU drivers; - HID subsystem; - Microsoft Hyper-V drivers; - Hardware monitoring… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-24T08:40:54Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9170-4",
+   "url": "https://ubuntu.com/security/notices/USN-9170-4",
+   "title": "[CRITICAL] Linux kernel (Azure) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - IPv4 networking; - Ethernet bridge; - Netfilter; - SCTP protocol; - XFRM subsystem; (CVE-2026-64564, CVE-2026-98432, CVE-2026-99999) Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-24T08:40:41Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
+   "id": "USN-9165-2",
+   "url": "https://ubuntu.com/security/notices/USN-9165-2",
+   "title": "[HIGH] Linux kernel vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Cryptographic API; - File systems infrastructure; - Key management; - Key Management; - io_uring subsystem; - PID namespace; - Tracing infrastructure; (CVE-2026-99218, CVE-2026-99219, CVE-2026-99220, CVE-2026-99221, CVE-2026-99222… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-24T08:40:41Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
    "id": "USN-9187-1",
    "url": "https://ubuntu.com/security/notices/USN-9187-1",
    "title": "[WATCH] libssh vulnerabilities",
@@ -768,114 +867,6 @@
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0395",
    "title": "[WATCH] Use-after-free with CParameter::StableInBuffer",
    "content_text": "With CParameter::StableInBuffer(true) (experimental feature), the C library keeps a pointer to the input of one streaming call and reads from it in later calls, including flush_stream and end_stream, which take no input. An InBuffer only borrows its slice for one call, so safe code could free it in between, and freed memory was compressed into the frame. The C library behaves this way since zstd 1.5.4… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-10-16T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0396",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0396",
-   "title": "[WATCH] Seekable reads a NULL or out-of-bounds seek table",
-   "content_text": "Seekable did not record whether it was initialized. On a fresh Seekable, or one whose init_buff() failed, decompress, offset_to_frame_index and frame_decompressed_size made the C library read a NULL seek table. After a failed re-initialization, decompress returned data from the refused buffer using the previous seek table. Separately, frame_decompressed_size(num_frames()), on Seekable and… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-10-16T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0397",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0397",
-   "title": "[WATCH] OutBuffer::around_pos exposes uninitialized memory",
-   "content_text": "OutBuffer::around_pos accepted a position past the initialized length of a Vec . The next streaming call then marked everything before the position as initialized, so safe code could read stale heap memory between the vector's previous length and that position. The flaw was corrected by zero-filling that gap. Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-10-16T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0399",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0399",
-   "title": "[WATCH] Use-after-free through init_using_cdict and init_using_ddict",
-   "content_text": "CCtx::init_using_cdict and DCtx::init_using_ddict (experimental feature, deprecated) took the dictionary as &CDict and &DDict with only 'b: 'a, so the dictionary itself could be dropped while the context still pointed at it. The same mistake in other constructors was fixed earlier ( ). The flaw was corrected by taking &'a CDict and &'a DDict . Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-10-16T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0400",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0400",
-   "title": "[WATCH] Use-after-free of a dictionary after a one-shot call on a context with an open stream",
-   "content_text": "The one-shot DCtx and CCtx methods assumed the C library resets the context, but it leaves an open stream as it is. When a stream was left unfinished on a context, a one-shot call such as decompress_using_dict could leave the context pointing at the dictionary borrowed for that call, and the next streaming call resumed the stream against it after it was freed: decompressed output then contained freed heap… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-10-16T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0401",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0401",
-   "title": "[WATCH] Out-of-bounds read in train_from_buffer when sample sizes overflow",
-   "content_text": "ZDICT_trainFromBuffer is never told the length of the samples buffer, so train_from_buffer checked that the sample sizes add up to it. With overflow checks off, as in release builds, that sum wrapped around: sizes totalling 2^64 plus the buffer length passed the check, and the trainer read past the end of the buffer. zstd::dict::from_continuous relies on this check from zstd 0.4.10; older versions of zstd had… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-10-16T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0402",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0402",
-   "title": "[WATCH] Heap buffer overflow in CCtx::try_clone on a multithreaded context",
-   "content_text": "CCtx::try_clone (experimental feature, deprecated) copies tables sized from the context's applied parameters. Starting a multithreaded frame (zstdmt feature) replaces those parameters with the workers' without resizing the context's own tables, so after an abandoned single-threaded frame, the copy wrote up to 512 KiB past a heap allocation, or read past one. This became reachable with the bundled zstd 1.5.6… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-10-16T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0404",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0404",
-   "title": "[WATCH] Double free in DCtx::try_clone",
-   "content_text": "DCtx::try_clone (experimental feature, deprecated) is a plain copy of the C context. A context owning a dictionary (from load_dictionary, ref_prefix or init_using_dict) or a dictionary table (ref_ddict with RefMultipleDDicts) ended up with both copies freeing it. A context cloned mid-frame resumed on uninitialized stream state. The clone also silently lost the WindowLogMax limit. The flaw was… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-10-16T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0405",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0405",
-   "title": "[WATCH] Out-of-bounds read with an out-of-range InBuffer::pos",
-   "content_text": "InBuffer's fields are public, so safe code can set pos past the end of src. The position was passed to the C library unchecked, and ZSTD_seekable_compressStream, unlike the other streaming functions, does not validate it: it read past the end of the input slice, by up to the frame size, and compressed that memory into the output. The flaw was corrected by checking the position before every call into the C… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-10-16T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0406",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0406",
-   "title": "[WATCH] Use-after-free when changing a multithreaded context with an unfinished frame",
-   "content_text": "When a multithreaded frame (zstdmt feature, CParameter::NbWorkers) is left unfinished, its jobs may still be running on the worker threads: the C library only waits for them when the next frame starts, or when the context is freed. A session reset makes the context accept changes again in the meantime, so: - unloading the dictionary (load_dictionary, ref_cdict, ref_prefix, disable_dictionary, init*, or… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",

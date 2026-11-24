@@ -4,6 +4,7 @@
 <link href="https://www.solyrae.com/beacon.html"/>
 <link rel="self" href="https://www.solyrae.com/feeds/beacon-docker.atom"/>
 <id>https://www.solyrae.com/feeds/beacon-docker.atom</id>
-<updated>2026-11-24T19:14:15Z</updated>
+<updated>2026-11-25T00:00:00Z</updated>
 <author><name>SoLyrae Beacon</name></author>
+<entry><title>[WATCH] runc - security update</title><id>tag:solyrae.com,2026:beacon:DSA-6656-1</id><link href="https://lists.debian.org/debian-security-announce/2026/msg00578.html"/><updated>2026-11-25T00:00:00Z</updated><category term="debian"/><category term="docker"/><summary>[WATCH] Several vulnerabilities were discovered in runc, the Open Container Initiative runtime. Depending on the configuration, exploitation could expose host resources, cause a denial of service, or permit container escape. https://security-tracker.debian.org/tracker/DSA-6656-1 Debian stable. Run apt update and apt upgrade, then reboot if the kernel changed. Source: https://lists.debian.org/debian-security-announce/2026/msg00578.html</summary></entry>
 </feed>

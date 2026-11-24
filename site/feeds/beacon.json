@@ -5,6 +5,17 @@
  "feed_url": "https://www.solyrae.com/feeds/beacon.json",
  "items": [
   {
+   "id": "DSA-6656-1",
+   "url": "https://lists.debian.org/debian-security-announce/2026/msg00578.html",
+   "title": "[WATCH] runc - security update",
+   "content_text": "Several vulnerabilities were discovered in runc, the Open Container Initiative runtime. Depending on the configuration, exploitation could expose host resources, cause a denial of service, or permit container escape. https://security-tracker.debian.org/tracker/DSA-6656-1 Debian stable. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-25T00:00:00Z",
+   "tags": [
+    "debian",
+    "docker"
+   ]
+  },
+  {
    "id": "NOTICE-2026-11-16-NOISYTCP",
    "url": "https://docs.google.com/document/d/e/2PACX-1vTMvUdimUtfFtP2yu-fUQFwNIWZ_VITujSH1sbrGJpAG0rhjD7JQ8T21hpla85fySLy6wVjGCZ1rafm/pub",
    "title": "[CRITICAL] Linux kernel vulnerability CVE-2026-99288 (NoisyTCP) requires immediate operator action",
@@ -856,18 +867,6 @@
    "title": "[INFO] Exponential event growth with ENABLE_WIKILINKS",
    "content_text": "When Options::ENABLE_WIKILINKS is enabled, a wikilink with a pipe separator and empty display text, such as [[a|]], leaks its child node's sibling chain into the content that follows it. Each such link roughly doubles the number of events the parser yields for the rest of the document, so output grows exponentially with input size: 16 repetitions of [[a|]] (112 bytes) yield 327,676 events, where the fixed… Used by Agave v4.4.1, Jito v4.4.1-jito: pulldown-cmark 0.13.1. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-18T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0395",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0395",
-   "title": "[WATCH] Use-after-free with CParameter::StableInBuffer",
-   "content_text": "With CParameter::StableInBuffer(true) (experimental feature), the C library keeps a pointer to the input of one streaming call and reads from it in later calls, including flush_stream and end_stream, which take no input. An InBuffer only borrows its slice for one call, so safe code could free it in between, and freed memory was compressed into the frame. The C library behaves this way since zstd 1.5.4… Used by Agave v4.4.1, Jito v4.4.1-jito: zstd-safe 8.0.0. Included in the client release. Follow official client updates and guidance.",
-   "date_published": "2026-10-16T12:00:00Z",
    "tags": [
     "rust",
     "agave",

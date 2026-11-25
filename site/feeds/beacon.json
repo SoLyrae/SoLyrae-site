@@ -5,17 +5,6 @@
  "feed_url": "https://www.solyrae.com/feeds/beacon.json",
  "items": [
   {
-   "id": "DSA-6656-1",
-   "url": "https://lists.debian.org/debian-security-announce/2026/msg00578.html",
-   "title": "[WATCH] runc - security update",
-   "content_text": "Several vulnerabilities were discovered in runc, the Open Container Initiative runtime. Depending on the configuration, exploitation could expose host resources, cause a denial of service, or permit container escape. https://security-tracker.debian.org/tracker/DSA-6656-1 Debian stable. Run apt update and apt upgrade, then reboot if the kernel changed.",
-   "date_published": "2026-11-25T00:00:00Z",
-   "tags": [
-    "debian",
-    "docker"
-   ]
-  },
-  {
    "id": "NOTICE-2026-11-16-NOISYTCP",
    "url": "https://docs.google.com/document/d/e/2PACX-1vTMvUdimUtfFtP2yu-fUQFwNIWZ_VITujSH1sbrGJpAG0rhjD7JQ8T21hpla85fySLy6wVjGCZ1rafm/pub",
    "title": "[CRITICAL] Linux kernel vulnerability CVE-2026-99288 (NoisyTCP) requires immediate operator action",
@@ -29,10 +18,21 @@
    ]
   },
   {
+   "id": "DSA-6656-1",
+   "url": "https://lists.debian.org/debian-security-announce/2026/msg00578.html",
+   "title": "[WATCH] runc - security update",
+   "content_text": "Several vulnerabilities were discovered in runc, the Open Container Initiative runtime. Depending on the configuration, exploitation could expose host resources, cause a denial of service, or permit container escape. https://security-tracker.debian.org/tracker/DSA-6656-1 Debian stable. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-25T00:00:00Z",
+   "tags": [
+    "debian",
+    "docker"
+   ]
+  },
+  {
    "id": "USN-9192-1",
    "url": "https://ubuntu.com/security/notices/USN-9192-1",
    "title": "[CRITICAL] Linux kernel (NVIDIA) vulnerabilities",
-   "content_text": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory. (CVE-2023-20585) Several security issues were discovered in the Linux kernel. An attacker could possibly use these to… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "content_text": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory. (CVE-2023-20585) Several security issues were discovered in the Linux kernel. An attacker could possibly use these to… Ubuntu 22.04. Run apt update and apt upgrade, then reboot if the kernel changed.",
    "date_published": "2026-11-24T08:42:57Z",
    "tags": [
     "ubuntu",
@@ -43,7 +43,7 @@
    "id": "USN-9191-1",
    "url": "https://ubuntu.com/security/notices/USN-9191-1",
    "title": "[HIGH] Linux kernel (Azure) vulnerabilities",
-   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Intel NPU… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Intel NPU… Ubuntu 22.04, 24.04. Run apt update and apt upgrade, then reboot if the kernel changed.",
    "date_published": "2026-11-24T08:42:14Z",
    "tags": [
     "ubuntu",
@@ -54,7 +54,7 @@
    "id": "USN-9190-1",
    "url": "https://ubuntu.com/security/notices/USN-9190-1",
    "title": "[HIGH] Linux kernel vulnerabilities",
-   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Compute Acceleration Framework; - FireWire subsystem; - GPIO subsystem; - GPU drivers; - Microsoft Hyper-V drivers; - I2C subsystem; - Multiple… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Compute Acceleration Framework; - FireWire subsystem; - GPIO subsystem; - GPU drivers; - Microsoft Hyper-V drivers; - I2C subsystem; - Multiple… Ubuntu 24.04, 26.04. Run apt update and apt upgrade, then reboot if the kernel changed.",
    "date_published": "2026-11-24T08:41:13Z",
    "tags": [
     "ubuntu",
@@ -65,7 +65,7 @@
    "id": "USN-9173-3",
    "url": "https://ubuntu.com/security/notices/USN-9173-3",
    "title": "[HIGH] Linux kernel (NVIDIA) vulnerabilities",
-   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Intel NPU… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Intel NPU… Ubuntu 24.04. Run apt update and apt upgrade, then reboot if the kernel changed.",
    "date_published": "2026-11-24T08:41:02Z",
    "tags": [
     "ubuntu",
@@ -76,7 +76,7 @@
    "id": "USN-9174-2",
    "url": "https://ubuntu.com/security/notices/USN-9174-2",
    "title": "[HIGH] Linux kernel (Low Latency NVIDIA) vulnerabilities",
-   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Intel NPU Driver; - Compute… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Multiple devices driver; - eXpress Data Path; - Kernel build system; - ARM64 architecture; - PowerPC architecture; - RISC-V architecture; - S390 architecture; - x86 architecture; - Block layer subsystem; - Intel NPU Driver; - Compute… Ubuntu 24.04. Run apt update and apt upgrade, then reboot if the kernel changed.",
    "date_published": "2026-11-24T08:40:59Z",
    "tags": [
     "ubuntu",
@@ -87,7 +87,7 @@
    "id": "USN-9167-3",
    "url": "https://ubuntu.com/security/notices/USN-9167-3",
    "title": "[HIGH] Linux kernel vulnerabilities",
-   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Drivers core; - Compressed RAM block device driver; - Bluetooth drivers; - GPIO subsystem; - GPU drivers; - HID subsystem; - Microsoft Hyper-V drivers; -… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Drivers core; - Compressed RAM block device driver; - Bluetooth drivers; - GPIO subsystem; - GPU drivers; - HID subsystem; - Microsoft Hyper-V drivers; -… Ubuntu 22.04. Run apt update and apt upgrade, then reboot if the kernel changed.",
    "date_published": "2026-11-24T08:40:58Z",
    "tags": [
     "ubuntu",
@@ -98,7 +98,7 @@
    "id": "USN-9168-4",
    "url": "https://ubuntu.com/security/notices/USN-9168-4",
    "title": "[HIGH] Linux kernel (Azure) vulnerabilities",
-   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Compressed RAM block device driver; - Bluetooth drivers; - GPIO subsystem; - GPU drivers; - HID subsystem; - Microsoft Hyper-V drivers; - Hardware monitoring… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Stream parser; - ARM64 architecture; - S390 architecture; - x86 architecture; - Compressed RAM block device driver; - Bluetooth drivers; - GPIO subsystem; - GPU drivers; - HID subsystem; - Microsoft Hyper-V drivers; - Hardware monitoring… Ubuntu 22.04. Run apt update and apt upgrade, then reboot if the kernel changed.",
    "date_published": "2026-11-24T08:40:54Z",
    "tags": [
     "ubuntu",
@@ -120,7 +120,7 @@
    "id": "USN-9165-2",
    "url": "https://ubuntu.com/security/notices/USN-9165-2",
    "title": "[HIGH] Linux kernel vulnerabilities",
-   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Cryptographic API; - File systems infrastructure; - Key management; - Key Management; - io_uring subsystem; - PID namespace; - Tracing infrastructure; (CVE-2026-99218, CVE-2026-99219, CVE-2026-99220, CVE-2026-99221, CVE-2026-99222… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - Cryptographic API; - File systems infrastructure; - Key management; - Key Management; - io_uring subsystem; - PID namespace; - Tracing infrastructure; (CVE-2026-99218, CVE-2026-99219, CVE-2026-99220, CVE-2026-99221, CVE-2026-99222… Ubuntu 26.10. Run apt update and apt upgrade, then reboot if the kernel changed.",
    "date_published": "2026-11-24T08:40:41Z",
    "tags": [
     "ubuntu",

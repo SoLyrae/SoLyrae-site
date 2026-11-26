@@ -21,7 +21,7 @@
    "id": "USN-9190-2",
    "url": "https://ubuntu.com/security/notices/USN-9190-2",
    "title": "[HIGH] Linux kernel (HWE) vulnerabilities",
-   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Compute Acceleration Framework; - FireWire subsystem; - GPIO subsystem; - GPU drivers; - Microsoft Hyper-V drivers; - I2C subsystem; - Multiple… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Compute Acceleration Framework; - FireWire subsystem; - GPIO subsystem; - GPU drivers; - Microsoft Hyper-V drivers; - I2C subsystem; - Multiple… Ubuntu 24.04. Run apt update and apt upgrade, then reboot if the kernel changed.",
    "date_published": "2026-11-26T13:20:06Z",
    "tags": [
     "ubuntu",

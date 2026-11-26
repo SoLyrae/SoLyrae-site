@@ -18,6 +18,17 @@
    ]
   },
   {
+   "id": "USN-9190-2",
+   "url": "https://ubuntu.com/security/notices/USN-9190-2",
+   "title": "[HIGH] Linux kernel (HWE) vulnerabilities",
+   "content_text": "Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system. This update corrects flaws in the following subsystems: - S390 architecture; - x86 architecture; - Block layer subsystem; - Cryptographic API; - Compute Acceleration Framework; - FireWire subsystem; - GPIO subsystem; - GPU drivers; - Microsoft Hyper-V drivers; - I2C subsystem; - Multiple… Ubuntu. Run apt update and apt upgrade, then reboot if the kernel changed.",
+   "date_published": "2026-11-26T13:20:06Z",
+   "tags": [
+    "ubuntu",
+    "kernel"
+   ]
+  },
+  {
    "id": "DSA-6656-1",
    "url": "https://lists.debian.org/debian-security-announce/2026/msg00578.html",
    "title": "[WATCH] runc - security update",
@@ -859,18 +870,6 @@
    "date_published": "2026-10-06T09:18:20Z",
    "tags": [
     "kernel"
-   ]
-  },
-  {
-   "id": "RUSTSEC-2026-0414",
-   "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0414",
-   "title": "[INFO] Exponential event growth with ENABLE_WIKILINKS",
-   "content_text": "When Options::ENABLE_WIKILINKS is enabled, a wikilink with a pipe separator and empty display text, such as [[a|]], leaks its child node's sibling chain into the content that follows it. Each such link roughly doubles the number of events the parser yields for the rest of the document, so output grows exponentially with input size: 16 repetitions of [[a|]] (112 bytes) yield 327,676 events, where the fixed… Used by Agave v4.4.1, Jito v4.4.1-jito: pulldown-cmark 0.13.1. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
-   "date_published": "2026-10-18T12:00:00Z",
-   "tags": [
-    "rust",
-    "agave",
-    "jito"
    ]
   }
  ]

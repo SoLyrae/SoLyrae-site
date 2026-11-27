@@ -271,7 +271,7 @@
    "id": "RUSTSEC-2026-0592",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0592",
    "title": "[WATCH] Stack overflow in Url::origin() on nested blob: URLs",
-   "content_text": "In url 2.5.8 and earlier, Url::origin() handled a blob: URL by parsing its path as another URL and calling itself on the result. It did so regardless of the inner URL's scheme, blob included. Each blob: prefix cost one stack frame, with no limit on nesting depth. Url::parse() accepts a URL with 10,000 blob: prefixes followed by https://example.com/ (50,020 bytes in total); calling Url::origin() on… Used by Agave v4.4.1, Jito v4.4.1-jito: url 1.7.2, url 2.5.8. Included in the client release. Follow official client updates and guidance.",
+   "content_text": "In url 2.5.8 and earlier, Url::origin() handled a blob: URL by parsing its path as another URL and calling itself on the result. It did so regardless of the inner URL's scheme, blob included. Each blob: prefix cost one stack frame, with no limit on nesting depth. Url::parse() accepts a URL with 10,000 blob: prefixes followed by https://example.com/ (50,020 bytes in total); calling Url::origin() on… Used by Agave v4.4.2, Jito v4.4.1-jito: url 1.7.2, url 2.5.8. Included in the client release. Follow official client updates and guidance. The Agave team lists it as accepted in its audit configuration.",
    "date_published": "2026-11-20T12:00:00Z",
    "tags": [
     "rust",
@@ -534,7 +534,7 @@
    "id": "RUSTSEC-2026-0346",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0346",
    "title": "[INFO] Debug impls for client session values expose TLS secrets",
-   "content_text": "The Debug implementations of Tls12ClientSessionValue and Tls13ClientSessionValue were derived, and so included the TLS 1.2 master secret or TLS 1.3 resumption PSK in their output. Custom ClientSessionStore implementations that format these values with Debug (for example, when logging) could disclose these secrets to readers of the logs. This conflicts with rustls's [key-material redaction… Used by Agave v4.4.1: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "The Debug implementations of Tls12ClientSessionValue and Tls13ClientSessionValue were derived, and so included the TLS 1.2 master secret or TLS 1.3 resumption PSK in their output. Custom ClientSessionStore implementations that format these values with Debug (for example, when logging) could disclose these secrets to readers of the logs. This conflicts with rustls's [key-material redaction… Used by Agave v4.4.2: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-14T12:00:00Z",
    "tags": [
     "rust",
@@ -545,7 +545,7 @@
    "id": "RUSTSEC-2026-0347",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0347",
    "title": "[INFO] Buffered application data sent to outer server after ECH rejection",
-   "content_text": "When a server rejects Encrypted Client Hello (ECH), the client completes the handshake using the outer ClientHello and authenticates the server against the ECH config's public_name. At the end of that handshake, rustls encrypted and queued any application data buffered via ClientConnection::writer() *before* queueing the ech_required alert. The application correctly receives… Used by Agave v4.4.1: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "When a server rejects Encrypted Client Hello (ECH), the client completes the handshake using the outer ClientHello and authenticates the server against the ECH config's public_name. At the end of that handshake, rustls encrypted and queued any application data buffered via ClientConnection::writer() *before* queueing the ech_required alert. The application correctly receives… Used by Agave v4.4.2: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-14T12:00:00Z",
    "tags": [
     "rust",
@@ -556,7 +556,7 @@
    "id": "RUSTSEC-2026-0348",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0348",
    "title": "[INFO] Brotli certificate decompression can allocate up to 1 GiB before authentication",
-   "content_text": "The built-in Brotli certificate decompressor (enabled by the non-default brotli crate feature) bounded the size of the decompressed output, but accepted a peer-selected history window. Brotli's large-window extension was enabled, so a five-byte header could cause an allocation of 1 GiB. A peer can abort a process whose allocator cannot satisfy that request. No trusted certificate is required by the attacker… Used by Agave v4.4.1: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "The built-in Brotli certificate decompressor (enabled by the non-default brotli crate feature) bounded the size of the decompressed output, but accepted a peer-selected history window. Brotli's large-window extension was enabled, so a five-byte header could cause an allocation of 1 GiB. A peer can abort a process whose allocator cannot satisfy that request. No trusted certificate is required by the attacker… Used by Agave v4.4.2: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-14T12:00:00Z",
    "tags": [
     "rust",
@@ -567,7 +567,7 @@
    "id": "RUSTSEC-2026-0349",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0349",
    "title": "[INFO] Unauthenticated ServerHello can downgrade later connections to classical key exchange",
-   "content_text": "The client recorded the server-selected key exchange group for each server name when processing the ServerHello, before the server was authenticated. This record is used to predict which key share to send in future ClientHellos to that server name. A network attacker can answer one connection attempt with a ServerHello selecting X25519, and then close the connection. Later ClientHellos for that name carry only an… Used by Agave v4.4.1: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "The client recorded the server-selected key exchange group for each server name when processing the ServerHello, before the server was authenticated. This record is used to predict which key share to send in future ClientHellos to that server name. A network attacker can answer one connection attempt with a ServerHello selecting X25519, and then close the connection. Later ClientHellos for that name carry only an… Used by Agave v4.4.2: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-14T12:00:00Z",
    "tags": [
     "rust",
@@ -650,7 +650,7 @@
    "id": "RUSTSEC-2026-0418",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0418",
    "title": "[INFO] libz-sys build script leaks environment variables in the build directory",
-   "content_text": "The build script of libz-sys version ). Note that upgrading libz-sys does not remove values already written. If an affected build already ran with secrets in its environment, clear CI caches and stored artifacts containing its target/build directory, and consider rotating those secrets. Used by Agave v4.4.1, Jito v4.4.1-jito: libz-sys 1.1.3. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "The build script of libz-sys version ). Note that upgrading libz-sys does not remove values already written. If an affected build already ran with secrets in its environment, clear CI caches and stored artifacts containing its target/build directory, and consider rotating those secrets. Used by Agave v4.4.2, Jito v4.4.1-jito: libz-sys 1.1.3. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-28T12:00:00Z",
    "tags": [
     "rust",
@@ -662,7 +662,7 @@
    "id": "RUSTSEC-2026-0433",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0433",
    "title": "[INFO] Quadratic parsing of nested image wikilinks with ENABLE_WIKILINKS",
-   "content_text": "With Options::ENABLE_WIKILINKS, handle_wikilink builds a wikilink's target from the raw text of its body: scan_wikilink_pipe walks it looking for |, then contains('\\0') and from_replace_nuls walk it again. Once a wikilink is created, disable_all_links only disables Link entries, so every enclosing ![[ stays live on the wikilink stack. On ![[![[![[…]]]]]] each of those openers then resolves in turn and rescans… Used by Agave v4.4.1, Jito v4.4.1-jito: pulldown-cmark 0.13.1. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "With Options::ENABLE_WIKILINKS, handle_wikilink builds a wikilink's target from the raw text of its body: scan_wikilink_pipe walks it looking for |, then contains('\\0') and from_replace_nuls walk it again. Once a wikilink is created, disable_all_links only disables Link entries, so every enclosing ![[ stays live on the wikilink stack. On ![[![[![[…]]]]]] each of those openers then resolves in turn and rescans… Used by Agave v4.4.2, Jito v4.4.1-jito: pulldown-cmark 0.13.1. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-28T12:00:00Z",
    "tags": [
     "rust",
@@ -684,7 +684,7 @@
    "id": "GHSA-vp88-798v-h67f",
    "url": "https://osv.dev/vulnerability/GHSA-vp88-798v-h67f",
    "title": "[INFO] rustls: ECH rejection can expose buffered application data to authenticated outer server before ech_required alert",
-   "content_text": "In rustls 0.23.44 and 0.23.45, application data that a client buffers before the handshake completes is sent to the server even when the server rejects Encrypted Client Hello (ECH). When the server rejects ECH, the client completes the handshake with the outer ClientHello and authenticates the server against the ECH config's public_name. At the end of the handshake, start_traffic() encrypts and queues any… Used by Agave v4.4.1: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "In rustls 0.23.44 and 0.23.45, application data that a client buffers before the handshake completes is sent to the server even when the server rejects Encrypted Client Hello (ECH). When the server rejects ECH, the client completes the handshake with the outer ClientHello and authenticates the server against the ECH config's public_name. At the end of the handshake, start_traffic() encrypts and queues any… Used by Agave v4.4.2: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-27T16:08:59Z",
    "tags": [
     "rust",
@@ -695,7 +695,7 @@
    "id": "GHSA-w44r-93j7-qv28",
    "url": "https://osv.dev/vulnerability/GHSA-w44r-93j7-qv28",
    "title": "[INFO] rustls: An unauthenticated ServerHello poisons the per-name key-exchange record, so later ClientHellos carry only a classical X25519 share",
-   "content_text": "Summary The client records the server-selected key-exchange group per server name when it processes the ServerHello, before the server is authenticated. A network attacker can answer one connection attempt for a target name with a ServerHello that selects X25519 and close the connection. Later ClientHellos for that name carry one X25519 share while supported_groups still lists X25519MLKEM768 first. If the server… Used by Agave v4.4.1: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "Summary The client records the server-selected key-exchange group per server name when it processes the ServerHello, before the server is authenticated. A network attacker can answer one connection attempt for a target name with a ServerHello that selects X25519 and close the connection. Later ClientHellos for that name carry one X25519 share while supported_groups still lists X25519MLKEM768 first. If the server… Used by Agave v4.4.2: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-27T16:08:54Z",
    "tags": [
     "rust",
@@ -706,7 +706,7 @@
    "id": "GHSA-c8m5-c952-6cm4",
    "url": "https://osv.dev/vulnerability/GHSA-c8m5-c952-6cm4",
    "title": "[INFO] Rustls: Session Debug formatting exposes TLS master secrets and resumption PSKs",
-   "content_text": "Summary Formatting a client session value with Debug exposes its TLS 1.2 master secret or TLS 1.3 resumption PSK. A custom session store that logs these values can disclose keys to readers of the logs. Ordinary connection and built-in cache diagnostics remain redacted, and the session-store interface already warns that its values are sensitive. ### Details Derived formatters traverse the session's secret-bearing… Used by Agave v4.4.1: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "Summary Formatting a client session value with Debug exposes its TLS 1.2 master secret or TLS 1.3 resumption PSK. A custom session store that logs these values can disclose keys to readers of the logs. Ordinary connection and built-in cache diagnostics remain redacted, and the session-store interface already warns that its values are sensitive. ### Details Derived formatters traverse the session's secret-bearing… Used by Agave v4.4.2: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-27T16:08:47Z",
    "tags": [
     "rust",
@@ -717,7 +717,7 @@
    "id": "GHSA-h2v8-394m-p7vv",
    "url": "https://osv.dev/vulnerability/GHSA-h2v8-394m-p7vv",
    "title": "[INFO] Rustls: Brotli certificate decompression can allocate an attacker-controlled amount of memory up to 1 GiB before authentication.",
-   "content_text": "Summary The built-in (but disabled by default) Brotli certificate decoder bounds the output buffer but accepts an input-selected history window. A header of five bytes can specify a 1 GiB window allocation. A peer can abort a process whose allocator cannot satisfy that request. A client must enable Brotli and connect to the peer; a server must enable Brotli and request a client certificate. Neither direction… Used by Agave v4.4.1: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "Summary The built-in (but disabled by default) Brotli certificate decoder bounds the output buffer but accepts an input-selected history window. A header of five bytes can specify a 1 GiB window allocation. A peer can abort a process whose allocator cannot satisfy that request. A client must enable Brotli and connect to the peer; a server must enable Brotli and request a client certificate. Neither direction… Used by Agave v4.4.2: rustls 0.23.45. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-27T16:08:36Z",
    "tags": [
     "rust",
@@ -728,7 +728,7 @@
    "id": "RUSTSEC-2026-0486",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0486",
    "title": "[WATCH] xattr functions mark unwritten bytes as initialized when given a zero-length buffer",
-   "content_text": "The extended-attribute functions in rustix::fs (getxattr, lgetxattr, fgetxattr, listxattr, llistxattr and flistxattr) write into a Buffer and then mark as many bytes initialized as the system call reported. When the buffer has zero length, the operating system treats the call as a size query: it writes nothing and returns the size of the attribute value or of the name list. rustix still marked that… Used by Agave v4.4.1, Jito v4.4.1-jito: rustix 1.1.4. Included in the client release. Follow official client updates and guidance.",
+   "content_text": "The extended-attribute functions in rustix::fs (getxattr, lgetxattr, fgetxattr, listxattr, llistxattr and flistxattr) write into a Buffer and then mark as many bytes initialized as the system call reported. When the buffer has zero length, the operating system treats the call as a size query: it writes nothing and returns the size of the attribute value or of the name list. rustix still marked that… Used by Agave v4.4.2, Jito v4.4.1-jito: rustix 1.1.4. Included in the client release. Follow official client updates and guidance.",
    "date_published": "2026-10-27T12:00:00Z",
    "tags": [
     "rust",
@@ -790,7 +790,7 @@
    "id": "RUSTSEC-2026-0387",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0387",
    "title": "[INFO] Multiple timing variability issues in operations intended to be constant-time",
-   "content_text": "Summary Several operations intended to be constant-time could execute secret-dependent branches, depending on the compiler and target CPU. These include subtraction, zero counting, division, and Montgomery multiplication. Additionally, UintRef equality could terminate at the first unequal limb, and BoxedMontyForm::invert branched on whether an inverse exists. ## Impact Applications using affected operations… Used by Agave v4.4.1, Jito v4.4.1-jito: crypto-bigint 0.5.5. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "Summary Several operations intended to be constant-time could execute secret-dependent branches, depending on the compiler and target CPU. These include subtraction, zero counting, division, and Montgomery multiplication. Additionally, UintRef equality could terminate at the first unequal limb, and BoxedMontyForm::invert branched on whether an inverse exists. ## Impact Applications using affected operations… Used by Agave v4.4.2, Jito v4.4.1-jito: crypto-bigint 0.5.5. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-23T12:00:00Z",
    "tags": [
     "rust",
@@ -802,7 +802,7 @@
    "id": "RUSTSEC-2026-0385",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0385",
    "title": "[INFO] Non-constant-time mask generation and u128 comparisons",
-   "content_text": "Summary The ctutils::Choice type has mask generation functions for each unsigned integer size (u8, u16, u32, u64, u128). These are const fn and therefore can't reuse the asm!-backed mask generation in the cmov crate that's otherwise used to ensure constant-time. In releases prior to v0.4.4, the generated code from these functions could include a branch on commonly used platforms. This has been… Used by Agave v4.4.1, Jito v4.4.1-jito: ctutils 0.4.0. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "Summary The ctutils::Choice type has mask generation functions for each unsigned integer size (u8, u16, u32, u64, u128). These are const fn and therefore can't reuse the asm!-backed mask generation in the cmov crate that's otherwise used to ensure constant-time. In releases prior to v0.4.4, the generated code from these functions could include a branch on commonly used platforms. This has been… Used by Agave v4.4.2, Jito v4.4.1-jito: ctutils 0.4.0. Already reviewed by the Agave and Jito teams: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-23T12:00:00Z",
    "tags": [
     "rust",
@@ -814,7 +814,7 @@
    "id": "RUSTSEC-2026-0383",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0383",
    "title": "[INFO] Bundled root certificates allow trust in distrusted emSign intermediates",
-   "content_text": "Affected versions include emSign ECC Root CA - G3, which can allow certificate paths through distrusted emSign intermediates. Affected versions may accept certificate paths containing distrusted emSign intermediate public keys. The private keys corresponding to these intermediates are now well known. Version 1.0.10+ removes this root. Version 0.26.11 is a compatibility wrapper that re-exports… Used by Agave v4.4.1: webpki-root-certs 1.0.2. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "Affected versions include emSign ECC Root CA - G3, which can allow certificate paths through distrusted emSign intermediates. Affected versions may accept certificate paths containing distrusted emSign intermediate public keys. The private keys corresponding to these intermediates are now well known. Version 1.0.10+ removes this root. Version 0.26.11 is a compatibility wrapper that re-exports… Used by Agave v4.4.2: webpki-root-certs 1.0.2. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-19T12:00:00Z",
    "tags": [
     "rust",
@@ -825,7 +825,7 @@
    "id": "RUSTSEC-2026-0381",
    "url": "https://osv.dev/vulnerability/RUSTSEC-2026-0381",
    "title": "[INFO] Bundled root certificates allow trust in distrusted emSign intermediates",
-   "content_text": "Affected versions include emSign ECC Root CA - G3, which can allow certificate paths through distrusted emSign intermediates. Affected versions may accept certificate paths containing distrusted emSign intermediate public keys. The private keys corresponding to these intermediates are now well known. Version 1.0.10+ removes this root. The webpki-roots 0.26.11 compatibility package contains no independent trust… Used by Agave v4.4.1: webpki-roots 0.26.8, webpki-roots 1.0.0. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
+   "content_text": "Affected versions include emSign ECC Root CA - G3, which can allow certificate paths through distrusted emSign intermediates. Affected versions may accept certificate paths containing distrusted emSign intermediate public keys. The private keys corresponding to these intermediates are now well known. Version 1.0.10+ removes this root. The webpki-roots 0.26.11 compatibility package contains no independent trust… Used by Agave v4.4.2: webpki-roots 0.26.8, webpki-roots 1.0.0. Already reviewed by the Agave team: the release's audit configuration lists this advisory as accepted, with the team's reasoning in ci/do-audit.sh. No action needed.",
    "date_published": "2026-10-19T12:00:00Z",
    "tags": [
     "rust",
